@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      HTTP笔记 | Vickkyy 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Vickkyy">
+    
+    
+
+    <meta name="description" content="多种数据的多部分对象集合 multipart/form-data  在Web表单文件上传时使用 123456789101112Content-Type: multipart/form-data; boundary=AaB03x--AaB03xContent-Disposition: form-data; name=&quot;field1&quot;Vickkyy--AaB03xContent-Disposition">
+<meta name="keywords" content="HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP笔记 | Vickkyy">
+<meta property="og:url" content="http://yoursite.com/2018/09/28/HTTP笔记/index.html">
+<meta property="og:site_name" content="Vickkyy">
+<meta property="og:description" content="多种数据的多部分对象集合 multipart/form-data  在Web表单文件上传时使用 123456789101112Content-Type: multipart/form-data; boundary=AaB03x--AaB03xContent-Disposition: form-data; name=&quot;field1&quot;Vickkyy--AaB03xContent-Disposition">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-10-11T06:44:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTTP笔记 | Vickkyy">
+<meta name="twitter:description" content="多种数据的多部分对象集合 multipart/form-data  在Web表单文件上传时使用 123456789101112Content-Type: multipart/form-data; boundary=AaB03x--AaB03xContent-Disposition: form-data; name=&quot;field1&quot;Vickkyy--AaB03xContent-Disposition">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Vickkyy</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/vickkyy" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">HTTP笔记</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-09-28" class="post-meta__date date">2018-09-28</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/技术/">技术</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/HTTP/">HTTP</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="多种数据的多部分对象集合"><a href="#多种数据的多部分对象集合" class="headerlink" title="多种数据的多部分对象集合"></a>多种数据的多部分对象集合</h2><ol>
+<li><p><code>multipart/form-data</code></p>
+<blockquote>
+<p>在Web表单文件上传时使用</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Content-Type</span>: multipart/form-data; boundary=AaB03x</span><br><span class="line"></span><br><span class="line">--AaB03x</span><br><span class="line"><span class="attribute">Content-Disposition</span>: form-data; name="field1"</span><br><span class="line"></span><br><span class="line"><span class="attribute">Vickkyy</span></span><br><span class="line"><span class="attribute">--AaB03x</span></span><br><span class="line"><span class="attribute">Content-Disposition</span>: form-data; name="pics"; filename="file1.txt"</span><br><span class="line"><span class="attribute">Content-Type</span>: text/plain</span><br><span class="line"></span><br><span class="line">...(file1.txt的数据)...</span><br><span class="line">--AaB03x--</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><code>multipart/byteranges</code></p>
+<blockquote>
+<p>状态码206（Partial Content, 部分内容）响应报文包含了多个范围的内容时使用。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">206</span> Partial Content</span><br><span class="line"><span class="attribute">Date</span>: Fri, 13 Jul 2018 12:00:00 GMT</span><br><span class="line"><span class="attribute">Last-Modified</span>: Fri, 13 Jul 2018 11:00:00 GMT</span><br><span class="line"><span class="attribute">Content-Type</span>: multipart/byteranges; boundary=THIS_STRING_SEPARATES</span><br><span class="line"></span><br><span class="line">--THIS_STRING_SEPARATES</span><br><span class="line"><span class="attribute">Content-Type</span>: application/pdf</span><br><span class="line"><span class="attribute">Content-Range</span>: bytes 500-999/8000</span><br><span class="line"></span><br><span class="line">...(范围指定的数据)...</span><br><span class="line">--THIS_STRING_SEPARATES</span><br><span class="line"><span class="attribute">Content-Type</span>: application/pdf</span><br><span class="line"><span class="attribute">Content-Range</span>: bytes 7000-7999/8000</span><br><span class="line"></span><br><span class="line">...(范围指定的数据)...</span><br><span class="line">--THIS_STRING_SEPARATES--</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ol>
+<h2 id="Chapter6-HTTP首部"><a href="#Chapter6-HTTP首部" class="headerlink" title="Chapter6 HTTP首部"></a>Chapter6 HTTP首部</h2><ol>
+<li>HTTP报文首部</li>
+</ol>
+<ul>
+<li><p>HTTP请求报文<br>组成：<br>-报文首部<br>—-请求行<br>——-方法、URI、HTTP版本<br>—-请求首部字段<br>—-通用首部字段<br>—-实体首部字段<br>—-其他<br>-空行(CR + LF)<br>-报文主体</p>
+</li>
+<li><p>HTTP响应报文<br>组成：<br>-报文首部<br>—-状态行<br>——HTTP版本、状态码<br>—-响应首部字段<br>—-通用首部字段<br>—-实体首部字段<br>—-其他<br>-空行(CR + LF)<br>-报文主体</p>
+</li>
+</ul>
+<ol start="2">
+<li><p>HTTP首部字段<br>4种类型：通用首部字段，请求首部字段，响应首部字段，实体首部字段</p>
+<p><strong>End-to-end首部和Hop-by-hop首部</strong><br><code>端到端首部(End-to-end)</code><br>此类别中的首部会转发给请求／响应对应的最终接收目标，且必须保存在由缓存生成的响应中，另外规定它必须被转发。</p>
+<p><code>逐跳首部(Hop-by-hop)</code><br>此类别中的首部只对单次转发有效，会因通过缓存或代理而不再转发。HTTP／1.1和之后版本中，如果要使用hop-by-hop首部，需提供Connection首部字段。<br>以下字段属于逐跳首部，除此之外的均属于端到端首部：<br>Connection, Keep-alive, Proxy-Authenticate, Proxy-Authorization, Trailer, TE, Transfer-Encoding, Upgrade</p>
+</li>
+<li><p>HTTP／1.1通用首部字段<br>即请求报文和响应报文双方都会使用的首部。</p>
+<ol>
+<li><p>Cache-Control(操作缓存的工作机制)</p>
+<ul>
+<li>表示是否能缓存的指令<br><code>public指令</code><blockquote>
+<p>Cache-Control: public<br>当指定使用public指令时，则明确表明其他用户可以利用缓存。</p>
+</blockquote>
+</li>
+</ul>
+<p><code>private指令</code></p>
+<blockquote>
+<p>Cache-Control: private<br>当指定private指令后，响应只以特定的用户作为对象，这与public指令的行为相反。<br>缓存服务器会对该特定用户提供资源缓存的服务，对于其他用户发送过来的请求，代理服务器则不会返回缓存。</p>
+</blockquote>
+<p><code>no-cache指令</code></p>
+<blockquote>
+<p>Cache-Control: no-cache<br>目的是为了防止从缓存中返回过期的资源。<br>客户端发送的请求中如果包含no-cache指令，则表示客户端将不会接收缓存过的响应。于是，“中间”的缓存服务器必须把客户端请求转发给源服务器。<br>如果服务器返回的响应中包含no-cache指令，那么缓存服务器不能对资源进行缓存。源服务器以后也将不再对缓存服务器请求中提出的资源有效性进行确认，且禁止其对响应资源进行缓存操作。</p>
+</blockquote>
+<ul>
+<li><p>控制可执行缓存的对象的指令<br><code>no-store指令</code></p>
+<blockquote>
+<p>Cache-Control: no-store<br>当使用no-store指令时，暗示请求（和对应的响应）或响应中包含机密信息。<br>因此，该指令规定缓存不能在本地存储请求或响应的任一部分。<br><code>**备注：no-cache代表不缓存过期的资源，缓存会向源服务器进行有效确认后处理资源。no-store才是真正地不进行缓存。**</code></p>
+</blockquote>
+</li>
+<li><p>指定缓存期限和认证的指令<br><code>s-maxage指令</code></p>
+<blockquote>
+<p>Cache-Control: s-maxage=604800(单位：秒)<br>与max-age指令功能相同，不同点在于s-maxage只适用于多位用户使用的公共缓存服务器。即对于向同一用户重复返回响应的服务器来说，这个指令没有任何作用。<br>此外，当使用s-maxage后，则直接忽略对Expires首部字段及max-age指令的处理。</p>
+</blockquote>
+</li>
+</ul>
+<p><code>max-age指令</code></p>
+<blockquote>
+<p>Cache-Control: max-age=604800(单位：秒)<br>当客户端发送的请求中包含max-age指令时，如果判定缓存资源的缓存时间数值比指定时间的数值更小，那么客户端就接收缓存的资源。此外，如果max-age值为0，那么缓存服务器通常需要将请求转发给源服务器。<br>当服务器返回的响应中包含max-age指令时，缓存服务器将不对资源的有效性再作确认，而max-age数值代表资源保存为缓存的最长时间。<br>应用HTTP／1.1版本的缓存服务器遇到同时存在Expires首部字段的情况时，会优先处理max-age指令，而忽略掉Expires首部字段。而HTTP／1.0版本中的缓存服务器的情况却相反。</p>
+</blockquote>
+<p><code>min-fresh</code></p>
+<blockquote>
+<p>Cache-Control: min-fresh=60（单位：秒）<br>min-fresh指令要求缓存服务器返回至少还未过指定时间的缓存资源。<br>比如，当指定min-fresh为60秒后，在这60秒以内如果有超过有效期限的资源都无法作为响应返回了。</p>
+</blockquote>
+<p><code>max-stale指令</code></p>
+<blockquote>
+<p>指示缓存资源，即使过期也照常接收。</p>
+</blockquote>
+<p><code>only-if-cached指令</code></p>
+<blockquote>
+<p>Cache-Control: only-if-cached<br>使用only-if-cached指令表示客户端仅在缓存服务器本地缓存目标资源的情况下才会要求其返回。即该指令要求缓存服务器不重新加载响应，也不会再次确认资源有效性。若发生请求缓存服务器的本地缓存无响应，则返回状态码504 Gateway Timeout.</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2015-2017. | 由<a href="https://hexo.io/">Hexo</a> | 主题<a href="https://github.com/someus/huno">Huno</a></span><span id="busuanzi_container_site_uv">本站访问数<span id="busuanzi_value_site_uv"></span>人次</span>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.1/MathJax.js"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
