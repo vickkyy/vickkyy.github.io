@@ -24,7 +24,7 @@
 <meta property="og:site_name" content="Vickkyy">
 <meta property="og:description" content="缓存类别浏览器缓存机制有两种，一种为强缓存，一种为协商缓存。 强缓存对于强缓存，浏览器在第一次请求的时候，会直接下载资源，然后缓存在本地，第二次请求的时候，直接使用缓存。可以造成强缓存的字段有：  Expires: 该字段标识缓存到期时间，是一个绝对时间–服务器时间+缓存有效时间 缺点：如果客户端修改了本地时间，会造成缓存失效。如果本地时间与服务器时间不一致，也会导致缓存失效。   Cache-C">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-12-09T09:22:39.258Z">
+<meta property="og:updated_time" content="2018-12-11T09:31:17.757Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器强缓存与协商缓存 | Vickkyy">
 <meta name="twitter:description" content="缓存类别浏览器缓存机制有两种，一种为强缓存，一种为协商缓存。 强缓存对于强缓存，浏览器在第一次请求的时候，会直接下载资源，然后缓存在本地，第二次请求的时候，直接使用缓存。可以造成强缓存的字段有：  Expires: 该字段标识缓存到期时间，是一个绝对时间–服务器时间+缓存有效时间 缺点：如果客户端修改了本地时间，会造成缓存失效。如果本地时间与服务器时间不一致，也会导致缓存失效。   Cache-C">
@@ -248,7 +248,10 @@ classes that you can use:
 </ul>
 </blockquote>
 </li>
-<li>Etag: 该字段存储的是文件的特殊标识 (一般都是hash生成的)，服务器存储着文件的Etag字段，可以在与每次客户端传送If-no-match的字段进行比较。<br>如果相等，则表示未修改，响应304；反之，则表示已修改，响应200状态码，返回数据。</li>
+<li>Etag: 该字段存储的是文件的特殊标识 (一般都是hash生成的)，服务器存储着文件的Etag字段，可以在与每次客户端传送If-no-match的字段进行比较。<br>如果相等，则表示未修改，响应304；反之，则表示已修改，响应200状态码，返回数据。<blockquote>
+<p>备注：<code>Etag</code>出现的原因？<br>为了解决以下问题：<br>1、一些文件也许会周期性的更改，但是他的内容并不改变(仅仅改变的修改时间)，这个时候我们并不希望客户端认为这个文件被修改了，而重新GET;<br>2、某些文件修改非常频繁，比如在秒以下的时间内进行修改，(比方说1s内修改了N次)，If-Modified-Since能检查到的粒度是s级的，这种修改无法判断(或者说UNIX记录MTIME只能精确到秒)<br>3、某些服务器不能精确的得到文件的最后修改时间；</p>
+</blockquote>
+</li>
 </ol>
 
   </section>
