@@ -16,21 +16,21 @@
     
     
 
-    <meta name="description" content="1.概述反向代理反向代理（Reverse Proxy）方式是指以代理服务器来接受Internet上的连接请求，然后将请求转发给内部网络上的服务器；并将从服务器上得到的结果返回给Internet上请求连接的客户端，此时代理服务器对外就表现为一个服务器。通常的代理服务器，只用于代理内部网络对Internet的连接请求，客户机必须指定代理服务器,并将本来要直接发送到Web服务器上的http请求发送到代理">
+    <meta name="description" content="1.概述反向代理反向代理（Reverse Proxy）方式是指以代理服务来接受Internet上的连接请求，然后将请求转发给内部网络上的服务器；并将从服务器上得到的结果返回给Internet上请求连接的客户端，此时代理服务器对外就表现为一个服务器。通常的代理服务器，只用于代理内部网络对Internet的连接请求，客户机必须指定代理服务器,并将本来要直接发送到Web服务器上的http请求发送到代理服">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx反向代理、正向代理及配置 | Vickkyy">
 <meta property="og:url" content="http://yoursite.com/2018/09/30/Nginx反向代理、正向代理及配置/index.html">
 <meta property="og:site_name" content="Vickkyy">
-<meta property="og:description" content="1.概述反向代理反向代理（Reverse Proxy）方式是指以代理服务器来接受Internet上的连接请求，然后将请求转发给内部网络上的服务器；并将从服务器上得到的结果返回给Internet上请求连接的客户端，此时代理服务器对外就表现为一个服务器。通常的代理服务器，只用于代理内部网络对Internet的连接请求，客户机必须指定代理服务器,并将本来要直接发送到Web服务器上的http请求发送到代理">
+<meta property="og:description" content="1.概述反向代理反向代理（Reverse Proxy）方式是指以代理服务来接受Internet上的连接请求，然后将请求转发给内部网络上的服务器；并将从服务器上得到的结果返回给Internet上请求连接的客户端，此时代理服务器对外就表现为一个服务器。通常的代理服务器，只用于代理内部网络对Internet的连接请求，客户机必须指定代理服务器,并将本来要直接发送到Web服务器上的http请求发送到代理服">
 <meta property="og:locale" content="English">
 <meta property="og:image" content="http://p9.qhimg.com/t017cf7b61fe5b030c9.jpg">
 <meta property="og:image" content="http://p2.qhimg.com/t015067f2dbefc56b0f.jpg">
 <meta property="og:image" content="http://p5.qhimg.com/t0109ba9684fc956c1b.png">
-<meta property="og:updated_time" content="2018-09-30T07:43:09.000Z">
+<meta property="og:updated_time" content="2019-01-09T02:17:40.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx反向代理、正向代理及配置 | Vickkyy">
-<meta name="twitter:description" content="1.概述反向代理反向代理（Reverse Proxy）方式是指以代理服务器来接受Internet上的连接请求，然后将请求转发给内部网络上的服务器；并将从服务器上得到的结果返回给Internet上请求连接的客户端，此时代理服务器对外就表现为一个服务器。通常的代理服务器，只用于代理内部网络对Internet的连接请求，客户机必须指定代理服务器,并将本来要直接发送到Web服务器上的http请求发送到代理">
+<meta name="twitter:description" content="1.概述反向代理反向代理（Reverse Proxy）方式是指以代理服务来接受Internet上的连接请求，然后将请求转发给内部网络上的服务器；并将从服务器上得到的结果返回给Internet上请求连接的客户端，此时代理服务器对外就表现为一个服务器。通常的代理服务器，只用于代理内部网络对Internet的连接请求，客户机必须指定代理服务器,并将本来要直接发送到Web服务器上的http请求发送到代理服">
 <meta name="twitter:image" content="http://p9.qhimg.com/t017cf7b61fe5b030c9.jpg">
     
     
@@ -225,7 +225,7 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h2><h6 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h6><p>反向代理（Reverse Proxy）方式是指以代理服务器来接受Internet上的连接请求，然后将请求转发给内部网络上的服务器；并将从服务器上得到的结果返回给Internet上请求连接的客户端，此时<code>代理服务器对外就表现为一个服务器</code>。<br>通常的代理服务器，只用于代理内部网络对Internet的连接请求，客户机必须指定代理服务器,并将本来要直接发送到Web服务器上的http请求发送到代理服务器中。当一个代理服务器能够代理外部网络上的主机，访问内部网络时，这种代理服务的方式称为反向代理服务。</p>
+    <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h2><h6 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h6><p>反向代理（Reverse Proxy）方式是指以代理服务来接受Internet上的连接请求，然后将请求转发给内部网络上的服务器；并将从服务器上得到的结果返回给Internet上请求连接的客户端，此时<code>代理服务器对外就表现为一个服务器</code>。<br>通常的代理服务器，只用于代理内部网络对Internet的连接请求，客户机必须指定代理服务器,并将本来要直接发送到Web服务器上的http请求发送到代理服务器中。当一个代理服务器能够代理外部网络上的主机，访问内部网络时，这种代理服务的方式称为反向代理服务。</p>
 <h6 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h6><p>正向代理 是一个位于客户端和原始服务器(origin server)之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并指定目标(原始服务器)，然后代理向原始服务器转交请求并将获得的内容返回给客户端。客户端必须要进行一些特别的设置才能使用正向代理。</p>
 <p><code>区别</code>：<br><strong>正向代理隐藏真实客户端，反向代理隐藏真实服务端</strong></p>
 <h2 id="2-作用及应用场景"><a href="#2-作用及应用场景" class="headerlink" title="2. 作用及应用场景"></a>2. 作用及应用场景</h2><p><code>反向代理服务器的工作原理</code></p>
