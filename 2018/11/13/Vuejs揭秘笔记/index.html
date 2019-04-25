@@ -24,7 +24,7 @@
 <meta property="og:site_name" content="Vickkyy">
 <meta property="og:description" content="FLOW简介： Flow是facebook出品的JavaScript静态类型检查工具。Vue.js源码利用了Flow做了静态类型检查。引入Flow目的： 编译阶段发现类型错误。Babel和ESlint都有对应的Flow插件以支持语法，可以完全沿用现有的构建配置，非常小成本的改动就可以拥有静态类型检查的能力。 Flow通常类型检查方式 类型推断：通过变量的使用上下文来推断变量类型，然后根据这些推断来">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-11-14T08:55:03.832Z">
+<meta property="og:updated_time" content="2019-04-16T12:25:47.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vuejs揭秘笔记 | Vickkyy">
 <meta name="twitter:description" content="FLOW简介： Flow是facebook出品的JavaScript静态类型检查工具。Vue.js源码利用了Flow做了静态类型检查。引入Flow目的： 编译阶段发现类型错误。Babel和ESlint都有对应的Flow插件以支持语法，可以完全沿用现有的构建配置，非常小成本的改动就可以拥有静态类型检查的能力。 Flow通常类型检查方式 类型推断：通过变量的使用上下文来推断变量类型，然后根据这些推断来">
@@ -226,6 +226,12 @@ classes that you can use:
 <li>类型推断：通过变量的使用上下文来推断变量类型，然后根据这些推断来检查类型。</li>
 <li>类型注释： 事先注释好期待的类型，Flow会基于这些注释来判断。</li>
 </ul>
+<h4 id="数据驱动"><a href="#数据驱动" class="headerlink" title="数据驱动"></a><code>数据驱动</code></h4><ol>
+<li><p><code>new Vue发生了什么</code><br>vue初始化做了几点事情：合并配置，初始化生命周期，初始化事件中心，初始化渲染，初始化data,props,computed,watcher等。</p>
+</li>
+<li><p><code>Vue实例挂载的实现</code><br>V2.0版本中，所有Vue的组件的渲染最终都需要render方法，无论是用单文件.vue方式开发组件，还是写了el或者template属性，最终都会转换成render方法，那么这个过程是Vue的一个“在线编译”的过程，它是调用<code>compileToFunctions</code>方法实现的，最后调用原先原型上的$mount方法挂载。</p>
+</li>
+</ol>
 
   </section>
 

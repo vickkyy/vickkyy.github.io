@@ -16,18 +16,18 @@
     
     
 
-    <meta name="description" content="马蜂窝框架：为何选用VueVue的特点Vue双向数据绑定实现原理Vuex原理Vue-router实现原理web性能优化 ES6:let, const, promise, aysnc await UI库：为何选用elementUI第三方UI库有bug,该如何解决 工程化:webpack插件、loader 计算机网络：HTTP与WebsocketTCP/UDP 浏览器：缓存 其他：动画为何想换工作 回">
+    <meta name="description" content="马蜂窝框架：为何选用VueVue的特点Vue双向数据绑定实现原理Vuex原理Vue-router实现原理web性能优化 ES6:let, constpromise, aysnc await, generator区别和用法 UI库：为何选用elementUI第三方UI库有bug,该如何解决 工程化:webpack插件、loader 计算机网络：HTTP与WebsocketTCP/UDP 浏览器：缓存">
 <meta name="keywords" content="面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试复盘 | Vickkyy">
 <meta property="og:url" content="http://yoursite.com/2018/10/25/面试复盘/index.html">
 <meta property="og:site_name" content="Vickkyy">
-<meta property="og:description" content="马蜂窝框架：为何选用VueVue的特点Vue双向数据绑定实现原理Vuex原理Vue-router实现原理web性能优化 ES6:let, const, promise, aysnc await UI库：为何选用elementUI第三方UI库有bug,该如何解决 工程化:webpack插件、loader 计算机网络：HTTP与WebsocketTCP/UDP 浏览器：缓存 其他：动画为何想换工作 回">
+<meta property="og:description" content="马蜂窝框架：为何选用VueVue的特点Vue双向数据绑定实现原理Vuex原理Vue-router实现原理web性能优化 ES6:let, constpromise, aysnc await, generator区别和用法 UI库：为何选用elementUI第三方UI库有bug,该如何解决 工程化:webpack插件、loader 计算机网络：HTTP与WebsocketTCP/UDP 浏览器：缓存">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-02-02T02:20:39.463Z">
+<meta property="og:updated_time" content="2019-02-27T09:03:16.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试复盘 | Vickkyy">
-<meta name="twitter:description" content="马蜂窝框架：为何选用VueVue的特点Vue双向数据绑定实现原理Vuex原理Vue-router实现原理web性能优化 ES6:let, const, promise, aysnc await UI库：为何选用elementUI第三方UI库有bug,该如何解决 工程化:webpack插件、loader 计算机网络：HTTP与WebsocketTCP/UDP 浏览器：缓存 其他：动画为何想换工作 回">
+<meta name="twitter:description" content="马蜂窝框架：为何选用VueVue的特点Vue双向数据绑定实现原理Vuex原理Vue-router实现原理web性能优化 ES6:let, constpromise, aysnc await, generator区别和用法 UI库：为何选用elementUI第三方UI库有bug,该如何解决 工程化:webpack插件、loader 计算机网络：HTTP与WebsocketTCP/UDP 浏览器：缓存">
     
     
     
@@ -222,7 +222,7 @@ classes that you can use:
 
   <section id="post-content" class="article-content post">
     <p><code>马蜂窝</code><br>框架：<br>为何选用Vue<br>Vue的特点<br>Vue双向数据绑定实现原理<br>Vuex原理<br>Vue-router实现原理<br>web性能优化</p>
-<p>ES6:<br>let, const, promise, aysnc await</p>
+<p>ES6:<br>let, const<br>promise, aysnc await, generator区别和用法</p>
 <p>UI库：<br>为何选用elementUI<br>第三方UI库有bug,该如何解决</p>
 <p>工程化:<br>webpack插件、loader</p>
 <p>计算机网络：<br>HTTP与Websocket<br>TCP/UDP</p>
@@ -257,14 +257,25 @@ classes that you can use:
 <p>安全<br>xss(在什么时机进行转义)</p>
 <p>服务端：<br>服务端如何判断来自不同终端的请求</p>
 <p><code>平安科技</code><br>Javascript基础：<br>bind,call,apply</p>
-<p>Array,Object,Function类型判断</p>
-<p>节流、防抖</p>
+<ol>
+<li>call<br>功能：</li>
+</ol>
+<ul>
+<li>执行function</li>
+<li>明确指定this<br>语法：<br>call的使用方法是fn.call(this, arg1, arg2…, argn)。call主要有两种参数：</li>
+<li>第一个参数：输入的物件会被指定为目标函式中的this<br>+</li>
+</ul>
+<p>Array,Object,Function类型判断<br>答案：<br>typeOf: 缺点是array,object均返回object<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line"><span class="keyword">let</span> b = &#123; <span class="attr">name</span>: <span class="string">'1'</span> &#125;</span><br><span class="line"><span class="keyword">let</span> c = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'test'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">typeof</span> a <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> b <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> c <span class="comment">// function</span></span><br></pre></td></tr></table></figure></p>
+<p>instanceOf: 缺点是使用对象必须是一个object</p>
+<p>节流、防抖<br>答案参考博客<a href="https://www.cnblogs.com/momo798/p/9177767.html" target="_blank" rel="noopener">https://www.cnblogs.com/momo798/p/9177767.html</a></p>
 <p>伪数组转数组</p>
 <p>CSS3:<br>flex<br>rem,em,vw,px</p>
 <p>Vue:<br>Vuex实现原理</p>
 <p>观察者模式</p>
 <p>vue生命周期，及都做了哪些事情</p>
 <p>虚拟dom</p>
+<p><code>完美世界</code><br>Html/CSS:<br>html5语义标签<br>viewport<br>布局实现</p>
+<p>Javascript:<br>Event Loop<br>原生实现filter方法<br>字符串去重<br>打砖块，使用面向对象设计类</p>
 
   </section>
 
