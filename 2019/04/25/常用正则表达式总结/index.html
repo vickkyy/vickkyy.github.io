@@ -16,18 +16,18 @@
     
     
 
-    <meta name="description" content="常用正则表达式梳理：  首尾是字母、数字，由字母、数字、下划线组成^[0-9a-zA-Z]([0-9a-zA-Z_]*[0-9a-zA-Z])*$">
+    <meta name="description" content="常用正则表达式梳理：  首尾是字母、数字，由字母、数字、下划线组成^[0-9a-zA-Z]([0-9a-zA-Z_]*[0-9a-zA-Z])*$  首字母是字母、中文,由字母、中文、数字和下划线组成的字符串^[\u4E00-\uFA29a-zA-Z][\u4E00-\uFA29a-zA-Z0-9_]*$  身份证号（15位、18位数字）^\d{15}|\d{18}$">
 <meta name="keywords" content="正则表达式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常用正则表达式总结 | Vickkyy">
 <meta property="og:url" content="http://yoursite.com/2019/04/25/常用正则表达式总结/index.html">
 <meta property="og:site_name" content="Vickkyy">
-<meta property="og:description" content="常用正则表达式梳理：  首尾是字母、数字，由字母、数字、下划线组成^[0-9a-zA-Z]([0-9a-zA-Z_]*[0-9a-zA-Z])*$">
+<meta property="og:description" content="常用正则表达式梳理：  首尾是字母、数字，由字母、数字、下划线组成^[0-9a-zA-Z]([0-9a-zA-Z_]*[0-9a-zA-Z])*$  首字母是字母、中文,由字母、中文、数字和下划线组成的字符串^[\u4E00-\uFA29a-zA-Z][\u4E00-\uFA29a-zA-Z0-9_]*$  身份证号（15位、18位数字）^\d{15}|\d{18}$">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-04-25T10:15:21.558Z">
+<meta property="og:updated_time" content="2019-04-26T07:07:16.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用正则表达式总结 | Vickkyy">
-<meta name="twitter:description" content="常用正则表达式梳理：  首尾是字母、数字，由字母、数字、下划线组成^[0-9a-zA-Z]([0-9a-zA-Z_]*[0-9a-zA-Z])*$">
+<meta name="twitter:description" content="常用正则表达式梳理：  首尾是字母、数字，由字母、数字、下划线组成^[0-9a-zA-Z]([0-9a-zA-Z_]*[0-9a-zA-Z])*$  首字母是字母、中文,由字母、中文、数字和下划线组成的字符串^[\u4E00-\uFA29a-zA-Z][\u4E00-\uFA29a-zA-Z0-9_]*$  身份证号（15位、18位数字）^\d{15}|\d{18}$">
     
     
     
@@ -223,7 +223,12 @@ classes that you can use:
   <section id="post-content" class="article-content post">
     <p>常用正则表达式梳理：</p>
 <ol>
-<li>首尾是字母、数字，由字母、数字、下划线组成<br><code>^[0-9a-zA-Z]([0-9a-zA-Z_]*[0-9a-zA-Z])*$</code></li>
+<li><p>首尾是字母、数字，由字母、数字、下划线组成<br><code>^[0-9a-zA-Z]([0-9a-zA-Z_]*[0-9a-zA-Z])*$</code></p>
+</li>
+<li><p>首字母是字母、中文,由字母、中文、数字和下划线组成的字符串<br><code>^[\u4E00-\uFA29a-zA-Z][\u4E00-\uFA29a-zA-Z0-9_]*$</code></p>
+</li>
+<li><p>身份证号（15位、18位数字）<br><code>^\d{15}|\d{18}$</code></p>
+</li>
 </ol>
 
   </section>
