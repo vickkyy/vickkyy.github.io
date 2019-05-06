@@ -16,18 +16,20 @@
     
     
 
-    <meta name="description" content="参考博客">
+    <meta name="description" content="参考博客 Event Loop在JavaScript中，任务被分为两种，一种宏任务（MacroTask）也叫Task，一种叫微任务（MicroTask）。 MacroTask（宏任务）script全部代码、setTimeout、setInterval、setImmediate（浏览器暂时不支持，只有IE10支持，具体可见MDN）、I/O、UI Rendering。 MicroTask（微任务）Pr">
 <meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Event Loop | Vickkyy">
 <meta property="og:url" content="http://yoursite.com/2019/05/06/Event-Loop/index.html">
 <meta property="og:site_name" content="Vickkyy">
-<meta property="og:description" content="参考博客">
+<meta property="og:description" content="参考博客 Event Loop在JavaScript中，任务被分为两种，一种宏任务（MacroTask）也叫Task，一种叫微任务（MicroTask）。 MacroTask（宏任务）script全部代码、setTimeout、setInterval、setImmediate（浏览器暂时不支持，只有IE10支持，具体可见MDN）、I/O、UI Rendering。 MicroTask（微任务）Pr">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-05-06T08:39:39.811Z">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-55c58a901cf835e5e308e4360694505f_hd.jpg">
+<meta property="og:updated_time" content="2019-05-06T09:45:56.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Event Loop | Vickkyy">
-<meta name="twitter:description" content="参考博客">
+<meta name="twitter:description" content="参考博客 Event Loop在JavaScript中，任务被分为两种，一种宏任务（MacroTask）也叫Task，一种叫微任务（MicroTask）。 MacroTask（宏任务）script全部代码、setTimeout、setInterval、setImmediate（浏览器暂时不支持，只有IE10支持，具体可见MDN）、I/O、UI Rendering。 MicroTask（微任务）Pr">
+<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-55c58a901cf835e5e308e4360694505f_hd.jpg">
     
     
     
@@ -222,6 +224,12 @@ classes that you can use:
 
   <section id="post-content" class="article-content post">
     <p><a href="https://zhuanlan.zhihu.com/p/55511602" target="_blank" rel="noopener">参考博客</a></p>
+<h4 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h4><p>在JavaScript中，任务被分为两种，一种宏任务（MacroTask）也叫Task，一种叫微任务（MicroTask）。</p>
+<h4 id="MacroTask（宏任务）"><a href="#MacroTask（宏任务）" class="headerlink" title="MacroTask（宏任务）"></a>MacroTask（宏任务）</h4><p>script全部代码、setTimeout、setInterval、setImmediate（浏览器暂时不支持，只有IE10支持，具体可见MDN）、I/O、UI Rendering。</p>
+<h4 id="MicroTask（微任务）"><a href="#MicroTask（微任务）" class="headerlink" title="MicroTask（微任务）"></a>MicroTask（微任务）</h4><p>Process.nextTick（Node独有）、Promise、Object.observe(废弃)、MutationObserver（具体使用方式查看<a href="http://javascript.ruanyifeng.com/dom/mutationobserver.html" target="_blank" rel="noopener">这里</a>）</p>
+<h4 id="浏览器中的Event-Loop"><a href="#浏览器中的Event-Loop" class="headerlink" title="浏览器中的Event Loop"></a>浏览器中的Event Loop</h4><p>Javascript 有一个 main thread 主线程和 call-stack 调用栈(执行栈)，所有的任务都会被放到调用栈等待主线程执行。</p>
+<h4 id="JS调用栈"><a href="#JS调用栈" class="headerlink" title="JS调用栈"></a>JS调用栈</h4><p>JS调用栈采用的是后进先出的规则，当函数执行的时候，会被添加到栈的顶部，当执行栈执行完成后，就会从栈顶移出，直到栈内被清空。</p>
+<h4 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h4><p>Javascript单线程任务被分为同步任务和异步任务，同步任务会在调用栈中按照顺序等待主线程依次执行，异步任务会在异步任务有了结果后，将注册的回调函数放入任务队列中等待主线程空闲的时候（调用栈被清空），被读取到栈内等待主线程的执行。<br><img src="https://pic4.zhimg.com/80/v2-55c58a901cf835e5e308e4360694505f_hd.jpg" alt=""></p>
 
   </section>
 
