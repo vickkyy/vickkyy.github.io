@@ -25,7 +25,9 @@
 <meta property="og:description" content="参考博客 Event Loop在JavaScript中，任务被分为两种，一种宏任务（MacroTask）也叫Task，一种叫微任务（MicroTask）。 MacroTask（宏任务）script全部代码、setTimeout、setInterval、setImmediate（浏览器暂时不支持，只有IE10支持，具体可见MDN）、I/O、UI Rendering。 MicroTask（微任务）Pr">
 <meta property="og:locale" content="English">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-55c58a901cf835e5e308e4360694505f_hd.jpg">
-<meta property="og:updated_time" content="2019-05-06T09:45:56.749Z">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-971a09fea16fff72db03d498245bc892_hd.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-bd2aa27705ca757fc676a37505a4f992_b.gif">
+<meta property="og:updated_time" content="2019-05-06T10:15:26.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Event Loop | Vickkyy">
 <meta name="twitter:description" content="参考博客 Event Loop在JavaScript中，任务被分为两种，一种宏任务（MacroTask）也叫Task，一种叫微任务（MicroTask）。 MacroTask（宏任务）script全部代码、setTimeout、setInterval、setImmediate（浏览器暂时不支持，只有IE10支持，具体可见MDN）、I/O、UI Rendering。 MicroTask（微任务）Pr">
@@ -229,7 +231,28 @@ classes that you can use:
 <h4 id="MicroTask（微任务）"><a href="#MicroTask（微任务）" class="headerlink" title="MicroTask（微任务）"></a>MicroTask（微任务）</h4><p>Process.nextTick（Node独有）、Promise、Object.observe(废弃)、MutationObserver（具体使用方式查看<a href="http://javascript.ruanyifeng.com/dom/mutationobserver.html" target="_blank" rel="noopener">这里</a>）</p>
 <h4 id="浏览器中的Event-Loop"><a href="#浏览器中的Event-Loop" class="headerlink" title="浏览器中的Event Loop"></a>浏览器中的Event Loop</h4><p>Javascript 有一个 main thread 主线程和 call-stack 调用栈(执行栈)，所有的任务都会被放到调用栈等待主线程执行。</p>
 <h4 id="JS调用栈"><a href="#JS调用栈" class="headerlink" title="JS调用栈"></a>JS调用栈</h4><p>JS调用栈采用的是后进先出的规则，当函数执行的时候，会被添加到栈的顶部，当执行栈执行完成后，就会从栈顶移出，直到栈内被清空。</p>
-<h4 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h4><p>Javascript单线程任务被分为同步任务和异步任务，同步任务会在调用栈中按照顺序等待主线程依次执行，异步任务会在异步任务有了结果后，将注册的回调函数放入任务队列中等待主线程空闲的时候（调用栈被清空），被读取到栈内等待主线程的执行。<br><img src="https://pic4.zhimg.com/80/v2-55c58a901cf835e5e308e4360694505f_hd.jpg" alt=""></p>
+<h4 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h4><p>Javascript单线程任务被分为同步任务和异步任务，同步任务会在调用栈中按照顺序等待主线程依次执行，异步任务会在异步任务有了结果后，将注册的回调函数放入任务队列中等待主线程空闲的时候（调用栈被清空），被读取到栈内等待主线程的执行。<br><img src="https://pic4.zhimg.com/80/v2-55c58a901cf835e5e308e4360694505f_hd.jpg" alt=""><br>任务队列Task Queue，即队列，是一种先进先出的一种数据结构。<br><img src="https://pic3.zhimg.com/80/v2-971a09fea16fff72db03d498245bc892_hd.jpg" alt=""></p>
+<h4 id="事件循环的进程模型"><a href="#事件循环的进程模型" class="headerlink" title="事件循环的进程模型"></a>事件循环的进程模型</h4><ul>
+<li>选择当前要执行的任务队列，选择任务队列中最先进入的任务，如果任务队列为空即null，则执行跳转到微任务（MicroTask）的执行步骤。</li>
+<li>将事件循环中的任务设置为已选择任务。</li>
+<li>执行任务。</li>
+<li>将事件循环中当前运行任务设置为null。</li>
+<li>将已经运行完成的任务从任务队列中删除。</li>
+<li>microtasks步骤：进入microtask检查点。</li>
+<li>更新界面渲染。</li>
+<li>返回第一步。</li>
+</ul>
+<h5 id="执行进入microtask检查点时，用户代理会执行以下步骤："><a href="#执行进入microtask检查点时，用户代理会执行以下步骤：" class="headerlink" title="执行进入microtask检查点时，用户代理会执行以下步骤："></a>执行进入microtask检查点时，用户代理会执行以下步骤：</h5><ul>
+<li>设置microtask检查点标志为true。</li>
+<li>当事件循环microtask执行不为空时：选择一个最先进入的microtask队列的microtask，将事件循环的microtask设置为已选择的microtask，运行microtask，将已经执行完成的microtask为null，移出microtask中的microtask。</li>
+<li>清理IndexDB事务</li>
+<li>设置进入microtask检查点的标志为false。</li>
+</ul>
+<p><img src="https://pic3.zhimg.com/v2-bd2aa27705ca757fc676a37505a4f992_b.gif" alt=""></p>
+<p>执行栈在执行完同步任务后，查看执行栈是否为空，如果执行栈为空，就会去执行Task（宏任务），每次宏任务执行完毕后，检查微任务(microTask)队列是否为空，如果不为空的话，会按照先入先出的规则全部执行完微任务(microTask)后，设置微任务(microTask)队列为null，然后再执行宏任务，如此循环。</p>
+<p>举个例子:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>首先划分几个分类：</p>
+<h5 id="第一次执行："><a href="#第一次执行：" class="headerlink" title="第一次执行："></a>第一次执行：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Tasks：run script、 setTimeout callback</span><br><span class="line"></span><br><span class="line">Microtasks：<span class="built_in">Promise</span> then	</span><br><span class="line"></span><br><span class="line">JS stack: script	</span><br><span class="line">Log: script start、script end</span><br></pre></td></tr></table></figure>
 
   </section>
 
