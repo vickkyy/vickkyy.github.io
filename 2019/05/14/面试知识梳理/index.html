@@ -16,19 +16,19 @@
     
     
 
-    <meta name="description" content="Javascript1. new在JavaScript中，使用new关键字后，意味着做了如下四件事情：  创建一个新的对象，这个对象的类型是object； 设置这个新的对象的内部、可访问性和[[prototype]]属性为构造函数（指prototype.construtor所指向的构造函数）中设置的； 执行构造函数，当this关键字被提及的时候，使用新创建的对象的属性； 返回新创建的对象（除非构造">
+    <meta name="description" content="Javascript0. 基础知识false, null, undefined, NaN, 0 和 “” 都是假的，其他的都视作逻辑真注意 0 是逻辑假而 “0” 是逻辑真，尽管 0 == &amp;#39;0&amp;#39; 为真此外：12Boolean(&amp;#123;&amp;#125;) // trueBoolean([]) // true 1. new在JavaScript中，使用new关键字后，意味着做了如下四">
 <meta name="keywords" content="interview">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试知识梳理 | Vickkyy">
 <meta property="og:url" content="http://yoursite.com/2019/05/14/面试知识梳理/index.html">
 <meta property="og:site_name" content="Vickkyy">
-<meta property="og:description" content="Javascript1. new在JavaScript中，使用new关键字后，意味着做了如下四件事情：  创建一个新的对象，这个对象的类型是object； 设置这个新的对象的内部、可访问性和[[prototype]]属性为构造函数（指prototype.construtor所指向的构造函数）中设置的； 执行构造函数，当this关键字被提及的时候，使用新创建的对象的属性； 返回新创建的对象（除非构造">
+<meta property="og:description" content="Javascript0. 基础知识false, null, undefined, NaN, 0 和 “” 都是假的，其他的都视作逻辑真注意 0 是逻辑假而 “0” 是逻辑真，尽管 0 == &amp;#39;0&amp;#39; 为真此外：12Boolean(&amp;#123;&amp;#125;) // trueBoolean([]) // true 1. new在JavaScript中，使用new关键字后，意味着做了如下四">
 <meta property="og:locale" content="English">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/801940/201609/801940-20160924175448668-1718138388.png">
-<meta property="og:updated_time" content="2019-05-15T03:31:54.843Z">
+<meta property="og:updated_time" content="2019-05-21T10:22:54.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试知识梳理 | Vickkyy">
-<meta name="twitter:description" content="Javascript1. new在JavaScript中，使用new关键字后，意味着做了如下四件事情：  创建一个新的对象，这个对象的类型是object； 设置这个新的对象的内部、可访问性和[[prototype]]属性为构造函数（指prototype.construtor所指向的构造函数）中设置的； 执行构造函数，当this关键字被提及的时候，使用新创建的对象的属性； 返回新创建的对象（除非构造">
+<meta name="twitter:description" content="Javascript0. 基础知识false, null, undefined, NaN, 0 和 “” 都是假的，其他的都视作逻辑真注意 0 是逻辑假而 “0” 是逻辑真，尽管 0 == &amp;#39;0&amp;#39; 为真此外：12Boolean(&amp;#123;&amp;#125;) // trueBoolean([]) // true 1. new在JavaScript中，使用new关键字后，意味着做了如下四">
 <meta name="twitter:image" content="https://images2015.cnblogs.com/blog/801940/201609/801940-20160924175448668-1718138388.png">
     
     
@@ -223,7 +223,8 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h3 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a><code>Javascript</code></h3><h4 id="1-new"><a href="#1-new" class="headerlink" title="1. new"></a>1. <code>new</code></h4><p>在<code>JavaScript</code>中，使用<code>new</code>关键字后，意味着做了如下四件事情：</p>
+    <h3 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a><code>Javascript</code></h3><h4 id="0-基础知识"><a href="#0-基础知识" class="headerlink" title="0. 基础知识"></a>0. 基础知识</h4><p><code>false, null, undefined, NaN, 0 和 “” 都是假的，其他的都视作逻辑真</code><br><code>注意 0 是逻辑假而 “0” 是逻辑真，尽管 0 == &#39;0&#39; 为真</code><br>此外：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Boolean</span>(&#123;&#125;) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Boolean</span>([]) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="1-new"><a href="#1-new" class="headerlink" title="1. new"></a>1. <code>new</code></h4><p>在<code>JavaScript</code>中，使用<code>new</code>关键字后，意味着做了如下四件事情：</p>
 <ul>
 <li>创建一个新的对象，这个对象的类型是<code>object</code>；</li>
 <li>设置这个新的对象的内部、可访问性和<code>[[prototype]]</code>属性为构造函数（指<code>prototype.construtor</code>所指向的构造函数）中设置的；</li>
@@ -335,7 +336,11 @@ classes that you can use:
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log.apply(<span class="built_in">console</span>, <span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 当然也有更方便的 var log = console.log()</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><strong> 总结 </strong><br>call、apply和bind函数存在的区别:<br>bind返回对应函数, 便于稍后调用； apply, call则是立即调用。</p>
+<p><strong> 总结 </strong><br>call、apply和bind函数存在的区别:</p>
+<ol>
+<li>bind返回对应函数, 便于稍后调用； apply, call则是立即调用。</li>
+<li>call接收一个参数，apply要求一个array来传递参数列表。call，apply均为临时的，如果希望函数附着在对象上，可以使用bind.</li>
+</ol>
 <p>除此外, 在 ES6 的箭头函数下, call 和 apply 将失效, 对于箭头函数来说:</p>
 <ul>
 <li>箭头函数体内的 this 对象, 就是定义时所在的对象, 而不是使用时所在的对象;所以不需要类似于var _this = this这种丑陋的写法</li>
@@ -343,6 +348,7 @@ classes that you can use:
 <li>箭头函数不可以使用 arguments 对象,，该对象在函数体内不存在. 如果要用, 可以用 Rest 参数代替</li>
 <li>不可以使用 yield 命令, 因此箭头函数不能用作 Generator 函数，什么是Generator函数可自行查阅资料，推荐阅读阮一峰<a href="http://www.ruanyifeng.com/blog/2015/04/generator.html" target="_blank" rel="noopener">Generator 函数的含义与用法</a>，<a href="http://es6.ruanyifeng.com/#docs/generator-async" target="_blank" rel="noopener">Generator 函数的异步应用</a>。</li>
 </ul>
+<p>其他：<br>使用bind也可以用来部分应用一个函数（柯里化）</p>
 
   </section>
 
