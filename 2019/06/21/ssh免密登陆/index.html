@@ -16,18 +16,18 @@
     
     
 
-    <meta name="description" content="在日常开发中,会需要用一台服务器(sourceMachine)登陆到另外一台服务器(targetMachine),通常使用SSH协议进行登陆: // 具体格式: // ssh [用户名]@[IP] ssh lvrenjie-xy@192.168.0.1  但每次使用的时候,都需要输入targetMachine的密码. 所有,可以使用SSH的第二种身份验证:密钥验证. 流程如下:在sourceMac">
+    <meta name="description" content="在日常开发中,会需要用一台服务器(sourceMachine)登陆到另外一台服务器(targetMachine),通常使用SSH协议进行登陆:123// 具体格式:// ssh [用户名]@[IP]ssh lvrenjie-xy@192.168.0.1 但每次使用的时候,都需要输入targetMachine的密码. 所有,可以使用SSH的第二种身份验证:密钥验证. 流程如下:在sourceMach">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssh免密登陆 | Vickkyy">
 <meta property="og:url" content="http://yoursite.com/2019/06/21/ssh免密登陆/index.html">
 <meta property="og:site_name" content="Vickkyy">
-<meta property="og:description" content="在日常开发中,会需要用一台服务器(sourceMachine)登陆到另外一台服务器(targetMachine),通常使用SSH协议进行登陆: // 具体格式: // ssh [用户名]@[IP] ssh lvrenjie-xy@192.168.0.1  但每次使用的时候,都需要输入targetMachine的密码. 所有,可以使用SSH的第二种身份验证:密钥验证. 流程如下:在sourceMac">
+<meta property="og:description" content="在日常开发中,会需要用一台服务器(sourceMachine)登陆到另外一台服务器(targetMachine),通常使用SSH协议进行登陆:123// 具体格式:// ssh [用户名]@[IP]ssh lvrenjie-xy@192.168.0.1 但每次使用的时候,都需要输入targetMachine的密码. 所有,可以使用SSH的第二种身份验证:密钥验证. 流程如下:在sourceMach">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-06-21T11:16:08.666Z">
+<meta property="og:updated_time" content="2019-06-21T11:28:09.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh免密登陆 | Vickkyy">
-<meta name="twitter:description" content="在日常开发中,会需要用一台服务器(sourceMachine)登陆到另外一台服务器(targetMachine),通常使用SSH协议进行登陆: // 具体格式: // ssh [用户名]@[IP] ssh lvrenjie-xy@192.168.0.1  但每次使用的时候,都需要输入targetMachine的密码. 所有,可以使用SSH的第二种身份验证:密钥验证. 流程如下:在sourceMac">
+<meta name="twitter:description" content="在日常开发中,会需要用一台服务器(sourceMachine)登陆到另外一台服务器(targetMachine),通常使用SSH协议进行登陆:123// 具体格式:// ssh [用户名]@[IP]ssh lvrenjie-xy@192.168.0.1 但每次使用的时候,都需要输入targetMachine的密码. 所有,可以使用SSH的第二种身份验证:密钥验证. 流程如下:在sourceMach">
     
     
     
@@ -221,34 +221,24 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>在日常开发中,会需要用一台服务器(<code>sourceMachine</code>)登陆到另外一台服务器(<code>targetMachine</code>),通常使用<code>SSH</code>协议进行登陆:</p>
-<pre><code class="bash">// 具体格式:
-// ssh [用户名]@[IP]
-ssh lvrenjie-xy@192.168.0.1
-</code></pre>
+    <p>在日常开发中,会需要用一台服务器(<code>sourceMachine</code>)登陆到另外一台服务器(<code>targetMachine</code>),通常使用<code>SSH</code>协议进行登陆:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 具体格式:</span><br><span class="line">// ssh [用户名]@[IP]</span><br><span class="line">ssh lvrenjie-xy@192.168.0.1</span><br></pre></td></tr></table></figure></p>
 <p>但每次使用的时候,都需要输入<code>targetMachine</code>的密码. 所有,可以使用<code>SSH</code>的第二种身份验证:密钥验证.</p>
 <p><em>流程如下:</em><br>在<code>sourceMachine</code>先生成一份公钥(<code>id_rsa.pub</code>)和一份密钥(<code>id_rsa</code>), 利用命令将公钥添加至<code>targetMachine</code>的授权列表(<code>authorized_keys</code>).当有服务器带着公钥申请连接<code>targetMachine</code>时,<code>targetMachine</code>首先在<code>authorized_keys</code>中查找是否存在该公钥,如果存在则开始验证.首先生成一个随机字符串,利用对应公钥进行加密,然后返回给申请连接的<code>sourceMachine</code>, <code>sourceMachine</code>利用私钥进行解密,再将字符串返回给<code>targetMachine</code>完成验证,然后进行后续操作.</p>
 <ol>
-<li>step1:<pre><code class="bash">// 在sourceMachine上生成公钥和私钥
-ssh-keygen -t rsa
-// 默认会在 /root/.ssh/ 重生成公钥(id_rsa.pub) 和 私钥(id_rsa)
-</code></pre>
+<li><p>step1:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 在sourceMachine上生成公钥和私钥</span><br><span class="line">ssh-keygen -t rsa</span><br><span class="line">// 默认会在 /root/.ssh/ 重生成公钥(id_rsa.pub) 和 私钥(id_rsa)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>step2:<br>在<code>targetMachine</code>做同<code>step1</code>一样的操作.</p>
 </li>
 <li><p>step3:<br>将<code>sourceMachine</code>的公钥添加到<code>targetMachine</code>的<code>authorized_keys</code>列表中<br>有两种方式:<br>第一种是直接拷贝<code>sourceMachine</code>的<code>id_rsa.pub</code>中的内容至<code>targetMachine</code>的<code>authorized_keys</code>中.</p>
 </li>
 </ol>
-<p>第二种是使用便捷命令:</p>
-<pre><code class="bash">ssh-cipy-id sourceMachineIp
-</code></pre>
+<p>第二种是使用便捷命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-cipy-id sourceMachineIp</span><br></pre></td></tr></table></figure></p>
 <hr>
 <blockquote>
-<p>备注:<br>如果使用了<code>docker</code>部署某些服务,比如<code>jenkins</code>, 需先进入<code>docker</code>环境中.<br>命令如下:</p>
-<pre><code class="bash">docker ps // 查看当前启动的docker镜像
-docker exec -it jenkins_docker /bin/bash    // 进入部署的jenkins容器环境中
-</code></pre>
+<p>备注:<br>如果使用了<code>docker</code>部署某些服务,比如<code>jenkins</code>, 需先进入<code>docker</code>环境中.<br>命令如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps // 查看当前启动的docker镜像</span><br><span class="line">docker <span class="built_in">exec</span> -it jenkins_docker /bin/bash    // 进入部署的jenkins容器环境中</span><br></pre></td></tr></table></figure></p>
 </blockquote>
+<figure class="highlight js"><figcaption><span>Javascript Array Syntax</span><a href="http://j.mp/pPUUmW" target="_blank" rel="noopener">MDN Documentation</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = <span class="keyword">new</span> <span class="built_in">Array</span>(arrayLength);</span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(element0, element1, ..., elementN);</span><br></pre></td></tr></table></figure>
 
   </section>
 

@@ -16,20 +16,20 @@
     
     
 
-    <meta name="description" content="生命周期生命周期钩子函数：  计算属性 (computed)只有依赖的属性发生变化时，才会重新计算，否则会采用存缓值。 &amp;lt;input v-model=&amp;quot;firstName&amp;quot;/&amp;gt; &amp;lt;input v-model=&amp;quot;lastName&amp;quot;/&amp;gt; &amp;lt;div&amp;gt;{{ fullName }}&amp;lt;/div&amp;gt;  &amp;lt;script&amp;g">
+    <meta name="description" content="生命周期生命周期钩子函数：  计算属性 (computed)只有依赖的属性发生变化时，才会重新计算，否则会采用存缓值。123&amp;lt;input v-model=&quot;firstName&quot;/&amp;gt;&amp;lt;input v-model=&quot;lastName&quot;/&amp;gt;&amp;lt;div&amp;gt;&amp;#123;&amp;#123; fullName &amp;#125;&amp;#125;&amp;lt;/div&amp;gt;   12345678910">
 <meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue学习笔记 | Vickkyy">
 <meta property="og:url" content="http://yoursite.com/2019/01/17/Vue学习笔记/index.html">
 <meta property="og:site_name" content="Vickkyy">
-<meta property="og:description" content="生命周期生命周期钩子函数：  计算属性 (computed)只有依赖的属性发生变化时，才会重新计算，否则会采用存缓值。 &amp;lt;input v-model=&amp;quot;firstName&amp;quot;/&amp;gt; &amp;lt;input v-model=&amp;quot;lastName&amp;quot;/&amp;gt; &amp;lt;div&amp;gt;{{ fullName }}&amp;lt;/div&amp;gt;  &amp;lt;script&amp;g">
+<meta property="og:description" content="生命周期生命周期钩子函数：  计算属性 (computed)只有依赖的属性发生变化时，才会重新计算，否则会采用存缓值。123&amp;lt;input v-model=&quot;firstName&quot;/&amp;gt;&amp;lt;input v-model=&quot;lastName&quot;/&amp;gt;&amp;lt;div&amp;gt;&amp;#123;&amp;#123; fullName &amp;#125;&amp;#125;&amp;lt;/div&amp;gt;   12345678910">
 <meta property="og:locale" content="English">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-10ca76f6758e33fcbd4e4274bea13ac4_hd.jpg">
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-07266267e1938d9bf3eb5a5c599ced5a_hd.jpg">
 <meta property="og:updated_time" content="2019-05-06T08:38:33.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue学习笔记 | Vickkyy">
-<meta name="twitter:description" content="生命周期生命周期钩子函数：  计算属性 (computed)只有依赖的属性发生变化时，才会重新计算，否则会采用存缓值。 &amp;lt;input v-model=&amp;quot;firstName&amp;quot;/&amp;gt; &amp;lt;input v-model=&amp;quot;lastName&amp;quot;/&amp;gt; &amp;lt;div&amp;gt;{{ fullName }}&amp;lt;/div&amp;gt;  &amp;lt;script&amp;g">
+<meta name="twitter:description" content="生命周期生命周期钩子函数：  计算属性 (computed)只有依赖的属性发生变化时，才会重新计算，否则会采用存缓值。123&amp;lt;input v-model=&quot;firstName&quot;/&amp;gt;&amp;lt;input v-model=&quot;lastName&quot;/&amp;gt;&amp;lt;div&amp;gt;&amp;#123;&amp;#123; fullName &amp;#125;&amp;#125;&amp;lt;/div&amp;gt;   12345678910">
 <meta name="twitter:image" content="https://pic1.zhimg.com/80/v2-10ca76f6758e33fcbd4e4274bea13ac4_hd.jpg">
     
     
@@ -226,35 +226,13 @@ classes that you can use:
   <section id="post-content" class="article-content post">
     <h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><p><img src="https://pic1.zhimg.com/80/v2-10ca76f6758e33fcbd4e4274bea13ac4_hd.jpg" alt="生命周期"><br>生命周期钩子函数：<br><img src="https://pic3.zhimg.com/80/v2-07266267e1938d9bf3eb5a5c599ced5a_hd.jpg" alt="生命周期钩子函数"></p>
 <ol>
-<li><p>计算属性 (computed)<br>只有依赖的属性发生变化时，才会重新计算，否则会采用存缓值。</p>
-<pre><code class="html">&lt;input v-model=&quot;firstName&quot;/&gt;
-&lt;input v-model=&quot;lastName&quot;/&gt;
-&lt;div&gt;{{ fullName }}&lt;/div&gt;
-</code></pre>
-<pre><code class="javascript">&lt;script&gt;
-new Vue({
-el: &#39;#root&#39;,
-data: {
- firstName: &#39;&#39;,
- lastName: &#39;&#39;,
- count: 0
-},
-computed: {
- fullName: function () {
-   return this.firstName + &#39; &#39; + this.lastName
- }
-}
-})
-&lt;/script&gt;
-</code></pre>
+<li>计算属性 (computed)<br>只有依赖的属性发生变化时，才会重新计算，否则会采用存缓值。<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"firstName"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"lastName"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123; fullName &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#root'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    firstName: <span class="string">''</span>,</span><br><span class="line">    lastName: <span class="string">''</span>,</span><br><span class="line">    count: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    fullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
 <li><p>监听器 (watch)</p>
-<pre><code class="javascript">watch: {
-fullName: function () {
- this.count++
-}
-}
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  fullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.count++</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>常见指令 (v-if, v-show, v-for)</p>
 </li>

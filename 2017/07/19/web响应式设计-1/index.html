@@ -239,16 +239,14 @@ classes that you can use:
 <ul>
 <li>在link标签中使用媒体查询<br><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;screen and (orientation: portrait)&quot; href=&quot;portrait-screen.css&quot;&gt;</code></li>
 <li><p>组合媒体查询</p>
-<pre><code class="html">
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;screen and (orientation: portrait) and (min-width: 800px)&quot; href=&quot;800wide-portrait-screen.css&quot;&gt; 
-</code></pre>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">media</span>=<span class="string">"screen and (orientation: portrait) and (min-width: 800px)"</span> <span class="attr">href</span>=<span class="string">"800wide-portrait-screen.css"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>@import<br><code>@import url(&quot;600wide-screen.css&quot;) screen and (min-width: 600px;)</code></li>
-<li>css中使用媒体查询<pre><code class="javascript"> @media media and (min-width: 360px)` {
-  background: yellow;
- }
-</code></pre>
- <a href="https://codepen.io/vickkyy/pen/BZgKyN" target="_blank" rel="noopener">https://codepen.io/vickkyy/pen/BZgKyN</a></li>
+<li><p>@import<br><code>@import url(&quot;600wide-screen.css&quot;) screen and (min-width: 600px;)</code></p>
+</li>
+<li><p>css中使用媒体查询</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@media media and (min-width: <span class="number">360</span>px)<span class="string">` &#123;</span></span><br><span class="line"><span class="string"> background: yellow;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p> <a href="https://codepen.io/vickkyy/pen/BZgKyN" target="_blank" rel="noopener">https://codepen.io/vickkyy/pen/BZgKyN</a></p>
+</li>
 </ul>
 </li>
 <li>响应式图片<blockquote>
@@ -256,9 +254,7 @@ classes that you can use:
 </blockquote>
 </li>
 </ol>
-<p><a href="http://www.zhangxinxu.com/study/201410/srcset-sizes.html" target="_blank" rel="noopener">http://www.zhangxinxu.com/study/201410/srcset-sizes.html</a><br><a href="http://www.zhangxinxu.com/study/201410/srcset-screen-density.html" target="_blank" rel="noopener">http://www.zhangxinxu.com/study/201410/srcset-screen-density.html</a><br><code>视口基础：</code></p>
-<pre><code class="html">&lt;meta name=&quot;viewPort&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;&gt;
-</code></pre>
+<p><a href="http://www.zhangxinxu.com/study/201410/srcset-sizes.html" target="_blank" rel="noopener">http://www.zhangxinxu.com/study/201410/srcset-sizes.html</a><br><a href="http://www.zhangxinxu.com/study/201410/srcset-screen-density.html" target="_blank" rel="noopener">http://www.zhangxinxu.com/study/201410/srcset-screen-density.html</a><br><code>视口基础：</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewPort"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, maximum-scale=1"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>备注：</p>
 <ol>

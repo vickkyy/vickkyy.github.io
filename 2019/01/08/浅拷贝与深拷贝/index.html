@@ -16,18 +16,18 @@
     
     
 
-    <meta name="description" content="区别：浅拷贝就是只进行一层拷贝，深拷贝就是无限层级拷贝。深拷贝的问题其实可以分解成两个问题，浅拷贝+递归。 前提准备： 对象类型的判断function isObject(x) {  return Object.prototype.toString.call(x) === &amp;#39;[object Object]&amp;#39;;  }">
+    <meta name="description" content="区别：浅拷贝就是只进行一层拷贝，深拷贝就是无限层级拷贝。深拷贝的问题其实可以分解成两个问题，浅拷贝+递归。 前提准备： 对象类型的判断123function isObject(x) &amp;#123;   return Object.prototype.toString.call(x) === &apos;[object Object]&apos;; &amp;#125;">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅拷贝与深拷贝 | Vickkyy">
 <meta property="og:url" content="http://yoursite.com/2019/01/08/浅拷贝与深拷贝/index.html">
 <meta property="og:site_name" content="Vickkyy">
-<meta property="og:description" content="区别：浅拷贝就是只进行一层拷贝，深拷贝就是无限层级拷贝。深拷贝的问题其实可以分解成两个问题，浅拷贝+递归。 前提准备： 对象类型的判断function isObject(x) {  return Object.prototype.toString.call(x) === &amp;#39;[object Object]&amp;#39;;  }">
+<meta property="og:description" content="区别：浅拷贝就是只进行一层拷贝，深拷贝就是无限层级拷贝。深拷贝的问题其实可以分解成两个问题，浅拷贝+递归。 前提准备： 对象类型的判断123function isObject(x) &amp;#123;   return Object.prototype.toString.call(x) === &apos;[object Object]&apos;; &amp;#125;">
 <meta property="og:locale" content="English">
 <meta property="og:updated_time" content="2019-01-09T02:17:42.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅拷贝与深拷贝 | Vickkyy">
-<meta name="twitter:description" content="区别：浅拷贝就是只进行一层拷贝，深拷贝就是无限层级拷贝。深拷贝的问题其实可以分解成两个问题，浅拷贝+递归。 前提准备： 对象类型的判断function isObject(x) {  return Object.prototype.toString.call(x) === &amp;#39;[object Object]&amp;#39;;  }">
+<meta name="twitter:description" content="区别：浅拷贝就是只进行一层拷贝，深拷贝就是无限层级拷贝。深拷贝的问题其实可以分解成两个问题，浅拷贝+递归。 前提准备： 对象类型的判断123function isObject(x) &amp;#123;   return Object.prototype.toString.call(x) === &apos;[object Object]&apos;; &amp;#125;">
     
     
     
@@ -223,10 +223,7 @@ classes that you can use:
   <section id="post-content" class="article-content post">
     <h4 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h4><p>浅拷贝就是只进行一层拷贝，深拷贝就是无限层级拷贝。深拷贝的问题其实可以分解成两个问题，浅拷贝+递归。</p>
 <h4 id="前提准备："><a href="#前提准备：" class="headerlink" title="前提准备："></a>前提准备：</h4><ol>
-<li>对象类型的判断<pre><code class="javascript">function isObject(x) { 
-return Object.prototype.toString.call(x) === &#39;[object Object]&#39;; 
-}
-</code></pre>
+<li>对象类型的判断<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObject</span>(<span class="params">x</span>) </span>&#123; </span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(x) === <span class="string">'[object Object]'</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 

@@ -16,18 +16,18 @@
     
     
 
-    <meta name="description" content="水平导航栏水平居中方法一： 利用 display: inline-block 和 text-align: center &amp;lt;div id=&amp;quot;main&amp;quot;&amp;gt;   &amp;lt;ul id=&amp;quot;nav&amp;quot;&amp;gt;     &amp;lt;li&amp;gt;&amp;lt;a&amp;gt;First list&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;     &amp;lt;li&amp;gt;&amp;lt;a&amp;g">
+    <meta name="description" content="水平导航栏水平居中方法一： 利用 display: inline-block 和 text-align: center12345678&amp;lt;div id=&quot;main&quot;&amp;gt;  &amp;lt;ul id=&quot;nav&quot;&amp;gt;    &amp;lt;li&amp;gt;&amp;lt;a&amp;gt;First list&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;&amp;lt;a&amp;gt;Second list&amp;lt">
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css之水平导航栏 | Vickkyy">
 <meta property="og:url" content="http://yoursite.com/2017/07/04/css之水平导航栏/index.html">
 <meta property="og:site_name" content="Vickkyy">
-<meta property="og:description" content="水平导航栏水平居中方法一： 利用 display: inline-block 和 text-align: center &amp;lt;div id=&amp;quot;main&amp;quot;&amp;gt;   &amp;lt;ul id=&amp;quot;nav&amp;quot;&amp;gt;     &amp;lt;li&amp;gt;&amp;lt;a&amp;gt;First list&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;     &amp;lt;li&amp;gt;&amp;lt;a&amp;g">
+<meta property="og:description" content="水平导航栏水平居中方法一： 利用 display: inline-block 和 text-align: center12345678&amp;lt;div id=&quot;main&quot;&amp;gt;  &amp;lt;ul id=&quot;nav&quot;&amp;gt;    &amp;lt;li&amp;gt;&amp;lt;a&amp;gt;First list&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;&amp;lt;a&amp;gt;Second list&amp;lt">
 <meta property="og:locale" content="English">
 <meta property="og:updated_time" content="2018-11-14T08:54:30.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css之水平导航栏 | Vickkyy">
-<meta name="twitter:description" content="水平导航栏水平居中方法一： 利用 display: inline-block 和 text-align: center &amp;lt;div id=&amp;quot;main&amp;quot;&amp;gt;   &amp;lt;ul id=&amp;quot;nav&amp;quot;&amp;gt;     &amp;lt;li&amp;gt;&amp;lt;a&amp;gt;First list&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;     &amp;lt;li&amp;gt;&amp;lt;a&amp;g">
+<meta name="twitter:description" content="水平导航栏水平居中方法一： 利用 display: inline-block 和 text-align: center12345678&amp;lt;div id=&quot;main&quot;&amp;gt;  &amp;lt;ul id=&quot;nav&quot;&amp;gt;    &amp;lt;li&amp;gt;&amp;lt;a&amp;gt;First list&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;&amp;lt;a&amp;gt;Second list&amp;lt">
     
     
     
@@ -221,85 +221,11 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>水平导航栏水平居中<br><code>方法一：</code> 利用 <code>display: inline-block</code> 和 <code>text-align: center</code></p>
-<pre><code class="html">&lt;div id=&quot;main&quot;&gt;
-  &lt;ul id=&quot;nav&quot;&gt;
-    &lt;li&gt;&lt;a&gt;First list&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a&gt;Second list&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a&gt;Third list&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a&gt;Four list&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/div&gt;
-</code></pre>
-<pre><code class="css">ul {
-  list-style-type: none;
-}
-
-#main {
-  text-align: center;
-}
-
-#nav {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-}
-
-#nav li {
-  display: inline-block;
-  width: 150px;
-  height: 30px;
-  line-height: 30px;
-  border: 1px solid #e7e7e7;
-  border-radius: 3px;
-  text-decoration: none;
-  cursor: pointer;
-  background: #e7e7e7;
-}
-</code></pre>
+    <p>水平导航栏水平居中<br><code>方法一：</code> 利用 <code>display: inline-block</code> 和 <code>text-align: center</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"nav"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span>&gt;</span>First list<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span>&gt;</span>Second list<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span>&gt;</span>Third list<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span>&gt;</span>Four list<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">list-style-type</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#main</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#nav</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#nav</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e7e7e7</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#e7e7e7</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<p><code>方法二：</code>  利用 <code>float</code> </p>
-<pre><code class="html">&lt;div id=&quot;main&quot;&gt;
-  &lt;ul id=&quot;nav&quot;&gt;
-    &lt;li&gt;&lt;a&gt;First list&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a&gt;Second list&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a&gt;Third list&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a&gt;Four list&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/div&gt;
-</code></pre>
-<pre><code class="css">/*去除默认样式*/
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-#nav {
-  float: left;
-  position: relative;
-  left: 50%;
-}
-
-#nav li {
-  float: left;
-  position: relative;
-  right: 50%;
-}
-
-#nav a {
-  display: inline-block;
-  margin: 0 5px;
-  width: 150px;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  cursor: pointer;
-  background: #e7e7e7;
-}
-</code></pre>
+<p><code>方法二：</code>  利用 <code>float</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"nav"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span>&gt;</span>First list<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span>&gt;</span>Second list<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span>&gt;</span>Third list<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span>&gt;</span>Four list<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*去除默认样式*/</span></span><br><span class="line"><span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">list-style-type</span>: none;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#nav</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#nav</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#nav</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">5px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#e7e7e7</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
   </section>
 

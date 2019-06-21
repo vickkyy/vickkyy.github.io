@@ -16,18 +16,18 @@
     
     
 
-    <meta name="description" content="创建文章及发布step1. hexo new “文件名” step2. vim /source/_posts/文件名 step3. hexo generate  step4. hexo server step5. hexo deploy 创建草稿文章$ hexo new draft &amp;quot;new draft&amp;quot;  会在source/_drafts目录下生成一个new-draft.md">
+    <meta name="description" content="创建文章及发布step1. hexo new “文件名” step2. vim /source/_posts/文件名 step3. hexo generate  step4. hexo server step5. hexo deploy 创建草稿文章1$ hexo new draft &quot;new draft&quot; 会在source/_drafts目录下生成一个new-draft.md 文件。但这个文件不">
 <meta name="keywords" content="hexo git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo使用及git推送 | Vickkyy">
 <meta property="og:url" content="http://yoursite.com/2017/06/29/hexo使用及git推送/index.html">
 <meta property="og:site_name" content="Vickkyy">
-<meta property="og:description" content="创建文章及发布step1. hexo new “文件名” step2. vim /source/_posts/文件名 step3. hexo generate  step4. hexo server step5. hexo deploy 创建草稿文章$ hexo new draft &amp;quot;new draft&amp;quot;  会在source/_drafts目录下生成一个new-draft.md">
+<meta property="og:description" content="创建文章及发布step1. hexo new “文件名” step2. vim /source/_posts/文件名 step3. hexo generate  step4. hexo server step5. hexo deploy 创建草稿文章1$ hexo new draft &quot;new draft&quot; 会在source/_drafts目录下生成一个new-draft.md 文件。但这个文件不">
 <meta property="og:locale" content="English">
 <meta property="og:updated_time" content="2018-07-06T09:52:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo使用及git推送 | Vickkyy">
-<meta name="twitter:description" content="创建文章及发布step1. hexo new “文件名” step2. vim /source/_posts/文件名 step3. hexo generate  step4. hexo server step5. hexo deploy 创建草稿文章$ hexo new draft &amp;quot;new draft&amp;quot;  会在source/_drafts目录下生成一个new-draft.md">
+<meta name="twitter:description" content="创建文章及发布step1. hexo new “文件名” step2. vim /source/_posts/文件名 step3. hexo generate  step4. hexo server step5. hexo deploy 创建草稿文章1$ hexo new draft &quot;new draft&quot; 会在source/_drafts目录下生成一个new-draft.md 文件。但这个文件不">
     
     
     
@@ -226,8 +226,7 @@ classes that you can use:
 <p><code>step3.</code> hexo generate </p>
 <p><code>step4.</code> hexo server</p>
 <p><code>step5.</code> hexo deploy</p>
-<h4 id="创建草稿文章"><a href="#创建草稿文章" class="headerlink" title="创建草稿文章"></a>创建草稿文章</h4><pre><code class="bash">$ hexo new draft &quot;new draft&quot;
-</code></pre>
+<h4 id="创建草稿文章"><a href="#创建草稿文章" class="headerlink" title="创建草稿文章"></a>创建草稿文章</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new draft <span class="string">"new draft"</span></span><br></pre></td></tr></table></figure>
 <p>会在<code>source/_drafts</code>目录下生成一个<code>new-draft.md</code> 文件。但这个文件不会显示在页面上，也无法通过链接访问。类似于邮件中的草稿邮件，可作为私有文件。</p>
 <p>如果需要预览草稿文件，则需更改配置文件_config.yml：<br>render_drafts: true</p>
 <p>或在启动服务时，添加参数：<br>hexo drafts –drafts</p>

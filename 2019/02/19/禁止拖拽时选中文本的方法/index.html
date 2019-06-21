@@ -227,24 +227,8 @@ classes that you can use:
   <section id="post-content" class="article-content post">
     <p>日前在做决策引擎的产品，产品经理提出了这样的一个需求，实现拖拽式配置决策流程。该项目采用的框架是Vue，调研了一些拖拽库（jsPlumb, G6）。最终选择了G6库，该库是阿里巴巴AntV项目中的一个（官网：<a href="https://www.yuque.com/antv/g6" target="_blank" rel="noopener">https://www.yuque.com/antv/g6</a>, demos: <a href="https://antv.alipay.com/zh-cn/g6/2.x/demo/index.html" target="_blank" rel="noopener">https://antv.alipay.com/zh-cn/g6/2.x/demo/index.html</a>）。<br>示例图1:<br><img src="http://p8.qhimg.com/t01bd80d4d2e88a6e80.png" alt="img1"></p>
 <p>但在项目中使用该库的时候发现，当拖拽组件时，会连带选中文字，效果如下：<br><img src="http://p1.qhimg.com/t0100a0dcb8cf01ba58.png" alt="img2"></p>
-<p>查询资料后发现解决方式有两种：<br><code>js方法：</code></p>
-<pre><code class="javascript">// firefox下禁止元素被选取的变通办法        
-element.onmousedown = new Function(&quot;return false&quot;);        
-element.onmouseup = new Function(&quot;return true&quot;);        
-//IE下
-var clearSelect = &#39;getSelection&#39; in window ? function(){
-  window.getSelection().removeAllRanges()
-} : function(){
-  document.selection.empty()
-}
-</code></pre>
-<p><code>css方法：user-select方法</code></p>
-<pre><code class="css">div {
-  -moz-user-select:none;
-  -webkit-user-select:none;
-  user-select:none;    
-}
-</code></pre>
+<p>查询资料后发现解决方式有两种：<br><code>js方法：</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// firefox下禁止元素被选取的变通办法        </span></span><br><span class="line">element.onmousedown = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"return false"</span>);        </span><br><span class="line">element.onmouseup = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"return true"</span>);        </span><br><span class="line"><span class="comment">//IE下</span></span><br><span class="line"><span class="keyword">var</span> clearSelect = <span class="string">'getSelection'</span> <span class="keyword">in</span> <span class="built_in">window</span> ? <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">window</span>.getSelection().removeAllRanges()</span><br><span class="line">&#125; : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">document</span>.selection.empty()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>css方法：user-select方法</code><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">-moz-user-select</span>:none;</span><br><span class="line">  <span class="attribute">-webkit-user-select</span>:none;</span><br><span class="line">  <span class="attribute">user-select</span>:none;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>备注：user-select CSS属性，控制着用户能否选中文本。更多详情参阅 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/user-select" target="_blank" rel="noopener">MDN</a></p>
 </blockquote>
