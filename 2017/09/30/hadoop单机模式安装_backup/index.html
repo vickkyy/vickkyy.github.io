@@ -219,10 +219,40 @@ classes that you can use:
     <h2 id="hadoop单机模式安装"><a href="#hadoop单机模式安装" class="headerlink" title="hadoop单机模式安装"></a>hadoop单机模式安装</h2><h3 id="第一章-前提软件安装"><a href="#第一章-前提软件安装" class="headerlink" title="第一章 前提软件安装"></a>第一章 前提软件安装</h3><h4 id="jdk"><a href="#jdk" class="headerlink" title="jdk"></a>jdk</h4><p>1 查看jdk安装目录<br><code>echo $JAVA_HOME</code> (以jdk 1.8.0_71为例)<br>以 ‘/home/lvrenjie-xy/jdk1.8.0_71’ 为例</p>
 <h4 id="hadoop"><a href="#hadoop" class="headerlink" title="hadoop"></a>hadoop</h4><p>1 下载地址 <a href="http://hadoop.apache.org/releases.html" target="_blank" rel="noopener">http://hadoop.apache.org/releases.html</a><br>2  Download 官网2.5以后的版本默认提供64位版本，在”Tarball”中选择对应版本的”binary”下载<br>3 安装hadoop (以hadoop-2.8.1为例)<br>    1) 新建文件夹 /opt/soft<br>    2) <code>tar -zxvf hadoop-2.8.1.tar.gz -C /opt/soft</code><br>    3) 查看hadoop是32or64位<br>    <code>cd /opt/soft/hadoop-2.8.1/lib/native</code><br>    <code>file libhadoop.so.1.0.0</code><br>4 配置<code>/etc/hosts</code><br>    本机ip地址 singlenode</p>
 <hr>
-<h3 id="第二章-配置启动Hadoop"><a href="#第二章-配置启动Hadoop" class="headerlink" title="第二章 配置启动Hadoop"></a>第二章 配置启动Hadoop</h3><p>1 修改<code>hadoop2.8.1/etc/hadoop/hadoop-env.sh</code>指定<code>JAVA_HOME</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The java implementation to use.</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/opt/soft/jdk1.8.0_71</span><br></pre></td></tr></table></figure></p>
-<p>2 修改hdfs的配置文件<br>修改<code>hadoop2.8.1/etc/hadoop/core-site.xml</code>如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定HDFS(namenode的通信地址) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://singlenode:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定hadoop运行时产生文件的存储路径 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/opt/soft/hadoop-2.8.1/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">``` </span><br><span class="line">这里fs.defaultFS的value最好写本机的静态IP地址即本机名，再配置hosts。</span><br><span class="line"></span><br><span class="line">修改hadoop2.8.1/etc/hadoop/hdfs-site.xml如下：</span><br><span class="line">```xml</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 设置hdfs副本数量 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="第二章-配置启动Hadoop"><a href="#第二章-配置启动Hadoop" class="headerlink" title="第二章 配置启动Hadoop"></a>第二章 配置启动Hadoop</h3><p>1 修改<code>hadoop2.8.1/etc/hadoop/hadoop-env.sh</code>指定<code>JAVA_HOME</code></p>
+<pre><code class="bash"># The java implementation to use.
+export JAVA_HOME=/opt/soft/jdk1.8.0_71
+</code></pre>
+<p>2 修改hdfs的配置文件<br>修改<code>hadoop2.8.1/etc/hadoop/core-site.xml</code>如下：</p>
+<pre><code class="xml">&lt;configuration&gt;
+    &lt;!-- 指定HDFS(namenode的通信地址) --&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.defaultFS&lt;/name&gt;
+        &lt;value&gt;hdfs://singlenode:9000&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;!-- 指定hadoop运行时产生文件的存储路径 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+        &lt;value&gt;/opt/soft/hadoop-2.8.1/tmp&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>这里fs.defaultFS的value最好写本机的静态IP地址即本机名，再配置hosts。</p>
+<p>修改hadoop2.8.1/etc/hadoop/hdfs-site.xml如下：</p>
+<pre><code class="xml">&lt;configuration&gt;
+    &lt;!-- 设置hdfs副本数量 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.replication&lt;/name&gt;
+        &lt;value&gt;1&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
 <p>3 配置ssh免密登录<br>配置前：<br><code>ssh localhost</code><br>会提示请输入本机登录密码</p>
-<p>配置方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t dsa -P <span class="string">''</span> -f ~/.ssh/id_dsa</span><br><span class="line">cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line">chmod 0600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
+<p>配置方法：</p>
+<pre><code class="bash">ssh-keygen -t dsa -P &#39;&#39; -f ~/.ssh/id_dsa
+cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
+</code></pre>
 <p>配置后可免密登录</p>
 <p>4 hdfs启动与停止<br>第一次启动先格式化:<br>在<code>/opt/soft/hadoop2.8.1</code>目录下执行<br><code>./bin/hdfs namenode -format</code></p>
 <blockquote>
@@ -251,10 +281,24 @@ classes that you can use:
 <h3 id="第四章-配合启动YARN"><a href="#第四章-配合启动YARN" class="headerlink" title="第四章 配合启动YARN"></a>第四章 配合启动YARN</h3><p>MapReduce是运行在YARN上，而YARN是运行在HDFS上。</p>
 <ol>
 <li><p>配置 <code>etc/hadoop/mapred-site.xml</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 通知框架MR使用YARN --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;configuration&gt;
+ &lt;!-- 通知框架MR使用YARN --&gt;
+ &lt;property&gt;
+     &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+     &lt;value&gt;yarn&lt;/value&gt;
+ &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
 </li>
 <li><p>配置 <code>etc/hadoop/yarn-site.xml</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- reducer取数据的方法是mapreduce_shuffle --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;configuration&gt;
+ &lt;!-- reducer取数据的方法是mapreduce_shuffle --&gt;
+ &lt;property&gt;
+     &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+     &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
+ &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
 </li>
 <li><p>YARN的启动与停止<br>启动<br><code>./sbin/start-yarn.sh</code></p>
 </li>
@@ -307,7 +351,19 @@ classes that you can use:
 <li><p>在/opt/soft/hbase-1.2.6/conf目录下修改hbase-env.sh<br>取消配置JDK的注释并做如下修改 (jdk的安装路径)<br>export JAVA_HOME=/home/lvrenjie/jdk1.8.0_71   (本文环境jdk安装路径)</p>
 </li>
 <li><p>修改hbase-site.xml (/opt/soft/hbase-1.2.6/conf目录下)</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 单机启动，只设定Hbase写入的本地路径 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/home/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- hbase 1.0 以后的版本，需手动配置端口 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.master.info.port<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>60010<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;configuration&gt;
+ &lt;!-- 单机启动，只设定Hbase写入的本地路径 --&gt;
+ &lt;property&gt;
+     &lt;name&gt;hbase.rootdir&lt;/name&gt;
+     &lt;value&gt;/home/hbase&lt;/value&gt;
+ &lt;/property&gt;
+ &lt;!-- hbase 1.0 以后的版本，需手动配置端口 --&gt;
+ &lt;property&gt;
+     &lt;name&gt;hbase.master.info.port&lt;/name&gt;
+     &lt;value&gt;60010&lt;/value&gt;
+ &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
 </li>
 </ol>
 <h3 id="第三章-测试"><a href="#第三章-测试" class="headerlink" title="第三章 测试"></a>第三章 测试</h3><ol>
@@ -357,18 +413,29 @@ classes that you can use:
 <li><p>解压<br>tar -zxvf /home/lvrenjie/下载/zookeeper-3.4.6.tar.gz -C /opt/soft </p>
 </li>
 <li><p>修改配置<br>进入zookeeper目录下的conf目录，复制zoo_sample.cfg为zoo.cfg，并将内容修改如下</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tickTime</span>=<span class="number">2000</span>  </span><br><span class="line"><span class="attr">dataDir</span>=/opt/zookeeper-<span class="number">3.4</span>.<span class="number">6</span>/data  </span><br><span class="line"><span class="attr">clientPort</span>=<span class="number">2181</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<blockquote>
+<pre><code>tickTime=2000  
+dataDir=/opt/zookeeper-3.4.6/data  
+clientPort=2181
+</code></pre><blockquote>
 <p>备注：<br>tickTime：Zookeeper 服务器之间或客户端与服务器之间心跳的时间间隔。<br>dataDir：Zookeeper 保存数据的目录，默认情况下，Zookeeper 将写数据的日志文件也保存在这个目录里。<br>clientPort：Zookeeper 服务器监听端口，用来接受客户端的访问请求。</p>
 </blockquote>
-<ol start="4">
+</li>
 <li><p>启动zookeeper服务了<br>进入Zookeeper/bin目录，运行下面的命令来启动Zookeeper服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ ./zkServer.sh start  </span><br><span class="line">JMX enabled by default  </span><br><span class="line">Using config: /opt/zookeeper/bin/../conf/zoo.cfg  </span><br><span class="line">Starting zookeeper ... STARTED </span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">启动后查看服务状态</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">$ ./zkServer.sh status  </span><br><span class="line">JMX enabled by default  </span><br><span class="line">Using config: /opt/zookeeper/bin/../conf/zoo.cfg  </span><br><span class="line">Mode: standalone</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">$ ./zkServer.sh start  
+JMX enabled by default  
+Using config: /opt/zookeeper/bin/../conf/zoo.cfg  
+Starting zookeeper ... STARTED 
+</code></pre>
 </li>
-<li><p>在Zookeeper服务器启动以后，就可以使用Zookeeper的客户端来连接并测试了。<br><code>$ ./zkCli.sh</code><br>或<br><code>$ ./zkCli.sh -server 127.0.0.1:2181</code></p>
-</li>
+</ol>
+<p>启动后查看服务状态</p>
+<pre><code class="bash">$ ./zkServer.sh status  
+JMX enabled by default  
+Using config: /opt/zookeeper/bin/../conf/zoo.cfg  
+Mode: standalone
+</code></pre>
+<ol start="5">
+<li>在Zookeeper服务器启动以后，就可以使用Zookeeper的客户端来连接并测试了。<br><code>$ ./zkCli.sh</code><br>或<br><code>$ ./zkCli.sh -server 127.0.0.1:2181</code></li>
 </ol>
 <h2 id="KafKa"><a href="#KafKa" class="headerlink" title="KafKa"></a>KafKa</h2><ol>
 <li><p>下载<br><code>http://www-us.apache.org/dist/kafka/0.11.0.1/kafka_2.12-0.11.0.1.tgz</code></p>
@@ -395,10 +462,25 @@ classes that you can use:
 <p>运行source命令使立即生效。</p>
 <ol start="4">
 <li><p>配置<br>进入conf目录，修改storm.yaml文件</p>
-<figure class="highlight profile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> storm.zookeeper.servers:</span><br><span class="line">     - <span class="string">"127.0.0.1"</span></span><br><span class="line">#     - <span class="string">"server2"</span></span><br><span class="line"># </span><br><span class="line"># nimbus.seeds: [<span class="string">"host1"</span>, <span class="string">"host2"</span>, <span class="string">"host3"</span>]</span><br><span class="line"> nimbus.host: <span class="string">"127.0.0.1"</span></span><br><span class="line"> storm.zookeeper.port: <span class="number">2181</span></span><br><span class="line"> storm.local.dir: <span class="string">"/home/david/Storm/apache-storm-1.1.0"</span></span><br><span class="line"> supervisor.slots.ports:</span><br><span class="line">  - <span class="number">6700</span></span><br><span class="line">  - <span class="number">6701</span></span><br><span class="line">  - <span class="number">6702</span></span><br><span class="line">  - <span class="number">6703</span></span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>storm.zookeeper.servers:
+  - &quot;127.0.0.1&quot;
+#     - &quot;server2&quot;
+# 
+# nimbus.seeds: [&quot;host1&quot;, &quot;host2&quot;, &quot;host3&quot;]
+nimbus.host: &quot;127.0.0.1&quot;
+storm.zookeeper.port: 2181
+storm.local.dir: &quot;/home/david/Storm/apache-storm-1.1.0&quot;
+supervisor.slots.ports:
+- 6700
+- 6701
+- 6702
+- 6703
+</code></pre></li>
 <li><p>运行</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Storm numbus</span></span><br><span class="line"><span class="attribute">Storm supervisor</span></span><br><span class="line"><span class="attribute">Storm ui</span></span><br></pre></td></tr></table></figure></li>
+<pre><code>Storm numbus
+Storm supervisor
+Storm ui
+</code></pre></li>
 </ol>
 
   </section>

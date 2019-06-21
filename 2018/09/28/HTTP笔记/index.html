@@ -16,18 +16,18 @@
     
     
 
-    <meta name="description" content="多种数据的多部分对象集合 multipart/form-data  在Web表单文件上传时使用 123456789101112Content-Type: multipart/form-data; boundary=AaB03x--AaB03xContent-Disposition: form-data; name=&quot;field1&quot;Vickkyy--AaB03xContent-Disposition">
+    <meta name="description" content="多种数据的多部分对象集合 multipart/form-data 在Web表单文件上传时使用`httpContent-Type: multipart/form-data; boundary=AaB03x    –AaB03xContent-Disposition: form-data; name=”field1” Vickkyy–AaB03xContent-Disposition: form-da">
 <meta name="keywords" content="HTTP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP笔记 | Vickkyy">
 <meta property="og:url" content="http://yoursite.com/2018/09/28/HTTP笔记/index.html">
 <meta property="og:site_name" content="Vickkyy">
-<meta property="og:description" content="多种数据的多部分对象集合 multipart/form-data  在Web表单文件上传时使用 123456789101112Content-Type: multipart/form-data; boundary=AaB03x--AaB03xContent-Disposition: form-data; name=&quot;field1&quot;Vickkyy--AaB03xContent-Disposition">
+<meta property="og:description" content="多种数据的多部分对象集合 multipart/form-data 在Web表单文件上传时使用`httpContent-Type: multipart/form-data; boundary=AaB03x    –AaB03xContent-Disposition: form-data; name=”field1” Vickkyy–AaB03xContent-Disposition: form-da">
 <meta property="og:locale" content="English">
 <meta property="og:updated_time" content="2018-10-11T06:44:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP笔记 | Vickkyy">
-<meta name="twitter:description" content="多种数据的多部分对象集合 multipart/form-data  在Web表单文件上传时使用 123456789101112Content-Type: multipart/form-data; boundary=AaB03x--AaB03xContent-Disposition: form-data; name=&quot;field1&quot;Vickkyy--AaB03xContent-Disposition">
+<meta name="twitter:description" content="多种数据的多部分对象集合 multipart/form-data 在Web表单文件上传时使用`httpContent-Type: multipart/form-data; boundary=AaB03x    –AaB03xContent-Disposition: form-data; name=”field1” Vickkyy–AaB03xContent-Disposition: form-da">
     
     
     
@@ -222,20 +222,35 @@ classes that you can use:
 
   <section id="post-content" class="article-content post">
     <h2 id="多种数据的多部分对象集合"><a href="#多种数据的多部分对象集合" class="headerlink" title="多种数据的多部分对象集合"></a>多种数据的多部分对象集合</h2><ol>
-<li><p><code>multipart/form-data</code></p>
-<blockquote>
-<p>在Web表单文件上传时使用</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Content-Type</span>: multipart/form-data; boundary=AaB03x</span><br><span class="line"></span><br><span class="line">--AaB03x</span><br><span class="line"><span class="attribute">Content-Disposition</span>: form-data; name="field1"</span><br><span class="line"></span><br><span class="line"><span class="attribute">Vickkyy</span></span><br><span class="line"><span class="attribute">--AaB03x</span></span><br><span class="line"><span class="attribute">Content-Disposition</span>: form-data; name="pics"; filename="file1.txt"</span><br><span class="line"><span class="attribute">Content-Type</span>: text/plain</span><br><span class="line"></span><br><span class="line">...(file1.txt的数据)...</span><br><span class="line">--AaB03x--</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p><code>multipart/byteranges</code></p>
-<blockquote>
-<p>状态码206（Partial Content, 部分内容）响应报文包含了多个范围的内容时使用。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">206</span> Partial Content</span><br><span class="line"><span class="attribute">Date</span>: Fri, 13 Jul 2018 12:00:00 GMT</span><br><span class="line"><span class="attribute">Last-Modified</span>: Fri, 13 Jul 2018 11:00:00 GMT</span><br><span class="line"><span class="attribute">Content-Type</span>: multipart/byteranges; boundary=THIS_STRING_SEPARATES</span><br><span class="line"></span><br><span class="line">--THIS_STRING_SEPARATES</span><br><span class="line"><span class="attribute">Content-Type</span>: application/pdf</span><br><span class="line"><span class="attribute">Content-Range</span>: bytes 500-999/8000</span><br><span class="line"></span><br><span class="line">...(范围指定的数据)...</span><br><span class="line">--THIS_STRING_SEPARATES</span><br><span class="line"><span class="attribute">Content-Type</span>: application/pdf</span><br><span class="line"><span class="attribute">Content-Range</span>: bytes 7000-7999/8000</span><br><span class="line"></span><br><span class="line">...(范围指定的数据)...</span><br><span class="line">--THIS_STRING_SEPARATES--</span><br></pre></td></tr></table></figure>
+<li><code>multipart/form-data</code><blockquote>
+<p>在Web表单文件上传时使用<br><code>`</code>http<br>Content-Type: multipart/form-data; boundary=AaB03x</p>
 </blockquote>
 </li>
 </ol>
-<h2 id="Chapter6-HTTP首部"><a href="#Chapter6-HTTP首部" class="headerlink" title="Chapter6 HTTP首部"></a>Chapter6 HTTP首部</h2><ol>
+<p>–AaB03x<br>Content-Disposition: form-data; name=”field1”</p>
+<p>Vickkyy<br>–AaB03x<br>Content-Disposition: form-data; name=”pics”; filename=”file1.txt”<br>Content-Type: text/plain</p>
+<p>…(file1.txt的数据)…<br>–AaB03x–</p>
+<pre><code>
+2. `multipart/byteranges`
+&gt; 状态码206（Partial Content, 部分内容）响应报文包含了多个范围的内容时使用。
+```http
+HTTP/1.1 206 Partial Content
+Date: Fri, 13 Jul 2018 12:00:00 GMT
+Last-Modified: Fri, 13 Jul 2018 11:00:00 GMT
+Content-Type: multipart/byteranges; boundary=THIS_STRING_SEPARATES
+
+--THIS_STRING_SEPARATES
+Content-Type: application/pdf
+Content-Range: bytes 500-999/8000
+
+...(范围指定的数据)...
+--THIS_STRING_SEPARATES
+Content-Type: application/pdf
+Content-Range: bytes 7000-7999/8000
+
+...(范围指定的数据)...
+--THIS_STRING_SEPARATES--
+</code></pre><h2 id="Chapter6-HTTP首部"><a href="#Chapter6-HTTP首部" class="headerlink" title="Chapter6 HTTP首部"></a>Chapter6 HTTP首部</h2><ol>
 <li>HTTP报文首部</li>
 </ol>
 <ul>

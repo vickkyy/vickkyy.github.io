@@ -230,10 +230,18 @@ classes that you can use:
 <p>其他：<br>动画<br>为何想换工作</p>
 <p>回答不好的问题：</p>
 <ol>
-<li>for in 的坑<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.max = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line"><span class="keyword">let</span> total = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> arr) &#123;</span><br><span class="line">  total +=<span class="built_in">parseInt</span>(i, <span class="number">10</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(total)</span><br></pre></td></tr></table></figure>
-</li>
+<li>for in 的坑<pre><code class="javascript">Array.prototype.max = function () {
+return 1
+}
+let arr = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+let total = 0
+for (let i in arr) {
+total +=parseInt(i, 10)
+}
+console.log(total)
+</code></pre>
+输出结果为NAN</li>
 </ol>
-<p>输出结果为NAN</p>
 <p>原因: for…in循环会把某个类型的原型(prototype)中方法与属性给遍历出来，所以这可能会导致代码中出现意外的错误。</p>
 <ol start="2">
 <li><p>let, const<br>例如：const obj = {‘name’: ‘jack’}<br>是否可以给obj添加其他方法或属性？</p>
@@ -265,7 +273,16 @@ classes that you can use:
 <li>明确指定this<br>语法：<br>call的使用方法是fn.call(this, arg1, arg2…, argn)。call主要有两种参数：</li>
 <li>第一个参数：输入的物件会被指定为目标函式中的this<br>+</li>
 </ul>
-<p>Array,Object,Function类型判断<br>答案：<br>typeOf: 缺点是array,object均返回object<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line"><span class="keyword">let</span> b = &#123; <span class="attr">name</span>: <span class="string">'1'</span> &#125;</span><br><span class="line"><span class="keyword">let</span> c = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'test'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">typeof</span> a <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> b <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> c <span class="comment">// function</span></span><br></pre></td></tr></table></figure></p>
+<p>Array,Object,Function类型判断<br>答案：<br>typeOf: 缺点是array,object均返回object</p>
+<pre><code class="javascript">let a = [1,2]
+let b = { name: &#39;1&#39; }
+let c = function () {
+  console.log(&#39;test&#39;)
+}
+typeof a // object
+typeof b // object
+typeof c // function
+</code></pre>
 <p>instanceOf: 缺点是使用对象必须是一个object</p>
 <p>节流、防抖<br>答案参考博客<a href="https://www.cnblogs.com/momo798/p/9177767.html" target="_blank" rel="noopener">https://www.cnblogs.com/momo798/p/9177767.html</a></p>
 <p>伪数组转数组</p>

@@ -251,17 +251,82 @@ classes that you can use:
 </ul>
 <p><img src="https://pic3.zhimg.com/v2-bd2aa27705ca757fc676a37505a4f992_b.gif" alt=""></p>
 <p>执行栈在执行完同步任务后，查看执行栈是否为空，如果执行栈为空，就会去执行Task（宏任务），每次宏任务执行完毕后，检查微任务(microTask)队列是否为空，如果不为空的话，会按照先入先出的规则全部执行完微任务(microTask)后，设置微任务(microTask)队列为null，然后再执行宏任务，如此循环。</p>
-<p>举个例子:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>举个例子:</p>
+<pre><code class="javascript">console.log(&#39;script start&#39;);
+
+setTimeout(function() {
+  console.log(&#39;setTimeout&#39;);
+}, 0);
+
+Promise.resolve().then(function() {
+  console.log(&#39;promise1&#39;);
+}).then(function() {
+  console.log(&#39;promise2&#39;);
+});
+console.log(&#39;script end&#39;);
+</code></pre>
 <p>首先划分几个分类：</p>
-<h5 id="第一次执行："><a href="#第一次执行：" class="headerlink" title="第一次执行："></a>第一次执行：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Tasks：run script、 setTimeout callback</span><br><span class="line"></span><br><span class="line">Microtasks：<span class="built_in">Promise</span> then	</span><br><span class="line"></span><br><span class="line">JS stack: script	</span><br><span class="line">Log: script start、script end</span><br></pre></td></tr></table></figure>
+<h5 id="第一次执行："><a href="#第一次执行：" class="headerlink" title="第一次执行："></a>第一次执行：</h5><pre><code class="javascript">Tasks：run script、 setTimeout callback
+
+Microtasks：Promise then    
+
+JS stack: script    
+Log: script start、script end
+</code></pre>
 <p>执行同步代码，将宏任务（Tasks）和微任务(Microtasks)划分到各自队列中。</p>
-<h5 id="第二次执行："><a href="#第二次执行：" class="headerlink" title="第二次执行："></a>第二次执行：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Tasks：run script、 setTimeout callback</span><br><span class="line"></span><br><span class="line">Microtasks：Promise2 then	</span><br><span class="line"></span><br><span class="line">JS stack: Promise2 callback	</span><br><span class="line">Log: script start、script end、promise1、promise2</span><br></pre></td></tr></table></figure>
+<h5 id="第二次执行："><a href="#第二次执行：" class="headerlink" title="第二次执行："></a>第二次执行：</h5><pre><code class="javascript">Tasks：run script、 setTimeout callback
+
+Microtasks：Promise2 then    
+
+JS stack: Promise2 callback    
+Log: script start、script end、promise1、promise2
+</code></pre>
 <p>执行宏任务后，检测到微任务(Microtasks)队列中不为空，执行Promise1，执行完成Promise1后，调用Promise2.then，放入微任务(Microtasks)队列中，再执行Promise2.then。</p>
-<h5 id="第三次执行："><a href="#第三次执行：" class="headerlink" title="第三次执行："></a>第三次执行：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Tasks：setTimeout callback</span><br><span class="line"></span><br><span class="line">Microtasks：	</span><br><span class="line"></span><br><span class="line">JS stack: setTimeout callback</span><br><span class="line">Log: script start、script end、promise1、promise2、setTimeout</span><br></pre></td></tr></table></figure>
+<h5 id="第三次执行："><a href="#第三次执行：" class="headerlink" title="第三次执行："></a>第三次执行：</h5><pre><code class="javascript">Tasks：setTimeout callback
+
+Microtasks：    
+
+JS stack: setTimeout callback
+Log: script start、script end、promise1、promise2、setTimeout
+</code></pre>
 <p>当微任务(Microtasks)队列中为空时，执行宏任务（Tasks），执行setTimeout callback，打印日志。</p>
-<h5 id="第四次执行："><a href="#第四次执行：" class="headerlink" title="第四次执行："></a>第四次执行：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Tasks：setTimeout callback</span><br><span class="line"></span><br><span class="line">Microtasks：	</span><br><span class="line"></span><br><span class="line">JS stack: </span><br><span class="line">Log: script start、script end、promise1、promise2、setTimeout</span><br></pre></td></tr></table></figure>
+<h5 id="第四次执行："><a href="#第四次执行：" class="headerlink" title="第四次执行："></a>第四次执行：</h5><pre><code class="javascript">Tasks：setTimeout callback
+
+Microtasks：    
+
+JS stack: 
+Log: script start、script end、promise1、promise2、setTimeout
+</code></pre>
 <p>清空Tasks队列和JS stack。<br>以上执行帧动画可以查看<a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/" target="_blank" rel="noopener">Tasks, microtasks, queues and schedules</a><br><img src="https://pic2.zhimg.com/v2-d1ca0d6b13501044a5f74c99becbcd3d_b.gif" alt=""></p>
-<h4 id="再举个例子"><a href="#再举个例子" class="headerlink" title="再举个例子"></a>再举个例子</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">await</span> async2()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async1 end'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async2 end'</span>) </span><br><span class="line">&#125;</span><br><span class="line">async1()</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Promise'</span>)</span><br><span class="line">  resolve()</span><br><span class="line">&#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise1'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise2'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="再举个例子"><a href="#再举个例子" class="headerlink" title="再举个例子"></a>再举个例子</h4><pre><code class="javascript">console.log(&#39;script start&#39;)
+
+async function async1() {
+  await async2()
+  console.log(&#39;async1 end&#39;)
+}
+async function async2() {
+  console.log(&#39;async2 end&#39;) 
+}
+async1()
+
+setTimeout(function() {
+  console.log(&#39;setTimeout&#39;)
+}, 0)
+
+new Promise(resolve =&gt; {
+  console.log(&#39;Promise&#39;)
+  resolve()
+})
+  .then(function() {
+    console.log(&#39;promise1&#39;)
+  })
+  .then(function() {
+    console.log(&#39;promise2&#39;)
+  })
+
+console.log(&#39;script end&#39;)
+</code></pre>
+
   </section>
 
   <section class="post-comments">

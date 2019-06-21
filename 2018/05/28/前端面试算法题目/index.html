@@ -16,18 +16,18 @@
     
     
 
-    <meta name="description" content="快速排序方法一1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162function quickSort(arr, left, right) &amp;#123;    /*     * len为数组的长度     * left为需">
+    <meta name="description" content="快速排序方法一 function quickSort(arr, left, right) {     /*      * len为数组的长度      * left为需要数组中参与排序的起始点；right为数组中参与排序的终止点；      * left如果有传参为数字则为left，没有传参则为0；      * right如果有传参为数字则为right，没有传参则为len-1;      * 有">
 <meta name="keywords" content="interview, algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端面试算法题目 | Vickkyy">
 <meta property="og:url" content="http://yoursite.com/2018/05/28/前端面试算法题目/index.html">
 <meta property="og:site_name" content="Vickkyy">
-<meta property="og:description" content="快速排序方法一1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162function quickSort(arr, left, right) &amp;#123;    /*     * len为数组的长度     * left为需">
+<meta property="og:description" content="快速排序方法一 function quickSort(arr, left, right) {     /*      * len为数组的长度      * left为需要数组中参与排序的起始点；right为数组中参与排序的终止点；      * left如果有传参为数字则为left，没有传参则为0；      * right如果有传参为数字则为right，没有传参则为len-1;      * 有">
 <meta property="og:locale" content="English">
 <meta property="og:updated_time" content="2018-11-14T08:56:14.469Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试算法题目 | Vickkyy">
-<meta name="twitter:description" content="快速排序方法一1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162function quickSort(arr, left, right) &amp;#123;    /*     * len为数组的长度     * left为需">
+<meta name="twitter:description" content="快速排序方法一 function quickSort(arr, left, right) {     /*      * len为数组的长度      * left为需要数组中参与排序的起始点；right为数组中参与排序的终止点；      * left如果有传参为数字则为left，没有传参则为0；      * right如果有传参为数字则为right，没有传参则为len-1;      * 有">
     
     
     
@@ -221,21 +221,176 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p><code>方法一</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr, left, right</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * len为数组的长度</span></span><br><span class="line"><span class="comment">     * left为需要数组中参与排序的起始点；right为数组中参与排序的终止点；</span></span><br><span class="line"><span class="comment">     * left如果有传参为数字则为left，没有传参则为0；</span></span><br><span class="line"><span class="comment">     * right如果有传参为数字则为right，没有传参则为len-1;</span></span><br><span class="line"><span class="comment">     * 有传参可能会部分排序可能不会排序，没传参默认排序整个数组；</span></span><br><span class="line"><span class="comment">     * partitionIndex为数组界限； </span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">     <span class="keyword">var</span> len = arr.length,</span><br><span class="line">         partitionIndex,</span><br><span class="line">         left = <span class="keyword">typeof</span> left !== <span class="string">'number'</span> ? <span class="number">0</span> : left,</span><br><span class="line">         right = <span class="keyword">typeof</span> right !== <span class="string">'number'</span> ? len<span class="number">-1</span> : right;</span><br><span class="line">         <span class="comment">// 如果需排序的起始索引小于终止索引则执行排序(递归终止条件)</span></span><br><span class="line">         <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="comment">// partition的返回值作为partitionIndex来分隔数组;</span></span><br><span class="line">            <span class="comment">// 索引partitionIndex左边的元素均小于arr[partitionIndex];</span></span><br><span class="line">            <span class="comment">// 右边的元素均大于arr[partitionIndex];</span></span><br><span class="line">            partitionIndex = partition(arr, left, right);</span><br><span class="line">            <span class="comment">// 数组中大于arr[partitionIndex]的部分(索引left到partitionIndex-1)再次使用quickSort排序;</span></span><br><span class="line">            quickSort(arr, left, partitionIndex - <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//数组中大于arr[partitionIndex]的部分(索引partitionIndex+1到right)再次使用quickSort排序;</span></span><br><span class="line">            quickSort(arr, left, partitionIndex - <span class="number">1</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="comment">// 递归执行直到不满足left&lt;right;返回自身;</span></span><br><span class="line">         <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">partition</span>(<span class="params">arr, left, right</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 这部分是具体实现排序的部分;</span></span><br><span class="line"><span class="comment">     * 将left赋值给pivot, 作为参照物, 因为left在最左边, 只需要从左到右比较一遍即可判断整个数组;</span></span><br><span class="line"><span class="comment">     * index索引是arr中待交换位置;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">var</span> pivot = left,</span><br><span class="line">        index = pivot + <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// for循环从参照物arr[pivot]下一个元素arr[pivot+1]开始一直比较到子数组结束arr[right]；</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = index; i &lt;= right; i++) &#123;</span><br><span class="line">    <span class="comment">// 循环中如果有任何小于参照物的，就将他交换到index的位置，然后index向右移动到下一个位置；</span></span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt; arr[pivot]) &#123;</span><br><span class="line">            swap(arr, i, index);</span><br><span class="line">            index++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 因为每次都是交换完后index移动到下一个位置，所以在循环结束时，index仍为待交换的位置；</span></span><br><span class="line"><span class="comment">     * 此时索引pivot+1到index-1的元素都小于参照物arr[pivot]；</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">// 交换pivot和index-1索引的值之后index-1索引左边全都是小于arr[index-1]的元素；</span></span><br><span class="line">    swap(arr, pivot, index - <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 返回index-1作为拆分子数组的分界线；</span></span><br><span class="line">    <span class="keyword">return</span> index - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 普通的交换，将a[i]和a[j]的数值交换；</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">swap</span>(<span class="params">arr, i, j</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> temp = arr[i];</span><br><span class="line">    arr[i] = arr[j];</span><br><span class="line">    arr[j] = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p><code>方法一</code></p>
+<pre><code class="javascript">function quickSort(arr, left, right) {
+    /*
+     * len为数组的长度
+     * left为需要数组中参与排序的起始点；right为数组中参与排序的终止点；
+     * left如果有传参为数字则为left，没有传参则为0；
+     * right如果有传参为数字则为right，没有传参则为len-1;
+     * 有传参可能会部分排序可能不会排序，没传参默认排序整个数组；
+     * partitionIndex为数组界限； 
+     */
+     var len = arr.length,
+         partitionIndex,
+         left = typeof left !== &#39;number&#39; ? 0 : left,
+         right = typeof right !== &#39;number&#39; ? len-1 : right;
+         // 如果需排序的起始索引小于终止索引则执行排序(递归终止条件)
+         if (left &lt; right) {
+            // partition的返回值作为partitionIndex来分隔数组;
+            // 索引partitionIndex左边的元素均小于arr[partitionIndex];
+            // 右边的元素均大于arr[partitionIndex];
+            partitionIndex = partition(arr, left, right);
+            // 数组中大于arr[partitionIndex]的部分(索引left到partitionIndex-1)再次使用quickSort排序;
+            quickSort(arr, left, partitionIndex - 1);
+            //数组中大于arr[partitionIndex]的部分(索引partitionIndex+1到right)再次使用quickSort排序;
+            quickSort(arr, left, partitionIndex - 1);
+         }
+         // 递归执行直到不满足left&lt;right;返回自身;
+         return arr;
+}
+
+function partition(arr, left, right) {
+    /*
+     * 这部分是具体实现排序的部分;
+     * 将left赋值给pivot, 作为参照物, 因为left在最左边, 只需要从左到右比较一遍即可判断整个数组;
+     * index索引是arr中待交换位置;
+     */
+    var pivot = left,
+        index = pivot + 1;
+        // for循环从参照物arr[pivot]下一个元素arr[pivot+1]开始一直比较到子数组结束arr[right]；
+    for (var i = index; i &lt;= right; i++) {
+    // 循环中如果有任何小于参照物的，就将他交换到index的位置，然后index向右移动到下一个位置；
+        if (arr[i] &lt; arr[pivot]) {
+            swap(arr, i, index);
+            index++;
+        }
+    }
+    /*
+     * 因为每次都是交换完后index移动到下一个位置，所以在循环结束时，index仍为待交换的位置；
+     * 此时索引pivot+1到index-1的元素都小于参照物arr[pivot]；
+     */
+    // 交换pivot和index-1索引的值之后index-1索引左边全都是小于arr[index-1]的元素；
+    swap(arr, pivot, index - 1);
+    // 返回index-1作为拆分子数组的分界线；
+    return index - 1;
+}
+
+/*
+ * 普通的交换，将a[i]和a[j]的数值交换；
+ */
+function swap(arr, i, j) {
+    var temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+</code></pre>
 <hr>
-<p><code>方法二</code>(<em>占内存较多</em>)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">   <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * 创建len保存数组的长度，每次获取数组的长度都要实时查询不利于性能；</span></span><br><span class="line"><span class="comment">    * index作为保存取到的中间值；</span></span><br><span class="line"><span class="comment">    * pivot保存比较参照物；</span></span><br><span class="line"><span class="comment">    * left、right作为子数组的容器；</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">var</span> len = arr.length,</span><br><span class="line">        index,</span><br><span class="line">        pivot,</span><br><span class="line">        left=[],</span><br><span class="line">        right=[];</span><br><span class="line">    <span class="comment">// 如果数组只有一位，就直接返回数组,递归的终止条件；</span></span><br><span class="line">    <span class="keyword">if</span> (len &lt;= <span class="number">1</span>) <span class="keyword">return</span> arr;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取中间值的索引，使用Math.floor向下取整；</span></span><br><span class="line">    index = <span class="built_in">Math</span>.floor(len / <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用splice截取中间值，第一个参数为截取的索引，第二个参数为截取的长度；</span></span><br><span class="line">    <span class="comment">// 如果此处使用pivot=arr[index]; 那么将会出现无限递归的错误；</span></span><br><span class="line">    <span class="comment">// splice影响原数组，原数组长度减一；</span></span><br><span class="line">    pivot = arr.splice(index, <span class="number">1</span>);</span><br><span class="line">    len -= <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 小于arr[pivot]的存到left数组里，大于arr[pivot]的存到right数组；</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (pivot &gt; arr[i]) &#123;</span><br><span class="line">            left.push(arr[i]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 不断把分割的左右子数组传入quickSort，直到分割的只有一位直接返回子数组本身，递归终止；</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把每次分割的数组一层一层的用concat连接起来；</span></span><br><span class="line">    <span class="comment">// 每一层left里的元素都小于对应的pivot,right里的元素都大于对应的pivot；</span></span><br><span class="line">    <span class="keyword">return</span> quickSort(left).concat(pivot, quickSort(right));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>方法二</code>(<em>占内存较多</em>)</p>
+<pre><code class="javascript">function quickSort(arr) {
+   /*
+    * 创建len保存数组的长度，每次获取数组的长度都要实时查询不利于性能；
+    * index作为保存取到的中间值；
+    * pivot保存比较参照物；
+    * left、right作为子数组的容器；
+    */
+    var len = arr.length,
+        index,
+        pivot,
+        left=[],
+        right=[];
+    // 如果数组只有一位，就直接返回数组,递归的终止条件；
+    if (len &lt;= 1) return arr;
+
+    //获取中间值的索引，使用Math.floor向下取整；
+    index = Math.floor(len / 2);
+
+    // 使用splice截取中间值，第一个参数为截取的索引，第二个参数为截取的长度；
+    // 如果此处使用pivot=arr[index]; 那么将会出现无限递归的错误；
+    // splice影响原数组，原数组长度减一；
+    pivot = arr.splice(index, 1);
+    len -= 1;
+
+    // 小于arr[pivot]的存到left数组里，大于arr[pivot]的存到right数组；
+    for (var i = 0; i &lt; len; i++) {
+        if (pivot &gt; arr[i]) {
+            left.push(arr[i]);
+        } else {
+            right.push(arr[i]);
+        }
+    }
+    // 不断把分割的左右子数组传入quickSort，直到分割的只有一位直接返回子数组本身，递归终止；
+
+    // 把每次分割的数组一层一层的用concat连接起来；
+    // 每一层left里的元素都小于对应的pivot,right里的元素都大于对应的pivot；
+    return quickSort(left).concat(pivot, quickSort(right));
+}
+</code></pre>
 <hr>
-<h4 id="判断一个单词是否是回文"><a href="#判断一个单词是否是回文" class="headerlink" title="判断一个单词是否是回文"></a>判断一个单词是否是回文</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkPalindrom</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> str == str.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="判断一个单词是否是回文"><a href="#判断一个单词是否是回文" class="headerlink" title="判断一个单词是否是回文"></a>判断一个单词是否是回文</h4><pre><code class="javascript">function checkPalindrom(str) {
+    return str == str.split(&#39;&#39;).reverse().join(&#39;&#39;)
+}
+</code></pre>
 <hr>
 <h4 id="去掉一组整型数组重复的值"><a href="#去掉一组整型数组重复的值" class="headerlink" title="去掉一组整型数组重复的值"></a>去掉一组整型数组重复的值</h4><blockquote>
 <p>比如输入：[1, 13, 24, 11, 11, 14, 1, 2]<br>输出：[1, 13, 24, 11, 14, 2]</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">13</span>, <span class="number">24</span>, <span class="number">11</span>, <span class="number">11</span>, <span class="number">14</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="keyword">let</span> unique = <span class="function"><span class="keyword">function</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> hashTable = &#123;&#125;</span><br><span class="line">  <span class="keyword">let</span> data = []</span><br><span class="line">  arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item, index, arr</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (!hashTable[arr[index]]) &#123;</span><br><span class="line">          hashTable[arr[index]] = <span class="literal">true</span></span><br><span class="line">          data.push(arr[index])</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> data</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> result = unique(arr)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'result = '</span>, result)</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let arr = [1, 13, 24, 11, 11, 14, 1, 2]
+let unique = function(arr) {
+  let hashTable = {}
+  let data = []
+  arr.forEach(function(item, index, arr) {
+      if (!hashTable[arr[index]]) {
+          hashTable[arr[index]] = true
+          data.push(arr[index])
+      }
+  })
+  return data
+}
+let result = unique(arr)
+console.log(&#39;result = &#39;, result)
+</code></pre>
 <hr>
 <h4 id="Roman-to-Integer"><a href="#Roman-to-Integer" class="headerlink" title="Roman to Integer"></a>Roman to Integer</h4><blockquote>
 <p>比如输入：’III’<br>输出：3</p>
 </blockquote>
-<h5 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h5><p>首先建一个罗马字符与阿拉伯数字的字典映射，然后考虑多个罗马字符相加（考虑两种情况，若前一个字符大于下一个字符，则正常相加。若前一个字符小于下一个字符，则该字符的组合结果为差值）。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="keyword">var</span> romanToInt = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">     <span class="comment">// 建立映射字典</span></span><br><span class="line">     <span class="keyword">let</span> dic = &#123;</span><br><span class="line">         <span class="string">'I'</span>: <span class="number">1</span>,</span><br><span class="line">         <span class="string">'V'</span>: <span class="number">5</span>,</span><br><span class="line">         <span class="string">'X'</span>: <span class="number">10</span>,</span><br><span class="line">         <span class="string">'L'</span>: <span class="number">50</span>,</span><br><span class="line">         <span class="string">'C'</span>: <span class="number">100</span>,</span><br><span class="line">         <span class="string">'D'</span>: <span class="number">500</span>,</span><br><span class="line">         <span class="string">'M'</span>: <span class="number">1000</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span> (s.length === <span class="number">0</span>) <span class="keyword">return</span></span><br><span class="line">     <span class="comment">// string to array</span></span><br><span class="line">     <span class="keyword">let</span> tmpArr = s.split(<span class="string">''</span>)</span><br><span class="line">     <span class="keyword">let</span> result = <span class="number">0</span></span><br><span class="line">     <span class="keyword">let</span> preVal = <span class="number">0</span></span><br><span class="line">     tmpArr.forEach(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">         <span class="keyword">if</span> (index === <span class="number">0</span>) &#123;</span><br><span class="line">             preVal = dic[item]</span><br><span class="line">             result = dic[item]</span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">             <span class="keyword">if</span> (dic[item] &gt; preVal) &#123;</span><br><span class="line">                 result = result + dic[item] - <span class="number">2</span> * preVal</span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                 result += dic[item]</span><br><span class="line">             &#125;</span><br><span class="line">             preVal = dic[item]</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;)</span><br><span class="line">     <span class="keyword">return</span> result  </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h5><p>首先建一个罗马字符与阿拉伯数字的字典映射，然后考虑多个罗马字符相加（考虑两种情况，若前一个字符大于下一个字符，则正常相加。若前一个字符小于下一个字符，则该字符的组合结果为差值）。</p>
+<pre><code class="javascript">/**
+ * @param {string} s
+ * @return {number}
+ */
+ var romanToInt = function(s) {
+     // 建立映射字典
+     let dic = {
+         &#39;I&#39;: 1,
+         &#39;V&#39;: 5,
+         &#39;X&#39;: 10,
+         &#39;L&#39;: 50,
+         &#39;C&#39;: 100,
+         &#39;D&#39;: 500,
+         &#39;M&#39;: 1000
+     }
+     if (s.length === 0) return
+     // string to array
+     let tmpArr = s.split(&#39;&#39;)
+     let result = 0
+     let preVal = 0
+     tmpArr.forEach((item, index) =&gt; {
+         if (index === 0) {
+             preVal = dic[item]
+             result = dic[item]
+         } else {
+             if (dic[item] &gt; preVal) {
+                 result = result + dic[item] - 2 * preVal
+             } else {
+                 result += dic[item]
+             }
+             preVal = dic[item]
+         }
+     })
+     return result  
+ }
+</code></pre>
 
   </section>
 

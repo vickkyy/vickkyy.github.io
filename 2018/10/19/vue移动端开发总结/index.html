@@ -225,27 +225,41 @@ classes that you can use:
 <li>返回顶部：根据touchend事件判断document.body.scrollTop的值是否大于1000来控制返回顶部按钮的显示和隐藏。</li>
 <li>移动端H5实现上传图片：使用H5 API中的readAsDataURL, 获取图片返回的base64编码data-uri对象，然后去请求后台的返回图片URL。在处理图片显示的时候，会有两种选择：(1) 不请求后台，直接渲染图片 (2) base64请求后台，渲染图片。此外就是删除的时候保持和数据库同步。</li>
 <li>移动端不支持select, 需用div模拟select下拉效果。</li>
-<li><p>请求参数：传递参数的时候包含#的url, 服务端有可能不识别#, 需要编码的可以使用encodeURI(), encodeURIComponent();<br>二者的区别：<br>encodeURI(), decodeURI(): 操作的是完整的 URI；这俩函数假定 URI 中的任何保留字符都有特殊意义，所有不会编码它们.<br>encodeURIComponent(), decodeURIComponent(): 操作的是组成 URI 的个别组件；这俩函数假定任何保留字符都代表普通文本，所以必须编码它们，所以它们（保留字符）出现在一个完整 URI 的组件里面时不会被解释成保留字符了。<br>更多请参考：<a href="https://www.cnblogs.com/shuiyi/p/5277233.html" target="_blank" rel="noopener">https://www.cnblogs.com/shuiyi/p/5277233.html</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> url = <span class="string">'http://www.so.com?a=1&amp;b=2&amp;c="中文"'</span></span><br><span class="line"><span class="keyword">let</span> eu = <span class="built_in">encodeURI</span>(url)</span><br><span class="line"><span class="keyword">let</span> euc = <span class="built_in">encodeURIComponent</span>(url)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'eu = '</span>, eu)   <span class="comment">//http://www.so.com?a=1&amp;b=2&amp;c=%22%E4%B8%AD%E6%96%87%22</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'euc = '</span>, euc) <span class="comment">//http%3A%2F%2Fwww.so.com%3Fa%3D1%26b%3D2%26c%3D%22%E4%B8%AD%E6%96%87%22</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Hybrid: 和原生交互的时候，给IOS传递参数的时候，使用window.location.href=”next://“, 那么IOS就可以接收到next这个参数。</p>
-</li>
-<li><p>导航钩子: 判断离开一个路由的时候执行一个方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">from</span>.path == <span class="string">'XX'</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'change route'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  next()</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当数据多的时候可使用路由外面包裹一层<code>keep-alive</code>,要加载<code>router-view</code>中，这样再次进入这个路由的时候就不会重新加载了，比如进入页面已看到14行，然后点击进入下一个页面，返回的时候直接定位在14行。<br>更多请参考：<a href="https://www.jianshu.com/p/0b0222954483" target="_blank" rel="noopener">https://www.jianshu.com/p/0b0222954483</a></p>
-</li>
+<li>请求参数：传递参数的时候包含#的url, 服务端有可能不识别#, 需要编码的可以使用encodeURI(), encodeURIComponent();<br>二者的区别：<br>encodeURI(), decodeURI(): 操作的是完整的 URI；这俩函数假定 URI 中的任何保留字符都有特殊意义，所有不会编码它们.<br>encodeURIComponent(), decodeURIComponent(): 操作的是组成 URI 的个别组件；这俩函数假定任何保留字符都代表普通文本，所以必须编码它们，所以它们（保留字符）出现在一个完整 URI 的组件里面时不会被解释成保留字符了。<br>更多请参考：<a href="https://www.cnblogs.com/shuiyi/p/5277233.html" target="_blank" rel="noopener">https://www.cnblogs.com/shuiyi/p/5277233.html</a><br><code>`</code>javascript<br>let url = ‘<a href="http://www.so.com?a=1&amp;b=2&amp;c=&quot;中文&quot;&#39;" target="_blank" rel="noopener">http://www.so.com?a=1&amp;b=2&amp;c=&quot;中文&quot;&#39;</a><br>let eu = encodeURI(url)<br>let euc = encodeURIComponent(url)</li>
+</ol>
+<p>console.log(‘eu = ‘, eu)   //<a href="http://www.so.com?a=1&amp;b=2&amp;c=%22%E4%B8%AD%E6%96%87%22" target="_blank" rel="noopener">http://www.so.com?a=1&amp;b=2&amp;c=%22%E4%B8%AD%E6%96%87%22</a><br>console.log(‘euc = ‘, euc) //http%3A%2F%2F<a href="http://www.so.com%3Fa%3D1%26b%3D2%26c%3D%22%E4%B8%AD%E6%96%87%22" target="_blank" rel="noopener">www.so.com%3Fa%3D1%26b%3D2%26c%3D%22%E4%B8%AD%E6%96%87%22</a></p>
+<pre><code>5. Hybrid: 和原生交互的时候，给IOS传递参数的时候，使用window.location.href=&quot;next://&quot;, 那么IOS就可以接收到next这个参数。
+6. 导航钩子: 判断离开一个路由的时候执行一个方法
+```javascript
+router.beforeEach((to, from, next) =&gt; {
+  if (from.path == &#39;XX&#39;) {
+    console.log(&#39;change route&#39;)
+  }
+  next()
+})
+export default router
+</code></pre><ol start="7">
+<li>当数据多的时候可使用路由外面包裹一层<code>keep-alive</code>,要加载<code>router-view</code>中，这样再次进入这个路由的时候就不会重新加载了，比如进入页面已看到14行，然后点击进入下一个页面，返回的时候直接定位在14行。<br>更多请参考：<a href="https://www.jianshu.com/p/0b0222954483" target="_blank" rel="noopener">https://www.jianshu.com/p/0b0222954483</a></li>
 <li>如何把build的项目在本地跑起来，把config下面的index.js中的assetsPublicPath的都改为<code>./</code></li>
 <li>地址栏添加icon的时候因为用的是webpack大包的，所以这个icon要放在static文件下。</li>
-<li><p>Vue设置请求头的时候：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Vue.http.interceptors.push(<span class="function">(<span class="params">request, next</span>) =&gt;</span> &#123;</span><br><span class="line">  request.headers.set(<span class="string">'loginCode'</span>, <span class="keyword">this</span>.loginCode)</span><br><span class="line">  next(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<li>Vue设置请求头的时候：<pre><code class="javascript">Vue.http.interceptors.push((request, next) =&gt; {
+request.headers.set(&#39;loginCode&#39;, this.loginCode)
+next((response) =&gt; {
+return response
+})
+})
+</code></pre>
 </li>
-<li><p>插件开发：声明插件 =&gt; 写插件 =&gt; 注册插件 =&gt; 使用插件</p>
+<li>插件开发：声明插件 =&gt; 写插件 =&gt; 注册插件 =&gt; 使用插件</li>
+<li><pre><code class="javascript">Vue.mixin({
+// 这里的代码会在每个组件（包括根组件）的created执行之前执行
+created: function () {
+console.log(&#39;组件开始加载&#39;)
+}
+})
+</code></pre>
 </li>
-<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Vue.mixin(&#123;</span><br><span class="line">  <span class="comment">// 这里的代码会在每个组件（包括根组件）的created执行之前执行</span></span><br><span class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'组件开始加载'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>假如是写给例如methods属性的某个方法，组件里若本身有test方法，并不会先执行插件的test方法，再执行组件的test方法，而是只执行其中的一个，并且优先执行组件本身的同名方法。</p>
-</li>
+<li>假如是写给例如methods属性的某个方法，组件里若本身有test方法，并不会先执行插件的test方法，再执行组件的test方法，而是只执行其中的一个，并且优先执行组件本身的同名方法。</li>
 <li>想获取子组件的值是通过自定义事件获取的，子组件<code>this.$emit(eventName, params)</code>, 父组件监听事件获取参数<code>v-on:eventName=eventName,eventName(params){console.log(params)}</code></li>
 <li>移动端一般采用什么布局？移动端设计稿尺寸是怎样的？</li>
 </ol>
@@ -261,18 +275,30 @@ classes that you can use:
 <li>rem直接参照html标签字体大小，并且所有使用rem单位的都是参照html标签</li>
 </ul>
 <ol start="17">
-<li><p>移动端都使用过哪些meta标签？</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--1:设置视口宽度 缩放比例--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"width='device-width, initial-scale=1.0, maxinum-scale=1.0, user-scalable=0' name='viewport'"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--2:忽略将数字变为电话号码--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"telephone=no"</span> <span class="attr">name</span>=<span class="string">"format-detection"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--3:忽略识别邮箱--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"email=no"</span> <span class="attr">name</span>=<span class="string">"format-detection"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--4:IOS中Safari允许全屏浏览--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"yes"</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-capable"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li>移动端都使用过哪些meta标签？<pre><code class="html">&lt;!--1:设置视口宽度 缩放比例--&gt;
+&lt;meta content=&quot;width=&#39;device-width, initial-scale=1.0, maxinum-scale=1.0, user-scalable=0&#39; name=&#39;viewport&#39;&quot;&gt;
+&lt;!--2:忽略将数字变为电话号码--&gt;
+&lt;meta content=&quot;telephone=no&quot; name=&quot;format-detection&quot;&gt;
+&lt;!--3:忽略识别邮箱--&gt;
+&lt;meta content=&quot;email=no&quot; name=&quot;format-detection&quot;&gt;
+&lt;!--4:IOS中Safari允许全屏浏览--&gt;
+&lt;meta content=&quot;yes&quot; name=&quot;apple-mobile-web-app-capable&quot;&gt;
+</code></pre>
 </li>
-<li><p>移动端click 300毫秒延迟原因？</p>
-<blockquote>
+<li>移动端click 300毫秒延迟原因？<blockquote>
 <p>移动端浏览器会有一些默认的行为，比如双击缩放、双击滚动。这些行为，尤其是双击缩放，主要是为桌面网站在移动端的浏览体验设计的。而在用户对页面进行操作的时候，移动端浏览器会优先判断用户是否要触发默认的行为。</p>
 </blockquote>
 </li>
 <li></li>
 </ol>
 <ul>
-<li>通过绑定窗口改变事件，监听键盘的弹出。然后去改变固定定位元素的位置。默认键盘的宽度应该是页面的2分之一。所以位移的距离改为键盘的二分之一就可以。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// $('.main')就是固定定位的元素</span></span><br><span class="line">  <span class="keyword">if</span> ($(<span class="string">'.main'</span>).css(<span class="string">'tap'</span>).replace(<span class="string">'px'</span>, <span class="string">''</span>) != <span class="number">0</span>) &#123;</span><br><span class="line">    $(<span class="string">'.main'</span>).css(<span class="string">'top'</span>, <span class="number">0</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>通过绑定窗口改变事件，监听键盘的弹出。然后去改变固定定位元素的位置。默认键盘的宽度应该是页面的2分之一。所以位移的距离改为键盘的二分之一就可以。<pre><code class="javascript">window.onresize = function () {
+// $(&#39;.main&#39;)就是固定定位的元素
+if ($(&#39;.main&#39;).css(&#39;tap&#39;).replace(&#39;px&#39;, &#39;&#39;) != 0) {
+  $(&#39;.main&#39;).css(&#39;top&#39;, 0)
+}
+}
+</code></pre>
 </li>
 </ul>
 <h4 id="Vue部分"><a href="#Vue部分" class="headerlink" title="Vue部分"></a>Vue部分</h4>

@@ -225,11 +225,79 @@ classes that you can use:
 <blockquote>
 <p>Given nums = [2, 7, 11, 15], target = 9,<br>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].</p>
 </blockquote>
-<p><code>My Answer</code>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; target</span></span><br><span class="line"><span class="comment"> * @return &#123;number[]&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> result = [];</span><br><span class="line">    <span class="keyword">var</span> len = nums.length;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++) &#123;</span><br><span class="line">       <span class="keyword">var</span> cur = nums[i];</span><br><span class="line">       <span class="keyword">var</span> last = nums.slice(i+<span class="number">1</span>, len).indexOf(target-cur)</span><br><span class="line">        <span class="keyword">if</span>(last &gt; <span class="number">-1</span>)&#123;</span><br><span class="line">            result[<span class="number">0</span>] = i;</span><br><span class="line">            result[<span class="number">1</span>] = last + i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><code>My Answer</code>:</p>
+<pre><code class="javascript">/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+   var result = [];
+    var len = nums.length;
+    for(i=0; i&lt;len; i++) {
+       var cur = nums[i];
+       var last = nums.slice(i+1, len).indexOf(target-cur)
+        if(last &gt; -1){
+            result[0] = i;
+            result[1] = last + i + 1;
+            return result;
+        }      
+    }
+    return;
+};
+</code></pre>
 <p><code>Conclusion</code>: 太粗暴，耗时太久，待后续优化。</p>
-<p><code>别人家的代码</code>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">@param &#123;number[]&#125; nums</span></span><br><span class="line"><span class="comment">@param &#123;number&#125; target</span></span><br><span class="line"><span class="comment">@return &#123;number[]&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> numLength = nums.length;</span><br><span class="line">    <span class="keyword">if</span>(numLength&lt;<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    <span class="keyword">var</span> hashT=&#123;&#125;;    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; numLength; i++)</span><br><span class="line">    &#123;</span><br><span class="line">         <span class="keyword">if</span>(hashT[target - nums[i]] || hashT[target - nums[i]] === <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> [hashT[target - nums[i]], i];</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">if</span>(!hashT[nums[i]])</span><br><span class="line">        &#123;            </span><br><span class="line">            hashT[nums[i]]=i; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><code>别人家的代码</code>: </p>
+<pre><code class="javascript">/**
+
+@param {number[]} nums
+@param {number} target
+@return {number[]}
+*/
+var twoSum = function(nums, target) {
+    var numLength = nums.length;
+    if(numLength&lt;2)
+        return nums;
+    var hashT={};    
+    for(var i = 0; i &lt; numLength; i++)
+    {
+         if(hashT[target - nums[i]] || hashT[target - nums[i]] === 0)
+        {
+            return [hashT[target - nums[i]], i];
+        } 
+        if(!hashT[nums[i]])
+        {            
+            hashT[nums[i]]=i; 
+        }
+    }    
+};
+</code></pre>
 <hr>
-<h3 id="Problem-2-Reverse-Integer"><a href="#Problem-2-Reverse-Integer" class="headerlink" title="Problem 2: Reverse Integer"></a><strong>Problem 2: Reverse Integer</strong></h3><p><code>Problem description</code>:<br>Reverse digits of an integer.<br>Example1: x = 123, return 321<br>Example2: x = -123, return -321<br>Note:<br>The input is assumed to be a 32-bit signed integer. Your function should return 0 when the reversed integer overflows.<br><code>My Answer</code>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; x</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> reverse = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = x.toString().split(<span class="string">''</span>);</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> result = arr.reverse().join(<span class="string">''</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">parseInt</span>(result) - <span class="number">2147483647</span> &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">parseInt</span>(result)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> num = <span class="built_in">parseInt</span>(x.toString().slice(<span class="number">1</span>).split(<span class="string">''</span>).reverse().join(<span class="string">''</span>));</span><br><span class="line">        <span class="keyword">if</span> (num - <span class="number">2147483647</span> &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="number">0</span> - num);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Problem-2-Reverse-Integer"><a href="#Problem-2-Reverse-Integer" class="headerlink" title="Problem 2: Reverse Integer"></a><strong>Problem 2: Reverse Integer</strong></h3><p><code>Problem description</code>:<br>Reverse digits of an integer.<br>Example1: x = 123, return 321<br>Example2: x = -123, return -321<br>Note:<br>The input is assumed to be a 32-bit signed integer. Your function should return 0 when the reversed integer overflows.<br><code>My Answer</code>:</p>
+<pre><code class="javascript">/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function(x) {
+    var arr = x.toString().split(&#39;&#39;);
+    if (x &gt;= 0) {
+        var result = arr.reverse().join(&#39;&#39;);
+        if (parseInt(result) - 2147483647 &lt; 0) {
+            return parseInt(result)
+        } else {
+            return 0;
+        }
+
+    } else {
+        var num = parseInt(x.toString().slice(1).split(&#39;&#39;).reverse().join(&#39;&#39;));
+        if (num - 2147483647 &lt; 0) {
+            return (0 - num);
+        } else {
+            return 0;
+        }
+    }
+};
+</code></pre>
 <p><code>Conclusion</code>:  效率较差，时间开销大。</p>
 <hr>
 <h3 id="Problem-3-Hamming-Distance"><a href="#Problem-3-Hamming-Distance" class="headerlink" title="Problem 3: Hamming Distance"></a><strong>Problem 3: Hamming Distance</strong></h3><p><code>Problem Description</code>:<br>The Hamming distance between two integers is the number of positions at which the corresponding bits are different.</p>
@@ -242,8 +310,25 @@ classes that you can use:
 <blockquote>
 <p>The above arrows point to positions where the corresponding bits are different.</p>
 </blockquote>
-<p><code>My Answer</code>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; x</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; y</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> hammingDistance = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> z = <span class="built_in">parseInt</span>((x^y).toString(<span class="number">2</span>), <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span>(count=<span class="number">0</span>; z; ++count) &#123;</span><br><span class="line">        z = z &amp; (z<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p><code>Conclusion</code>:<br><em>十进制转换为二进制</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num.toString(<span class="number">2</span>));</span><br></pre></td></tr></table></figure></p>
+<p><code>My Answer</code>: </p>
+<pre><code class="javascript">/**
+ * @param {number} x
+ * @param {number} y
+ * @return {number}
+ */
+var hammingDistance = function(x, y) {
+    var count = 0;
+    var z = parseInt((x^y).toString(2), 2);
+    for(count=0; z; ++count) {
+        z = z &amp; (z-1);
+    }
+    return count;
+};
+</code></pre>
+<p><code>Conclusion</code>:<br><em>十进制转换为二进制</em></p>
+<pre><code class="javascript">var num = 100;
+console.log(num.toString(2));
+</code></pre>
 <blockquote>
 <p>toString()方法可把一个 Number 对象转换为一个字符串，并返回结果。</p>
 </blockquote>
@@ -260,7 +345,10 @@ classes that you can use:
 <blockquote>
 <p>当调用该方法的对象不是 Number 时抛出 TypeError 异常。</p>
 </blockquote>
-<p><em>二进制转换为十进制</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1100100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(num, <span class="number">2</span>));</span><br></pre></td></tr></table></figure></p>
+<p><em>二进制转换为十进制</em></p>
+<pre><code class="javascript">var num = 1100100;
+console.log(parseInt(num, 2));
+</code></pre>
 <blockquote>
 <p>parseInt() 函数可解析一个字符串，并返回一个整数。</p>
 </blockquote>
@@ -286,17 +374,120 @@ classes that you can use:
 </blockquote>
 <hr>
 <h3 id="Problem-4-palindrome"><a href="#Problem-4-palindrome" class="headerlink" title="Problem 4: palindrome"></a><strong>Problem 4: palindrome</strong></h3><p><code>Problem Description</code><br>Determine whether an integer is a palindrome. Do this without extra space.</p>
-<p><code>My Answer</code>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; x</span></span><br><span class="line"><span class="comment"> * @return &#123;boolean&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isPalindrome = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> x_reverse = <span class="built_in">parseInt</span>(x.toString().split(<span class="string">''</span>).reverse().join(<span class="string">''</span>));</span><br><span class="line">    <span class="keyword">if</span> (x == x_reverse) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><code>My Answer</code>:</p>
+<pre><code class="javascript">/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function(x) {
+    if(x&lt;0){
+        return false;
+    }
+    var x_reverse = parseInt(x.toString().split(&#39;&#39;).reverse().join(&#39;&#39;));
+    if (x == x_reverse) {
+        return true;
+    }else {
+        return false;
+    }
+};
+</code></pre>
 <p><code>Conclusion</code>: 依然是时间开销大。。。</p>
 <hr>
 <h3 id="Problem-5-Longest-Common-Prefix"><a href="#Problem-5-Longest-Common-Prefix" class="headerlink" title="Problem 5: Longest Common Prefix"></a><strong>Problem 5: Longest Common Prefix</strong></h3><p><code>Problem Description</code><br>Write a function to find the longest common prefix string amongst an array of strings.</p>
-<p><code>My Answer</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string[]&#125; strs</span></span><br><span class="line"><span class="comment"> * @return &#123;string&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> longestCommonPrefix = <span class="function"><span class="keyword">function</span>(<span class="params">strs</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> getCommon = <span class="function"><span class="keyword">function</span>(<span class="params">str1, str2</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> result = [];</span><br><span class="line">            <span class="keyword">var</span> str1_array = str1.split(<span class="string">''</span>);</span><br><span class="line">            <span class="keyword">var</span> str2_array = str2.split(<span class="string">''</span>);</span><br><span class="line">            <span class="keyword">if</span> ((str1_array.length === <span class="number">0</span>) || (str2_array.length === <span class="number">0</span>)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">var</span> len = ((str1_array.length &gt; str2_array.length) ? str2_array.length : str1_array.length);</span><br><span class="line">                <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (str1[i] == str2[i]) &#123;</span><br><span class="line">                        result.push(str1[i]);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span> (i === <span class="number">0</span>) &#123;</span><br><span class="line">                            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="keyword">return</span> result.join(<span class="string">''</span>);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> result.join(<span class="string">''</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> length = strs.length;</span><br><span class="line">        <span class="keyword">if</span> (length === <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (length === <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> commonPre = getCommon(strs[<span class="number">0</span>], strs[<span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> j=<span class="number">2</span>; j &lt; length; j++) &#123;</span><br><span class="line">                commonPre = getCommon(commonPre, strs[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> commonPre;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p><code>别人家的代码</code>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> longestCommonPrefix = <span class="function"><span class="keyword">function</span>(<span class="params">strs</span>) </span>&#123;</span><br><span class="line"><span class="meta">    'use strict'</span>;</span><br><span class="line">    <span class="keyword">if</span> (strs === <span class="literal">undefined</span> || strs.length === <span class="number">0</span>) &#123; <span class="keyword">return</span> <span class="string">''</span>; &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> strs.reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (prev[i] &amp;&amp; next[i] &amp;&amp; prev[i] === next[i]) i++;</span><br><span class="line">        <span class="keyword">return</span> prev.slice(<span class="number">0</span>, i);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><code>My Answer</code></p>
+<pre><code class="javascript">/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function(strs) {
+    var getCommon = function(str1, str2) {
+            var result = [];
+            var str1_array = str1.split(&#39;&#39;);
+            var str2_array = str2.split(&#39;&#39;);
+            if ((str1_array.length === 0) || (str2_array.length === 0)) {
+                return &quot;&quot;;
+            } else {
+                var len = ((str1_array.length &gt; str2_array.length) ? str2_array.length : str1_array.length);
+                for (i = 0; i &lt; len; i++) {
+                    if (str1[i] == str2[i]) {
+                        result.push(str1[i]);
+                    } else {
+                        if (i === 0) {
+                            return &quot;&quot;;
+                        } else {
+                            return result.join(&#39;&#39;);
+                        }
+                    }
+                }
+                return result.join(&#39;&#39;);
+            }
+        }
+
+        var length = strs.length;
+        if (length === 0) {
+            return &quot;&quot;;
+        } else if (length === 1) {
+            return strs[0];
+        } else {
+            var commonPre = getCommon(strs[0], strs[1]);
+            for (var j=2; j &lt; length; j++) {
+                commonPre = getCommon(commonPre, strs[j]);
+            }
+            return commonPre;
+        }
+};
+</code></pre>
+<p><code>别人家的代码</code>:</p>
+<pre><code class="javascript">var longestCommonPrefix = function(strs) {
+    &#39;use strict&#39;;
+    if (strs === undefined || strs.length === 0) { return &#39;&#39;; }
+
+    return strs.reduce((prev, next) =&gt; {
+        let i = 0;
+        while (prev[i] &amp;&amp; next[i] &amp;&amp; prev[i] === next[i]) i++;
+        return prev.slice(0, i);
+    });
+};
+</code></pre>
 <p><code>Conclusion</code>:<br>时间开销有待优化。<br>reudce <a href="https://aotu.io/notes/2016/04/14/js-reduce/index.html" target="_blank" rel="noopener">https://aotu.io/notes/2016/04/14/js-reduce/index.html</a></p>
 <hr>
 <h3 id="Problem-6-Valid-Parentheses"><a href="#Problem-6-Valid-Parentheses" class="headerlink" title="Problem 6: Valid Parentheses"></a><strong>Problem 6: Valid Parentheses</strong></h3><p><code>Problem Description</code><br>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p>
 <p>The brackets must close in the correct order, “()” and “()[]{}” are all valid but “(]” and “([)]” are not.</p>
-<p><code>My Answer</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;boolean&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">    <span class="keyword">var</span> isValid = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> left = [<span class="string">'('</span>,<span class="string">'&#123;'</span>,<span class="string">'['</span>];</span><br><span class="line">    <span class="keyword">var</span> arr = [];</span><br><span class="line">    <span class="keyword">if</span>( s === <span class="string">''</span> || (s.length % <span class="number">2</span> !== <span class="number">0</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">var</span> j=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;s.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(left.indexOf(s[i]) &gt; <span class="number">-1</span>)&#123;</span><br><span class="line">            arr.push(s[i]);</span><br><span class="line">            j++;</span><br><span class="line">            <span class="keyword">if</span>( j &gt; s.length/<span class="number">2</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> ss = arr.pop();</span><br><span class="line">            <span class="keyword">if</span>(s[i] === <span class="string">")"</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span>(ss !== <span class="string">"("</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(s[i] === <span class="string">"&#125;"</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span>(ss !== <span class="string">"&#123;"</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(ss !== <span class="string">"["</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><code>My Answer</code></p>
+<pre><code class="javascript">/**
+ * @param {string} s
+ * @return {boolean}
+ */
+    var isValid = function(s) {
+    var left = [&#39;(&#39;,&#39;{&#39;,&#39;[&#39;];
+    var arr = [];
+    if( s === &#39;&#39; || (s.length % 2 !== 0)) return false;
+    var j=0;
+    for(i=0; i&lt;s.length; i++) {
+        if(left.indexOf(s[i]) &gt; -1){
+            arr.push(s[i]);
+            j++;
+            if( j &gt; s.length/2) return false;
+        }else {
+            var ss = arr.pop();
+            if(s[i] === &quot;)&quot;) {
+                if(ss !== &quot;(&quot;) {
+                    return false;
+                }
+            } else if(s[i] === &quot;}&quot;) {
+                if(ss !== &quot;{&quot;) {
+                    return false;
+                }
+            } else {
+                if(ss !== &quot;[&quot;) {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+};
+</code></pre>
 
   </section>
 

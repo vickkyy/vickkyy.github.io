@@ -16,18 +16,18 @@
     
     
 
-    <meta name="description" content="数组方法es5  索引方法   indexOf() 12let arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]arr.indexOf(&apos;b&apos;) // return 1  lastIndexOf()    迭代方法   ForEach() map() filter() some() every()   归并方法   reduce() reduceRight()  基本数据类型： undefinede判断">
+    <meta name="description" content="数组方法es5  索引方法   indexOf()let arr = [&amp;#39;a&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;c&amp;#39;] arr.indexOf(&amp;#39;b&amp;#39;) // return 1   lastIndexOf()   迭代方法   ForEach() map() filter() some() every()   归并方法   reduce() reduc">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js学习笔记 | Vickkyy">
 <meta property="og:url" content="http://yoursite.com/2018/09/22/js学习笔记/index.html">
 <meta property="og:site_name" content="Vickkyy">
-<meta property="og:description" content="数组方法es5  索引方法   indexOf() 12let arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]arr.indexOf(&apos;b&apos;) // return 1  lastIndexOf()    迭代方法   ForEach() map() filter() some() every()   归并方法   reduce() reduceRight()  基本数据类型： undefinede判断">
+<meta property="og:description" content="数组方法es5  索引方法   indexOf()let arr = [&amp;#39;a&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;c&amp;#39;] arr.indexOf(&amp;#39;b&amp;#39;) // return 1   lastIndexOf()   迭代方法   ForEach() map() filter() some() every()   归并方法   reduce() reduc">
 <meta property="og:locale" content="English">
 <meta property="og:updated_time" content="2019-05-06T08:40:00.608Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js学习笔记 | Vickkyy">
-<meta name="twitter:description" content="数组方法es5  索引方法   indexOf() 12let arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]arr.indexOf(&apos;b&apos;) // return 1  lastIndexOf()    迭代方法   ForEach() map() filter() some() every()   归并方法   reduce() reduceRight()  基本数据类型： undefinede判断">
+<meta name="twitter:description" content="数组方法es5  索引方法   indexOf()let arr = [&amp;#39;a&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;c&amp;#39;] arr.indexOf(&amp;#39;b&amp;#39;) // return 1   lastIndexOf()   迭代方法   ForEach() map() filter() some() every()   归并方法   reduce() reduc">
     
     
     
@@ -226,11 +226,11 @@ classes that you can use:
 <li>索引方法</li>
 </ol>
 <ul>
-<li><p>indexOf()</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line">arr.indexOf(<span class="string">'b'</span>) <span class="comment">// return 1</span></span><br></pre></td></tr></table></figure>
+<li>indexOf()<pre><code class="javascript">let arr = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+arr.indexOf(&#39;b&#39;) // return 1
+</code></pre>
 </li>
-<li><p>lastIndexOf()</p>
-</li>
+<li>lastIndexOf()</li>
 </ul>
 <ol start="2">
 <li>迭代方法</li>
@@ -257,22 +257,32 @@ classes that you can use:
 <li>使用<code>typeof</code>操作符，对未定义对变量检测时只能使用这种方式，要不然会出现报错。</li>
 </ul>
 <ol start="2">
-<li>void 0<br><code>undefined</code> 作为局部变量使用是可以被重写的，那么如果使用下面这种判断方式，是有风险的：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ( data === undefinede) &#123;</span><br><span class="line">  <span class="comment">// todo</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>void 0<br><code>undefined</code> 作为局部变量使用是可以被重写的，那么如果使用下面这种判断方式，是有风险的：</p>
+<pre><code class="javascript">if ( data === undefinede) {
+// todo
+}
+</code></pre>
+<p>为避免上述情况，使用 <code>void</code> 运算符。官方解释，使用 <code>void</code> 对后面对表达式求值，无论结果是多少，都会返回原始值 <code>undefined</code>。因此可以用 <code>void 0</code>来代替 <code>undefined</code> 进行判断，因为 <code>void 0</code> 始终返回对都是原始值 <code>undefined</code>。</p>
+<pre><code class="javascript">var data;
+console.log(data === void 0); // true
+</code></pre>
 </li>
-</ol>
-<p>为避免上述情况，使用 <code>void</code> 运算符。官方解释，使用 <code>void</code> 对后面对表达式求值，无论结果是多少，都会返回原始值 <code>undefined</code>。因此可以用 <code>void 0</code>来代替 <code>undefined</code> 进行判断，因为 <code>void 0</code> 始终返回对都是原始值 <code>undefined</code>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data;</span><br><span class="line"><span class="built_in">console</span>.log(data === <span class="keyword">void</span> <span class="number">0</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
-<ol start="3">
-<li>Null类型</li>
+<li><p>Null类型</p>
+</li>
 </ol>
 <ul>
-<li><p>定义<br>Null类型是第二个只有一个值的数据类型，这个特殊的值就是null。值 null 是一个字面量，它不像undefined 是全局对象的一个属性。从逻辑角度来看，null值表示一个空对象指针，指示变量未指向任何对象。把 null 作为尚未创建的对象，也许更好理解。在 APIs 中，null 常在返回类型是对象，但没关联值的地方使用，就像下面一个例子。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//document.getElementById() 可以返回对拥有指定 ID 的第一个对象的引用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> $container = <span class="built_in">document</span>.getElementById(<span class="string">"container"</span>); <span class="comment">// 注意:container是不存在的</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log($container); <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>typeof null<br>当我们使用typeof操作符检测null值，我们理所应当地认为应该返”Null”类型呀，但是事实返回的类型却是”object”。</p>
-</li>
+<li>定义<br>Null类型是第二个只有一个值的数据类型，这个特殊的值就是null。值 null 是一个字面量，它不像undefined 是全局对象的一个属性。从逻辑角度来看，null值表示一个空对象指针，指示变量未指向任何对象。把 null 作为尚未创建的对象，也许更好理解。在 APIs 中，null 常在返回类型是对象，但没关联值的地方使用，就像下面一个例子。<br><code>`</code>javascript<br>//document.getElementById() 可以返回对拥有指定 ID 的第一个对象的引用</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = <span class="literal">null</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> data); <span class="comment">// "object"</span></span><br></pre></td></tr></table></figure>
-<p>是不是很奇怪？其实我们可以从两方面来理解这个结果</p>
+<p>var $container = document.getElementById(“container”); // 注意:container是不存在的</p>
+<p>  console.log($container); // null</p>
+<pre><code>
++ typeof null
+当我们使用typeof操作符检测null值，我们理所应当地认为应该返&quot;Null&quot;类型呀，但是事实返回的类型却是&quot;object&quot;。
+
+```javascript
+var data = null;
+console.log(typeof data); // &quot;object&quot;
+</code></pre><p>是不是很奇怪？其实我们可以从两方面来理解这个结果</p>
 <ul>
 <li><p>一方面从逻辑角度来看，null值表示一个空对象指针，它代表的其实就是一个空对象，所以使用typeof操作符检测时返回”object”也是可以理解的。</p>
 </li>
@@ -281,7 +291,10 @@ classes that you can use:
 </ul>
 <ul>
 <li><p>null判断<br>null的判断可以使用严格相等符===或不相等操作符!==判断，不使用标准相等符的原因是因为undefined会影响判断结果。和undefined不一样，不能使用typeof来判断一个值是否为null，原因上边已经讲了，使用typeof来检测null会返回”object”,这样的话我们是没办法判断的。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(data === <span class="literal">null</span>)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"data中没有保存对象引用！"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">if(data === null){
+console.log(&quot;data中没有保存对象引用！&quot;);
+}
+</code></pre>
 </li>
 <li><p>null使用<br>那么我们在什么情况下需要将变量赋值为null呢？这里我想到的有两种情况。</p>
 </li>
@@ -295,8 +308,11 @@ classes that you can use:
 <ul>
 <li>undefined 与 null<br>实际上undefined值是派生自null值的，因此ECMA-262规定对它们的相等性测试要返回true:</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> == <span class="literal">undefined</span>); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<p>因为使用的是标准相等符==,这个操作符出于目的会转换其操作数为相同类型后再做比较，如果我们使用严格相等符比较，我们会发现它们是不相等的，因为严格相等符不会进行类型转换，然而undefined与null属于不同的类型，所以不相等。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> === <span class="literal">undefined</span>); <span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
+<pre><code class="javascript">console.log(null == undefined); //true
+</code></pre>
+<p>因为使用的是标准相等符==,这个操作符出于目的会转换其操作数为相同类型后再做比较，如果我们使用严格相等符比较，我们会发现它们是不相等的，因为严格相等符不会进行类型转换，然而undefined与null属于不同的类型，所以不相等。</p>
+<pre><code class="javascript">console.log(null === undefined); //false
+</code></pre>
 
   </section>
 
