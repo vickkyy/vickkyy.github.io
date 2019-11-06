@@ -7,7 +7,7 @@
     
 
     <title>
-      搭建vue开发环境 | Vickkyy 
+      深入浅出vue.js学习笔记 | Vickkyy 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,18 +16,18 @@
     
     
 
-    <meta name="description" content="参考博客:  2019 年如何搭建你的 Vue 项目 vue-cli3 项目从搭建优化到docker部署 面试官：自己搭建过vue开发环境吗？">
-<meta name="keywords" content="vue">
+    <meta name="description" content="第6章 VNode定义vnode可以理解成节点描述对象, 它描述了应该怎样去创建真实的DOM节点. VNode创建DOM并插入到视图的过程: vnode -&amp;gt; DOM -&amp;gt; 视图 VNode类型  注释节点  代码: 123456export const createEmptyVNode = text =&amp;gt; &amp;#123;  const node = new VNode()  no">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建vue开发环境 | Vickkyy">
-<meta property="og:url" content="http://yoursite.com/2019/08/12/搭建vue开发环境/index.html">
+<meta property="og:title" content="深入浅出vue.js学习笔记 | Vickkyy">
+<meta property="og:url" content="http://yoursite.com/2019/11/06/深入浅出vue-js学习笔记/index.html">
 <meta property="og:site_name" content="Vickkyy">
-<meta property="og:description" content="参考博客:  2019 年如何搭建你的 Vue 项目 vue-cli3 项目从搭建优化到docker部署 面试官：自己搭建过vue开发环境吗？">
+<meta property="og:description" content="第6章 VNode定义vnode可以理解成节点描述对象, 它描述了应该怎样去创建真实的DOM节点. VNode创建DOM并插入到视图的过程: vnode -&amp;gt; DOM -&amp;gt; 视图 VNode类型  注释节点  代码: 123456export const createEmptyVNode = text =&amp;gt; &amp;#123;  const node = new VNode()  no">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-09-16T11:10:47.357Z">
+<meta property="og:updated_time" content="2019-11-06T09:45:30.973Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建vue开发环境 | Vickkyy">
-<meta name="twitter:description" content="参考博客:  2019 年如何搭建你的 Vue 项目 vue-cli3 项目从搭建优化到docker部署 面试官：自己搭建过vue开发环境吗？">
+<meta name="twitter:title" content="深入浅出vue.js学习笔记 | Vickkyy">
+<meta name="twitter:description" content="第6章 VNode定义vnode可以理解成节点描述对象, 它描述了应该怎样去创建真实的DOM节点. VNode创建DOM并插入到视图的过程: vnode -&amp;gt; DOM -&amp;gt; 视图 VNode类型  注释节点  代码: 123456export const createEmptyVNode = text =&amp;gt; &amp;#123;  const node = new VNode()  no">
     
     
     
@@ -190,12 +190,12 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">搭建vue开发环境</h1>
+    <h1 class="post-title">深入浅出vue.js学习笔记</h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2019-08-12" class="post-meta__date date">2019-08-12</time> 
+      <time datetime="2019-11-06" class="post-meta__date date">2019-11-06</time> 
 
       <span class="post-meta__tags tags">
 
@@ -209,7 +209,7 @@ classes that you can use:
           
              &#8226; 标签:
             <font class="tags">
-              <a class="tags-link" href="/tags/vue/">vue</a>
+              <a class="tags-link" href="/tags/Vue/">Vue</a>
             </font>
           
 
@@ -221,12 +221,43 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>参考博客:</p>
-<ol>
-<li><a href="https://zhuanlan.zhihu.com/p/70752505" target="_blank" rel="noopener">2019 年如何搭建你的 Vue 项目</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/55858722" target="_blank" rel="noopener">vue-cli3 项目从搭建优化到docker部署</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/67720854" target="_blank" rel="noopener">面试官：自己搭建过vue开发环境吗？</a></li>
-</ol>
+    <h3 id="第6章-VNode"><a href="#第6章-VNode" class="headerlink" title="第6章 VNode"></a>第6章 VNode</h3><p><code>定义</code><br>vnode可以理解成节点描述对象, 它描述了应该怎样去创建真实的DOM节点.</p>
+<p>VNode创建DOM并插入到视图的过程: vnode -&gt; DOM -&gt; 视图</p>
+<p><code>VNode类型</code></p>
+<ul>
+<li><p>注释节点</p>
+<ul>
+<li><p>代码:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> createEmptyVNode = <span class="function"><span class="params">text</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> node = <span class="keyword">new</span> VNode()</span><br><span class="line">  node.text = text</span><br><span class="line">  node.isComment = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">return</span> node</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有效属性: text和isComment, 其余属性全是默认的undefined 或者 false</p>
+</li>
+<li>vnode最终形式为:<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  text: '注释节点',</span><br><span class="line">  isComment: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>文本节点</p>
+<ul>
+<li><p>代码:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createTextVNode</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> VNode(<span class="literal">undefined</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>, <span class="built_in">String</span>(val))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有效属性: text</p>
+</li>
+<li>vnode最终形式为: <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  text: 'demo'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>元素节点</p>
+</li>
+<li>组件节点</li>
+<li>函数式节点</li>
+<li>克隆节点<ul>
+<li>定义: 将现有节点的属性复制到新节点中,让新创建的节点和被克隆节点的属性保持一致, 从而实现克隆效果.</li>
+<li>作用: 优化静态节点和插槽节点(slot node).</li>
+<li>区别: 克隆节点与被克隆节点的唯一区别是isCloned属性, 克隆节点的isCloned属性值是true, 被克隆节点的isCloned属性值是false.</li>
+</ul>
+</li>
+</ul>
 
   </section>
 
