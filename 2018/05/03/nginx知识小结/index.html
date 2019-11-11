@@ -24,7 +24,7 @@
 <meta property="og:site_name" content="Vickkyy">
 <meta property="og:description" content="安装nginxstep1. 下载1sudo wget http://nginx.org/download/nginx-1.13.3.tar.gz step2. 新建目录1sudo mkdir /usr/local/nginx step3. 将nginx移动至新建目录下1sudo mv nginx-1.13.3.tar.gz /usr/local/nginx/ step4. 进入到新建的目录下，解压">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-09-02T09:50:58.000Z">
+<meta property="og:updated_time" content="2019-11-11T07:24:06.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx知识小结 | Vickkyy">
 <meta name="twitter:description" content="安装nginxstep1. 下载1sudo wget http://nginx.org/download/nginx-1.13.3.tar.gz step2. 新建目录1sudo mkdir /usr/local/nginx step3. 将nginx移动至新建目录下1sudo mv nginx-1.13.3.tar.gz /usr/local/nginx/ step4. 进入到新建的目录下，解压">
@@ -245,9 +245,21 @@ classes that you can use:
 <blockquote>
 <p>由于nginx是通过inode指向日志文件的，inode和文件名无关，所以即使把日志文件重命名，nginx还是将日志文件写入原文件，只有用上面的命令重新开启日志文件才能将日志写入新的日志文件。</p>
 <ol start="8">
-<li>nginx平滑升级<br>如果需要升级或者添加、删除服务器模块时，可通过nginx的平滑升级，在不停止服务的情况下升级nginx.<br>(1) 用新的nginx可执行程序替换旧的可执行程序，即下载新的nginx，重新编译到旧版本的安装路径中（重新编译之前可以备份旧的可执行文件）<br>(2) 给nginx主进程号发送USR2信号<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -USR2 7989</span><br></pre></td></tr></table></figure></li>
+<li>nginx平滑升级<br>如果需要升级或者添加、删除服务器模块时，可通过nginx的平滑升级，在不停止服务的情况下升级nginx.<br>(1) 用新的nginx可执行程序替换旧的可执行程序，即下载新的nginx，重新编译到旧版本的安装路径中（重新编译之前可以备份旧的可执行文件）<br>(2) 给nginx主进程号发送USR2信号<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -USR2 7989</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 </blockquote>
+<h3 id="问题汇总"><a href="#问题汇总" class="headerlink" title="问题汇总"></a><code>问题汇总</code></h3><p>在安装的过程中,可能会碰到一系列错误, 现将一些常见的问题记录如下:</p>
+<ol>
+<li><p><code>./configure: error: the HTTP rewrite module requires the PCRE library.</code><br>解决方法:<br><code>yum -y install pcre-devel</code></p>
+</li>
+<li><p><code>./configure: error: the HTTP gzip module requires the zlib library</code><br>解决方法:<br><code>yum -y install zlib-devel</code></p>
+</li>
+<li><p><code>./configure: error: the HTTP cache module requires md5 functions from OpenSSL library...</code><br>解决方法:<br><code>yum -y install openssl openssl-devel</code></p>
+</li>
+<li><p><code>-bash: nginx: command not founc</code><br>解决方法:<br>编辑<code>/etc/profile</code>文件<br>在<code>export PATH = ....</code>后内容追加<code>:$PATH:/usr/local/nginx/sbin</code><br>然后<code>source /etc/profile</code>是环境配置文件重新生效.</p>
+</li>
+</ol>
 
   </section>
 
