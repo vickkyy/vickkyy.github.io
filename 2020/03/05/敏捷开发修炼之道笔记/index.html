@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      敏捷开发修炼之道笔记 | Vickkyy 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Vickkyy">
+    
+    
+
+    <meta name="description" content="第二章 态度决定一切专业的态度应该着眼于项目和团队的积极结果，关注个人和团队的成长，围绕最后的成功开展工作。 做事 最高优先级应该是解决问题。 一个重大的错误应该被当作是一次学习而不是指责他人的机会。  欲速则不达 不要坠入快速的简单修复之中。 代码审查、单元测试等。 除了深入了解自己负责的部分代码外，还需要从更高的层面来了解大部分代码的功能。  对事不对人让我们骄傲的应该是解决了问题，而不是比较">
+<meta name="keywords" content="笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="敏捷开发修炼之道笔记 | Vickkyy">
+<meta property="og:url" content="http://yoursite.com/2020/03/05/敏捷开发修炼之道笔记/index.html">
+<meta property="og:site_name" content="Vickkyy">
+<meta property="og:description" content="第二章 态度决定一切专业的态度应该着眼于项目和团队的积极结果，关注个人和团队的成长，围绕最后的成功开展工作。 做事 最高优先级应该是解决问题。 一个重大的错误应该被当作是一次学习而不是指责他人的机会。  欲速则不达 不要坠入快速的简单修复之中。 代码审查、单元测试等。 除了深入了解自己负责的部分代码外，还需要从更高的层面来了解大部分代码的功能。  对事不对人让我们骄傲的应该是解决了问题，而不是比较">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2020-03-08T08:45:46.416Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="敏捷开发修炼之道笔记 | Vickkyy">
+<meta name="twitter:description" content="第二章 态度决定一切专业的态度应该着眼于项目和团队的积极结果，关注个人和团队的成长，围绕最后的成功开展工作。 做事 最高优先级应该是解决问题。 一个重大的错误应该被当作是一次学习而不是指责他人的机会。  欲速则不达 不要坠入快速的简单修复之中。 代码审查、单元测试等。 除了深入了解自己负责的部分代码外，还需要从更高的层面来了解大部分代码的功能。  对事不对人让我们骄傲的应该是解决了问题，而不是比较">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Vickkyy</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/vickkyy" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">敏捷开发修炼之道笔记</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2020-03-05" class="post-meta__date date">2020-03-05</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/技术/">技术</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/笔记/">笔记</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="第二章-态度决定一切"><a href="#第二章-态度决定一切" class="headerlink" title="第二章 态度决定一切"></a>第二章 态度决定一切</h2><p>专业的态度应该着眼于项目和团队的积极结果，关注个人和团队的成长，围绕最后的成功开展工作。</p>
+<h3 id="做事"><a href="#做事" class="headerlink" title="做事"></a>做事</h3><ol>
+<li>最高优先级应该是解决问题。</li>
+<li>一个重大的错误应该被当作是一次学习而不是指责他人的机会。</li>
+</ol>
+<h3 id="欲速则不达"><a href="#欲速则不达" class="headerlink" title="欲速则不达"></a>欲速则不达</h3><ol>
+<li>不要坠入快速的简单修复之中。</li>
+<li>代码审查、单元测试等。</li>
+<li>除了深入了解自己负责的部分代码外，还需要从更高的层面来了解大部分代码的功能。</li>
+</ol>
+<h3 id="对事不对人"><a href="#对事不对人" class="headerlink" title="对事不对人"></a>对事不对人</h3><p>让我们骄傲的应该是解决了问题，而不是比较出谁的主意更好。</p>
+<ol>
+<li>分享并融合各种不同的想法和观点，远胜于单个想法为项目带来的价值。</li>
+<li>消极扼杀创新。</li>
+<li>不要害怕批评。不需要很出色才能起步，但是必须起步才能变得很出色。</li>
+<li>能欣赏自己并不接受的想法，表明你的头脑足够有学识。</li>
+<li>大家对“最好”的含义要达成共识。</li>
+</ol>
+<blockquote>
+<p>技巧：</p>
+<ol>
+<li>设定最终期限<ul>
+<li>防止陷入无休止的理论争辩之中。没有最好的答案，只有更合适的方案。</li>
+</ul>
+</li>
+<li>逆向思维<ul>
+<li>显示积极地看到它的正面，然后再努力地从反面去认识它。目的是要找出优点最多缺点最少的那个方案，而这个好办法可以尽可能地发现其他缺点。</li>
+</ul>
+</li>
+<li>设立仲裁人<ul>
+<li>仲裁人的责任就是确保每个人都有发言的机会，并维持会议的正常进行。</li>
+</ul>
+</li>
+<li>支持已经作出的决定<ul>
+<li>我们的目标是让项目成功满足用户需求。客户并不关心这是谁的注意–他们关心的是，这个软件是否可以工作，并且是否符合他们的期望。结果最重要。</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<h3 id="排除万难、奋勇前进"><a href="#排除万难、奋勇前进" class="headerlink" title="排除万难、奋勇前进"></a>排除万难、奋勇前进</h3><p>绝妙的计划会因为勇气不足而最终失败。</p>
+<ol>
+<li>当发现问题时，不要试图掩盖这些问题，而要有勇气站出来。</li>
+<li>做正确的事。要诚实，要有勇气去说出事情。有时，这样做很困难，所以我们要有足够的勇气。</li>
+<li>当勇敢地站出来时，如果受到了缺乏背景知识的抉择者的抵制，你需要用他们能够听懂的话语表达。“更清晰的代码”是无法打动生意人的。节约资金、获得更好的投资回报、增加用户利益，会让论点更有说服力。</li>
+</ol>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2015-2017. | 由<a href="https://hexo.io/">Hexo</a> | 主题<a href="https://github.com/someus/huno">Huno</a></span><span id="busuanzi_container_site_uv">本站访问数<span id="busuanzi_value_site_uv"></span>人次</span>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.1/MathJax.js"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
