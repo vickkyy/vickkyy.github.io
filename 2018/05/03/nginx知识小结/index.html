@@ -24,7 +24,7 @@
 <meta property="og:site_name" content="Vickkyy">
 <meta property="og:description" content="安装nginxstep1. 下载1sudo wget http://nginx.org/download/nginx-1.13.3.tar.gz step2. 新建目录1sudo mkdir /usr/local/nginx step3. 将nginx移动至新建目录下1sudo mv nginx-1.13.3.tar.gz /usr/local/nginx/ step4. 进入到新建的目录下，解压">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-11-11T07:24:06.838Z">
+<meta property="og:updated_time" content="2020-05-02T08:19:08.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx知识小结 | Vickkyy">
 <meta name="twitter:description" content="安装nginxstep1. 下载1sudo wget http://nginx.org/download/nginx-1.13.3.tar.gz step2. 新建目录1sudo mkdir /usr/local/nginx step3. 将nginx移动至新建目录下1sudo mv nginx-1.13.3.tar.gz /usr/local/nginx/ step4. 进入到新建的目录下，解压">
@@ -259,7 +259,11 @@ classes that you can use:
 </li>
 <li><p><code>-bash: nginx: command not founc</code><br>解决方法:<br>编辑<code>/etc/profile</code>文件<br>在<code>export PATH = ....</code>后内容追加<code>:$PATH:/usr/local/nginx/sbin</code><br>然后<code>source /etc/profile</code>是环境配置文件重新生效.</p>
 </li>
+<li><p><code>nginx: [error] invalid PID number &quot;&quot; in &quot;/usr/local/nginx/logs/nginx.pid&quot;</code><br>原因: nginx根本就没有启动过，所以pid文件的值为空没法平滑启动，先启动了才能平滑启动</p>
+</li>
 </ol>
+<p>解决方法1:<br><code>sudo nginx -s reload -c  /usr/local/nginx/conf/nginx.conf</code></p>
+<p>解决方法2:<br>先启动nginx, 然后测试配置文件语法无误后, 再进行重载。</p>
 
   </section>
 
