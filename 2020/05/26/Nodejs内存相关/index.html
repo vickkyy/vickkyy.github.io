@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Nodejs内存相关 | Vickkyy 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Vickkyy">
+    
+    
+
+    <meta name="description" content="博客地址：Nodejs内存 V8的内存机制内存限制在Node中使用内存，只能使用到系统的一部分，64位系统下约为1.4GB， 32位系统下约为0.7GB。原因为V8引擎的设计之初是运行在浏览器中，在浏览器的一般应用场景下使用绰绰有余。在服务端使用，可使用如下方法接触限制（比如常见情景为开发模式下，开启watch，对于大项目有时会出现报错CALL_AND_RETRY_LAST Allocation">
+<meta name="keywords" content="Nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nodejs内存相关 | Vickkyy">
+<meta property="og:url" content="http://yoursite.com/2020/05/26/Nodejs内存相关/index.html">
+<meta property="og:site_name" content="Vickkyy">
+<meta property="og:description" content="博客地址：Nodejs内存 V8的内存机制内存限制在Node中使用内存，只能使用到系统的一部分，64位系统下约为1.4GB， 32位系统下约为0.7GB。原因为V8引擎的设计之初是运行在浏览器中，在浏览器的一般应用场景下使用绰绰有余。在服务端使用，可使用如下方法接触限制（比如常见情景为开发模式下，开启watch，对于大项目有时会出现报错CALL_AND_RETRY_LAST Allocation">
+<meta property="og:locale" content="English">
+<meta property="og:image" content="https://segmentfault.com/img/bVuRXU">
+<meta property="og:image" content="https://segmentfault.com/img/bVuRXV">
+<meta property="og:image" content="https://segmentfault.com/img/bVuSjo">
+<meta property="og:updated_time" content="2020-05-29T08:59:57.863Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nodejs内存相关 | Vickkyy">
+<meta name="twitter:description" content="博客地址：Nodejs内存 V8的内存机制内存限制在Node中使用内存，只能使用到系统的一部分，64位系统下约为1.4GB， 32位系统下约为0.7GB。原因为V8引擎的设计之初是运行在浏览器中，在浏览器的一般应用场景下使用绰绰有余。在服务端使用，可使用如下方法接触限制（比如常见情景为开发模式下，开启watch，对于大项目有时会出现报错CALL_AND_RETRY_LAST Allocation">
+<meta name="twitter:image" content="https://segmentfault.com/img/bVuRXU">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Vickkyy</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/vickkyy" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Nodejs内存相关</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2020-05-26" class="post-meta__date date">2020-05-26</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/技术/">技术</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Nodejs/">Nodejs</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>博客地址：<a href="https://mp.weixin.qq.com/s/e-IC588SZPJK2QRBm3KuHA" target="_blank" rel="noopener">Nodejs内存</a></p>
+<h3 id="V8的内存机制"><a href="#V8的内存机制" class="headerlink" title="V8的内存机制"></a>V8的内存机制</h3><h4 id="内存限制"><a href="#内存限制" class="headerlink" title="内存限制"></a>内存限制</h4><p>在Node中使用内存，只能使用到系统的一部分，64位系统下约为1.4GB， 32位系统下约为0.7GB。<br>原因为V8引擎的设计之初是运行在浏览器中，在浏览器的一般应用场景下使用绰绰有余。<br>在服务端使用，可使用如下方法接触限制（比如常见情景为开发模式下，开启watch，对于大项目有时会出现报错<code>CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory</code>）<br>在启动node程序的时候，可传递两个参数来调整内存限制的大小。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node --max-new-space-size=1024 app.js // 单位为KB</span><br><span class="line">node --max-old-space-size=1024 app.js // 单位为MB</span><br></pre></td></tr></table></figure></p>
+<p>分别对应Node内存堆中的[新生代]和[老生代]</p>
+<h4 id="内存的分配"><a href="#内存的分配" class="headerlink" title="内存的分配"></a>内存的分配</h4><blockquote>
+<p>一切JavaScript对象都用堆来存储</p>
+</blockquote>
+<h3 id="V8的垃圾回收机制"><a href="#V8的垃圾回收机制" class="headerlink" title="V8的垃圾回收机制"></a>V8的垃圾回收机制</h3><p>最大的区别在于[新生代]和[老生代]使用的回收方式不同。</p>
+<h4 id="新生代-采用Scavenge算法进行垃圾回收。"><a href="#新生代-采用Scavenge算法进行垃圾回收。" class="headerlink" title="新生代: 采用Scavenge算法进行垃圾回收。"></a>新生代: 采用Scavenge算法进行垃圾回收。</h4><p>空间会被划分为两部分：<br>semispace(FROM) : 处于使用中<br>semispance(TO) : 处于闲置状态</p>
+<p>分配对象时，先从FROM空间中分配。 当进行垃圾回收时，会检查FROM中存活的对象，这些存活的对象复制到TO空间中，非存活对象则释放掉。完成复制后，FROM和TO空间角色对换。</p>
+<p><strong> 关键问题: </strong></p>
+<p>在新生代中的对象怎样才能到老生代中？</p>
+<p>在新生代存活周期长的对象会被移动到老生代中，主要符合两个条件中的一个：</p>
+<ol>
+<li><p>对象是否经历过Scavenge回收。<br>对象从From空间中复制到To空间时，会检查它的内存地址来判断这个对象是否已经经历过一次Scavenge回收，如果已经经历过了，则将该对象从From空间中复制到老生代空间中。</p>
+</li>
+<li><p>To空间的内存占比超过25%限制。<br>当对象从From空间复制到To空间时，如果To空间已经使用超过25%，则这个对象直接复制到老生代中。这么做的原因在于这次Scavenge回收完成后，这个To空间会变成From空间，接下来的内存分配将在这个空间中进行。如果占比过高，会影响后续的内存分配。</p>
+</li>
+</ol>
+<h4 id="老生代中的垃圾回收"><a href="#老生代中的垃圾回收" class="headerlink" title="老生代中的垃圾回收"></a>老生代中的垃圾回收</h4><p>对于老生代的对象，由于存活对象占比较大比重，使用Scavenge算法显然不科学。一来复制的对象太多会导致效率问题，二来需要浪费多一倍的空间。所以，V8在老生代中主要采用「Mark-Sweep」算法与「Mark-Compact」算法相结合的方式进行垃圾回收。</p>
+<p><code>Mark-Sweep</code><br>Mark-Sweep是标记清除的意思，分为标记和清除两个阶段。在标记阶段遍历堆中的所有对象，并标记存活的对象，在随后的清除阶段中，只清除标记之外的对象。<br><img src="https://segmentfault.com/img/bVuRXU" alt="img"><br>但是Mark-Sweep有一个很严重的问题，就是进行一次标记清除回收之后，内存会变得碎片化。如果需要分配一个大对象，这时候就无法完成分配了。这时候就该Mark-Compact出场了。</p>
+<p><code>Mark-Compact</code><br>Mark-Compact是标记整理的意思，是在Mark-Sweep基础上演变而来。Mark-Compact在标记存活对象之后，在整理过程中，将活着的对象往一端移动，移动完成后，直接清理掉边界外的内存。<br><img src="https://segmentfault.com/img/bVuRXV" alt="img"></p>
+<p><code>Incremental Marking</code><br>鉴于Node单线程的特性，V8每次垃圾回收的时候，都需要将应用逻辑暂停下来，待执行完垃圾回收后再恢复应用逻辑，被称为「全停顿」。在分代垃圾回收中，一次小垃圾回收只收集新生代，且存活对象也相对较少，即使全停顿也没有多大的影响。但是在老生代中，存活对象较多，垃圾回收的标记、清理、整理都需要长时间的停顿，这样会严重影响到系统的性能。<br>所以「增量标记 (Incrememtal Marking)」被提出来。它从标记阶段入手，将原本要一口气停顿完成的动作改为增量标记，拆分为许多小「步进」，每做完一「步进」就让JavaScript应用逻辑执行一小会，垃圾回收与应用逻辑这样交替执行直到标记阶段完成。</p>
+<h3 id="内存泄露排查的工具"><a href="#内存泄露排查的工具" class="headerlink" title="内存泄露排查的工具"></a>内存泄露排查的工具</h3><p><a href="https://github.com/bnoordhuis/node-heapdump" target="_blank" rel="noopener">node-heapdump</a></p>
+<p>它允许对V8堆内存抓取快照，用于事后分析。<br>在程序中引入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> heapdump = <span class="built_in">require</span>(<span class="string">"node-heapdump"</span>);</span><br></pre></td></tr></table></figure>
+<p>之后可以通过向服务器发送SIGUSR2信号，让node-heapdump抓拍一份堆内存的快照：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">kill</span> -USR2 &lt;pid&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这份抓拍的快照会默认存放在文件目录下，这是一份大JSON文件，可以通过Chrome的开发者工具打开查看。<br><img src="https://segmentfault.com/img/bVuSjo" alt="img"></p>
+<p><a href="https://github.com/lloyd/node-memwatch" target="_blank" rel="noopener">node-memwatch</a></p>
+<blockquote>
+<p>需要注意，node-memwatch只是支持到node v0.12.x为止，当使用更高的版本的时候，就会安装不上，这时候可以使用node-watch-next 替代，一摸一样的API。<br>不同于node-heapdump，它提供了两个事件监听器，用来提供内存泄露的以及垃圾回收的信息：</p>
+</blockquote>
+<ol>
+<li><p>stats事件：每次进行全堆回收时，会触发改时间，传递内存的统计信息</p>
+</li>
+<li><p>leak事件：经过五次垃圾回收之后，内存仍没有被释放的对象，会触发leak事件，传递相关的信息。</p>
+</li>
+</ol>
+<p><a href="https://profiler.alinode.aliyun.com/" target="_blank" rel="noopener">node-profiler</a><br>node-profiler 是 alinode团队出品的一个与node-heapdump类似的抓取内存堆快照的工具，不同的是，node-profiler的实现不一样，使用起来更便捷。附上他们的教程：如何使用Node Profiler</p>
+<p><a href="https://alinode.aliyun.com/" target="_blank" rel="noopener">alinode</a></p>
+<blockquote>
+<p>alinode 是阿里云出品的 Node.js 应用服务解决方案，是一套基于社区 Node 改进的运行时环境和服务平台。在社区的基础上我们内建了强大的支持功能，帮助开发者迅速洞见性能细节，快速定位疑难杂症，直探问题根源。</p>
+</blockquote>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2015-2017. | 由<a href="https://hexo.io/">Hexo</a> | 主题<a href="https://github.com/someus/huno">Huno</a></span><span id="busuanzi_container_site_uv">本站访问数<span id="busuanzi_value_site_uv"></span>人次</span>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.1/MathJax.js"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1d8a618c5a79c97b7406c78ff2a973fb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

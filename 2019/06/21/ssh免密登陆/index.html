@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      ssh免密登陆 | Vickkyy 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Vickkyy">
+    
+    
+
+    <meta name="description" content="在日常开发中,会需要用一台服务器(sourceMachine)登陆到另外一台服务器(targetMachine),通常使用SSH协议进行登陆:123// 具体格式:// ssh [用户名]@[IP]ssh lvrenjie-xy@192.168.0.1 但每次使用的时候,都需要输入targetMachine的密码. 所有,可以使用SSH的第二种身份验证:密钥验证. 流程如下:在sourceMach">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ssh免密登陆 | Vickkyy">
+<meta property="og:url" content="http://yoursite.com/2019/06/21/ssh免密登陆/index.html">
+<meta property="og:site_name" content="Vickkyy">
+<meta property="og:description" content="在日常开发中,会需要用一台服务器(sourceMachine)登陆到另外一台服务器(targetMachine),通常使用SSH协议进行登陆:123// 具体格式:// ssh [用户名]@[IP]ssh lvrenjie-xy@192.168.0.1 但每次使用的时候,都需要输入targetMachine的密码. 所有,可以使用SSH的第二种身份验证:密钥验证. 流程如下:在sourceMach">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2019-06-21T11:31:45.524Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ssh免密登陆 | Vickkyy">
+<meta name="twitter:description" content="在日常开发中,会需要用一台服务器(sourceMachine)登陆到另外一台服务器(targetMachine),通常使用SSH协议进行登陆:123// 具体格式:// ssh [用户名]@[IP]ssh lvrenjie-xy@192.168.0.1 但每次使用的时候,都需要输入targetMachine的密码. 所有,可以使用SSH的第二种身份验证:密钥验证. 流程如下:在sourceMach">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Vickkyy</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/vickkyy" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">ssh免密登陆</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2019-06-21" class="post-meta__date date">2019-06-21</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/技术/">技术</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/linux/">linux</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>在日常开发中,会需要用一台服务器(<code>sourceMachine</code>)登陆到另外一台服务器(<code>targetMachine</code>),通常使用<code>SSH</code>协议进行登陆:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 具体格式:</span><br><span class="line">// ssh [用户名]@[IP]</span><br><span class="line">ssh lvrenjie-xy@192.168.0.1</span><br></pre></td></tr></table></figure></p>
+<p>但每次使用的时候,都需要输入<code>targetMachine</code>的密码. 所有,可以使用<code>SSH</code>的第二种身份验证:密钥验证.</p>
+<p><em>流程如下:</em><br>在<code>sourceMachine</code>先生成一份公钥(<code>id_rsa.pub</code>)和一份密钥(<code>id_rsa</code>), 利用命令将公钥添加至<code>targetMachine</code>的授权列表(<code>authorized_keys</code>).当有服务器带着公钥申请连接<code>targetMachine</code>时,<code>targetMachine</code>首先在<code>authorized_keys</code>中查找是否存在该公钥,如果存在则开始验证.首先生成一个随机字符串,利用对应公钥进行加密,然后返回给申请连接的<code>sourceMachine</code>, <code>sourceMachine</code>利用私钥进行解密,再将字符串返回给<code>targetMachine</code>完成验证,然后进行后续操作.</p>
+<ol>
+<li><p>step1:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 在sourceMachine上生成公钥和私钥</span><br><span class="line">ssh-keygen -t rsa</span><br><span class="line">// 默认会在 /root/.ssh/ 重生成公钥(id_rsa.pub) 和 私钥(id_rsa)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>step2:<br>在<code>targetMachine</code>做同<code>step1</code>一样的操作.</p>
+</li>
+<li><p>step3:<br>将<code>sourceMachine</code>的公钥添加到<code>targetMachine</code>的<code>authorized_keys</code>列表中<br>有两种方式:<br>第一种是直接拷贝<code>sourceMachine</code>的<code>id_rsa.pub</code>中的内容至<code>targetMachine</code>的<code>authorized_keys</code>中.</p>
+</li>
+</ol>
+<p>第二种是使用便捷命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-cipy-id sourceMachineIp</span><br></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<p>备注:<br>如果使用了<code>docker</code>部署某些服务,比如<code>jenkins</code>, 需先进入<code>docker</code>环境中.<br>命令如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps // 查看当前启动的docker镜像</span><br><span class="line">docker <span class="built_in">exec</span> -it jenkins_docker /bin/bash    // 进入部署的jenkins容器环境中</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2015-2017. | 由<a href="https://hexo.io/">Hexo</a> | 主题<a href="https://github.com/someus/huno">Huno</a></span><span id="busuanzi_container_site_uv">本站访问数<span id="busuanzi_value_site_uv"></span>人次</span>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.1/MathJax.js"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1d8a618c5a79c97b7406c78ff2a973fb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

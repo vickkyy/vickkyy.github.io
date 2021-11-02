@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      ES6学习笔记 | Vickkyy 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Vickkyy">
+    
+    
+
+    <meta name="description" content="第一章 ECMAScript 6 简介第二章 let 和 const命令第三章 变量的解构赋值第四章 字符串的扩展第五章 字符串的新增方法第六章 正则的扩展第七章 数值的扩展第八章 函数的扩展第九章 数组的扩展第十章 对象的扩展第十一章 对象的新增方法第十二章 Symbol第十三章 Set 和 Map数据结构第十四章 Proxy第十五章 Reflect第十六章 Promise对象第十七章 Iter">
+<meta name="keywords" content="Javascript ES6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6学习笔记 | Vickkyy">
+<meta property="og:url" content="http://yoursite.com/2019/10/22/ES6学习笔记/index.html">
+<meta property="og:site_name" content="Vickkyy">
+<meta property="og:description" content="第一章 ECMAScript 6 简介第二章 let 和 const命令第三章 变量的解构赋值第四章 字符串的扩展第五章 字符串的新增方法第六章 正则的扩展第七章 数值的扩展第八章 函数的扩展第九章 数组的扩展第十章 对象的扩展第十一章 对象的新增方法第十二章 Symbol第十三章 Set 和 Map数据结构第十四章 Proxy第十五章 Reflect第十六章 Promise对象第十七章 Iter">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2019-10-25T09:25:57.435Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6学习笔记 | Vickkyy">
+<meta name="twitter:description" content="第一章 ECMAScript 6 简介第二章 let 和 const命令第三章 变量的解构赋值第四章 字符串的扩展第五章 字符串的新增方法第六章 正则的扩展第七章 数值的扩展第八章 函数的扩展第九章 数组的扩展第十章 对象的扩展第十一章 对象的新增方法第十二章 Symbol第十三章 Set 和 Map数据结构第十四章 Proxy第十五章 Reflect第十六章 Promise对象第十七章 Iter">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Vickkyy</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/vickkyy" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">ES6学习笔记</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2019-10-22" class="post-meta__date date">2019-10-22</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/技术-前端/">技术, 前端</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Javascript-ES6/">Javascript ES6</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h4 id="第一章-ECMAScript-6-简介"><a href="#第一章-ECMAScript-6-简介" class="headerlink" title="第一章 ECMAScript 6 简介"></a>第一章 ECMAScript 6 简介</h4><h4 id="第二章-let-和-const命令"><a href="#第二章-let-和-const命令" class="headerlink" title="第二章 let 和 const命令"></a>第二章 let 和 const命令</h4><h4 id="第三章-变量的解构赋值"><a href="#第三章-变量的解构赋值" class="headerlink" title="第三章 变量的解构赋值"></a>第三章 变量的解构赋值</h4><h4 id="第四章-字符串的扩展"><a href="#第四章-字符串的扩展" class="headerlink" title="第四章 字符串的扩展"></a>第四章 字符串的扩展</h4><h4 id="第五章-字符串的新增方法"><a href="#第五章-字符串的新增方法" class="headerlink" title="第五章 字符串的新增方法"></a>第五章 字符串的新增方法</h4><h4 id="第六章-正则的扩展"><a href="#第六章-正则的扩展" class="headerlink" title="第六章 正则的扩展"></a>第六章 正则的扩展</h4><h4 id="第七章-数值的扩展"><a href="#第七章-数值的扩展" class="headerlink" title="第七章 数值的扩展"></a>第七章 数值的扩展</h4><h4 id="第八章-函数的扩展"><a href="#第八章-函数的扩展" class="headerlink" title="第八章 函数的扩展"></a>第八章 函数的扩展</h4><h4 id="第九章-数组的扩展"><a href="#第九章-数组的扩展" class="headerlink" title="第九章 数组的扩展"></a>第九章 数组的扩展</h4><h4 id="第十章-对象的扩展"><a href="#第十章-对象的扩展" class="headerlink" title="第十章 对象的扩展"></a>第十章 对象的扩展</h4><h4 id="第十一章-对象的新增方法"><a href="#第十一章-对象的新增方法" class="headerlink" title="第十一章 对象的新增方法"></a>第十一章 对象的新增方法</h4><h4 id="第十二章-Symbol"><a href="#第十二章-Symbol" class="headerlink" title="第十二章 Symbol"></a>第十二章 Symbol</h4><h4 id="第十三章-Set-和-Map数据结构"><a href="#第十三章-Set-和-Map数据结构" class="headerlink" title="第十三章 Set 和 Map数据结构"></a>第十三章 Set 和 Map数据结构</h4><h4 id="第十四章-Proxy"><a href="#第十四章-Proxy" class="headerlink" title="第十四章 Proxy"></a>第十四章 Proxy</h4><h4 id="第十五章-Reflect"><a href="#第十五章-Reflect" class="headerlink" title="第十五章 Reflect"></a>第十五章 Reflect</h4><h4 id="第十六章-Promise对象"><a href="#第十六章-Promise对象" class="headerlink" title="第十六章 Promise对象"></a>第十六章 Promise对象</h4><h4 id="第十七章-Iterator-和-for…-of-循环"><a href="#第十七章-Iterator-和-for…-of-循环" class="headerlink" title="第十七章 Iterator 和 for….of 循环"></a>第十七章 Iterator 和 for….of 循环</h4><h4 id="第十八章-Generator-函数的语法"><a href="#第十八章-Generator-函数的语法" class="headerlink" title="第十八章 Generator 函数的语法"></a>第十八章 Generator 函数的语法</h4><p><code>概念:</code><br>Generator函数是ES6提供给的一种异步编程解决方案, 语法行为与传统函数完全不同.</p>
+<p>Generator 函数有多种理解角度。语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。</p>
+<p>执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。</p>
+<p><code>特点:</code><br>形式上，Generator 函数是一个普通函数，但是有两个特征。一是，<strong>function关键字与函数名之间有一个星号</strong>；二是，<strong>函数体内部使用yield表达式，定义不同的内部状态（yield在英语里的意思就是“产出”）</strong>。</p>
+<p><code>例子:</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">helloWorldGenerator</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'hello'</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">'world'</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'ending'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> hw = helloWorldGenerator();</span><br></pre></td></tr></table></figure></p>
+<p>上面代码定义了一个 Generator 函数helloWorldGenerator，它内部有两个yield表达式（hello和world），即该函数有三个状态：hello，world 和 return 语句（结束执行）。</p>
+<p>然后，Generator 函数的调用方法与普通函数一样，也是在函数名后面加上一对圆括号。不同的是，调用 Generator 函数后，该函数并不执行，返回的也不是函数运行结果，而是一个指向内部状态的指针对象，也就是上一章介绍的遍历器对象（Iterator Object）。</p>
+<p>下一步，必须调用遍历器对象的next方法，使得指针移向下一个状态。也就是说，每次调用next方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个yield表达式（或return语句）为止。换言之，Generator 函数是分段执行的，yield表达式是暂停执行的标记，而next方法可以恢复执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hw.next()</span><br><span class="line"><span class="comment">// &#123; value: 'hello', done: false &#125;</span></span><br><span class="line"></span><br><span class="line">hw.next()</span><br><span class="line"><span class="comment">// &#123; value: 'world', done: false &#125;</span></span><br><span class="line"></span><br><span class="line">hw.next()</span><br><span class="line"><span class="comment">// &#123; value: 'ending', done: true &#125;</span></span><br><span class="line"></span><br><span class="line">hw.next()</span><br><span class="line"><span class="comment">// &#123; value: undefined, done: true &#125;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码一共调用了四次next方法。</p>
+<p>第一次调用，Generator 函数开始执行，直到遇到第一个yield表达式为止。next方法返回一个对象，它的value属性就是当前yield表达式的值hello，done属性的值false，表示遍历还没有结束。</p>
+<p>第二次调用，Generator 函数从上次yield表达式停下的地方，一直执行到下一个yield表达式。next方法返回的对象的value属性就是当前yield表达式的值world，done属性的值false，表示遍历还没有结束。</p>
+<p>第三次调用，Generator 函数从上次yield表达式停下的地方，一直执行到return语句（如果没有return语句，就执行到函数结束）。next方法返回的对象的value属性，就是紧跟在return语句后面的表达式的值（如果没有return语句，则value属性的值为undefined），done属性的值true，表示遍历已经结束。</p>
+<p>第四次调用，此时 Generator 函数已经运行完毕，next方法返回对象的value属性为undefined，done属性为true。以后再调用next方法，返回的都是这个值。</p>
+<h2 id="总结一下，调用-Generator-函数，返回一个遍历器对象，代表-Generator-函数的内部指针。以后，每次调用遍历器对象的next方法，就会返回一个有着value和done两个属性的对象。value属性表示当前的内部状态的值，是yield表达式后面那个表达式的值；done属性是一个布尔值，表示是否遍历结束。"><a href="#总结一下，调用-Generator-函数，返回一个遍历器对象，代表-Generator-函数的内部指针。以后，每次调用遍历器对象的next方法，就会返回一个有着value和done两个属性的对象。value属性表示当前的内部状态的值，是yield表达式后面那个表达式的值；done属性是一个布尔值，表示是否遍历结束。" class="headerlink" title="总结一下，调用 Generator 函数，返回一个遍历器对象，代表 Generator 函数的内部指针。以后，每次调用遍历器对象的next方法，就会返回一个有着value和done两个属性的对象。value属性表示当前的内部状态的值，是yield表达式后面那个表达式的值；done属性是一个布尔值，表示是否遍历结束。"></a>总结一下，调用 Generator 函数，返回一个遍历器对象，代表 Generator 函数的内部指针。以后，每次调用遍历器对象的next方法，就会返回一个有着value和done两个属性的对象。value属性表示当前的内部状态的值，是yield表达式后面那个表达式的值；done属性是一个布尔值，表示是否遍历结束。</h2><p><code>yield表达式</code></p>
+<p>Generator函数返回遍历器对象,调用next方法会遍历下一个内部状态, yield表达式会暂停执行.</p>
+<p>遍历器对象的next方法的运行逻辑如下:</p>
+<p>（1）遇到yield表达式，就暂停执行后面的操作，并将紧跟在yield后面的那个表达式的值，作为返回的对象的value属性值。</p>
+<p>（2）下一次调用next方法时，再继续往下执行，直到遇到下一个yield表达式。</p>
+<p>（3）如果没有再遇到新的yield表达式，就一直运行到函数结束，直到return语句为止，并将return语句后面的表达式的值，作为返回的对象的value属性值。</p>
+<p>（4）如果该函数没有return语句，则返回的对象的value属性值为undefined。</p>
+<p>需要注意的是，yield表达式后面的表达式，只有当调用next方法、内部指针指向该语句时才会执行，因此等于为 JavaScript 提供了手动的“惰性求值”（Lazy Evaluation）的语法功能。</p>
+<p><code>yeild与return的异同:</code></p>
+<ul>
+<li>相似之处:</li>
+</ul>
+<ol>
+<li>都能返回紧跟在语句后面的那个表达式的值</li>
+</ol>
+<ul>
+<li>区别:</li>
+</ul>
+<ol>
+<li>每次遇到yield, 函数暂停执行,下一次再从该位置继续向后执行. 而return不具备记忆功能</li>
+<li>一个函数里,可执行多次yield表达式, 但只能执行一次return<br>由此, 正常函数只能返回一个值, 因为只能执行一次return. 而Generator函数可以返回一系列的值, 因为可以有任意多个yield.</li>
+</ol>
+<h3 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h3><h4 id="第十九章-Generator-函数的异步应用"><a href="#第十九章-Generator-函数的异步应用" class="headerlink" title="第十九章 Generator 函数的异步应用"></a>第十九章 Generator 函数的异步应用</h4><h4 id="第二十章-async-函数"><a href="#第二十章-async-函数" class="headerlink" title="第二十章 async 函数"></a>第二十章 async 函数</h4><h4 id="第二十一章-Class的基本语法"><a href="#第二十一章-Class的基本语法" class="headerlink" title="第二十一章 Class的基本语法"></a>第二十一章 Class的基本语法</h4><h4 id="第二十二章-Class的继承"><a href="#第二十二章-Class的继承" class="headerlink" title="第二十二章 Class的继承"></a>第二十二章 Class的继承</h4><h4 id="第二十三章-Module的语法"><a href="#第二十三章-Module的语法" class="headerlink" title="第二十三章 Module的语法"></a>第二十三章 Module的语法</h4><h4 id="第二十四章-Module的加载实现"><a href="#第二十四章-Module的加载实现" class="headerlink" title="第二十四章 Module的加载实现"></a>第二十四章 Module的加载实现</h4><h4 id="第二十五章-编程风格"><a href="#第二十五章-编程风格" class="headerlink" title="第二十五章 编程风格"></a>第二十五章 编程风格</h4><h4 id="第二十六章-读懂规格"><a href="#第二十六章-读懂规格" class="headerlink" title="第二十六章 读懂规格"></a>第二十六章 读懂规格</h4><h4 id="第二十七章-异步遍历器"><a href="#第二十七章-异步遍历器" class="headerlink" title="第二十七章 异步遍历器"></a>第二十七章 异步遍历器</h4><h4 id="第二十八章-ArrayBuffer"><a href="#第二十八章-ArrayBuffer" class="headerlink" title="第二十八章 ArrayBuffer"></a>第二十八章 ArrayBuffer</h4><h4 id="第二十九章-最新提案"><a href="#第二十九章-最新提案" class="headerlink" title="第二十九章 最新提案"></a>第二十九章 最新提案</h4><h4 id="第三十章-Decorator"><a href="#第三十章-Decorator" class="headerlink" title="第三十章 Decorator"></a>第三十章 Decorator</h4>
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2015-2017. | 由<a href="https://hexo.io/">Hexo</a> | 主题<a href="https://github.com/someus/huno">Huno</a></span><span id="busuanzi_container_site_uv">本站访问数<span id="busuanzi_value_site_uv"></span>人次</span>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.1/MathJax.js"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1d8a618c5a79c97b7406c78ff2a973fb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

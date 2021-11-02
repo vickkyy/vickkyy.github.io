@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      面试知识梳理 | Vickkyy 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Vickkyy">
+    
+    
+
+    <meta name="description" content="Javascript0. 基础知识false, null, undefined, NaN, 0 和 “” 都是假的，其他的都视作逻辑真注意 0 是逻辑假而 “0” 是逻辑真，尽管 0 == &amp;#39;0&amp;#39; 为真此外：12Boolean(&amp;#123;&amp;#125;) // trueBoolean([]) // true 1. new在JavaScript中，使用new关键字后，意味着做了如下四">
+<meta name="keywords" content="interview">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试知识梳理 | Vickkyy">
+<meta property="og:url" content="http://yoursite.com/2019/05/14/面试知识梳理/index.html">
+<meta property="og:site_name" content="Vickkyy">
+<meta property="og:description" content="Javascript0. 基础知识false, null, undefined, NaN, 0 和 “” 都是假的，其他的都视作逻辑真注意 0 是逻辑假而 “0” 是逻辑真，尽管 0 == &amp;#39;0&amp;#39; 为真此外：12Boolean(&amp;#123;&amp;#125;) // trueBoolean([]) // true 1. new在JavaScript中，使用new关键字后，意味着做了如下四">
+<meta property="og:locale" content="English">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/801940/201609/801940-20160924175448668-1718138388.png">
+<meta property="og:updated_time" content="2019-05-21T10:22:54.805Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试知识梳理 | Vickkyy">
+<meta name="twitter:description" content="Javascript0. 基础知识false, null, undefined, NaN, 0 和 “” 都是假的，其他的都视作逻辑真注意 0 是逻辑假而 “0” 是逻辑真，尽管 0 == &amp;#39;0&amp;#39; 为真此外：12Boolean(&amp;#123;&amp;#125;) // trueBoolean([]) // true 1. new在JavaScript中，使用new关键字后，意味着做了如下四">
+<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/801940/201609/801940-20160924175448668-1718138388.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Vickkyy</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/vickkyy" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">面试知识梳理</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2019-05-14" class="post-meta__date date">2019-05-14</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/技术/">技术</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/interview/">interview</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a><code>Javascript</code></h3><h4 id="0-基础知识"><a href="#0-基础知识" class="headerlink" title="0. 基础知识"></a>0. 基础知识</h4><p><code>false, null, undefined, NaN, 0 和 “” 都是假的，其他的都视作逻辑真</code><br><code>注意 0 是逻辑假而 “0” 是逻辑真，尽管 0 == &#39;0&#39; 为真</code><br>此外：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Boolean</span>(&#123;&#125;) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Boolean</span>([]) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="1-new"><a href="#1-new" class="headerlink" title="1. new"></a>1. <code>new</code></h4><p>在<code>JavaScript</code>中，使用<code>new</code>关键字后，意味着做了如下四件事情：</p>
+<ul>
+<li>创建一个新的对象，这个对象的类型是<code>object</code>；</li>
+<li>设置这个新的对象的内部、可访问性和<code>[[prototype]]</code>属性为构造函数（指<code>prototype.construtor</code>所指向的构造函数）中设置的；</li>
+<li>执行构造函数，当<code>this</code>关键字被提及的时候，使用新创建的对象的属性；</li>
+<li>返回新创建的对象（除非构造方法中返回的是‘无原型’）。</li>
+</ul>
+<p>在创建新对象成功之后，如果调用一个新对象没有的属性的时候，<code>JavaScript</code>会延原型链向止逐层查找对应的内容。这类似于传统的‘类继承’。</p>
+<blockquote>
+<p>注意：在第二点中所说的有关<code>[[prototype]]</code>属性，只有在一个对象被创建的时候起作用，比如使用<code>new</code>关键字、使用<code>Object.create</code>、基于字面意义的（函数默认为<code>Function.prototype</code>，数字默认为<code>Number.prototype</code>等）。它只能被<code>Object.getPrototypeOf(someObject)</code>所读取。没有其他任何方式来设置或读取这个值。</p>
+</blockquote>
+<p><strong> 样例说明 </strong><br><code>ObjMaker = function() {this.a = &#39;first&#39;;};</code><br><code>ObjMaker</code>只是一个用于作为构造器的方法，没有其他意义。</p>
+<p><code>ObjMaker.prototype.b = &#39;second&#39;;</code><br>与其他函数类似, <code>ObjMaker</code>拥有一个可被我们修改的<code>prototype</code>属性. 我们添加一个属性<code>b</code>给它。与所有对象一样，<code>ObjMaker</code>也拥有一个不可访问的<code>[[prototype]]</code>属性，我们无法对其进行改变。</p>
+<p><code>obj1 = new ObjMaker();</code><br>这里发生了三件事情：</p>
+<p>一个叫<code>obj1</code>的空对象被创建，首先<code>obj1</code>与{}一致；<br><code>obj1</code>的<code>[[prototype]]</code>属性被设置为<code>ObjMaker</code>的原型属性的拷贝；<br><code>ObjMaker</code>方法被执行，所以<code>obj1.a</code>被设置为<code>‘first‘</code>。</p>
+<p><code>obj1.a;</code></p>
+<p>返回<code>&#39;first&#39;</code>。</p>
+<p><code>obj1.b;</code><br><code>obj1</code>没有<code>&#39;b&#39;</code>属性，所以<code>JavaScript</code>在它的<code>[[prototype]]</code>中查找。它的<code>[[prototype]]</code>与<code>ObjMaker.prototype</code>属性一致。而<code>ObjMaker.prototype</code>属性有一个叫<code>&#39;b&#39;</code>的属性，其值为<code>&#39;second&#39;</code>，所以返回<code>&#39;second&#39;</code>。</p>
+<p>模仿继承<br>你可以使用如下的方式实例化<code>ObjMaker</code>类的子类：</p>
+<p><code>SubObjMaker = function () {};</code><br><code>SubObjMaker.prototype = new ObjMaker();</code><br>由于这里使用了<code>new</code>关键字，所以<code>SubObjMaker</code>的<code>[[prototype]]</code>属性被设置为<code>ObjMaker.prototype</code>的一个拷贝。</p>
+<p><code>SubObjMaker.prototype.c = &#39;third&#39;;</code><br><code>obj2 = new SubObjMaker();</code><br><code>obj2</code>的<code>[[prototype]]</code>属性被设置为<code>SubObjMaker</code>的<code>prototype</code>属性的一个拷贝。</p>
+<p><code>obj2.c;</code><br>返回<code>&#39;third&#39;</code>。来自<code>SubObjMaker.prototype</code></p>
+<p><code>obj2.b;</code><br>返回<code>‘second’</code>。来自<code>ObjMaker.prototype</code></p>
+<p><code>obj2.a;</code><br>返回<code>‘first’</code>。来自<code>SubObjMaker.prototype</code>，这是因为<code>SubObjMaker</code>是使用<code>ObjMaker</code>的构造方法创建的，这个构造方法赋值给<code>a</code>。</p>
+<h4 id="2-深拷贝与浅拷贝"><a href="#2-深拷贝与浅拷贝" class="headerlink" title="2. 深拷贝与浅拷贝"></a>2. 深拷贝与浅拷贝</h4><p><strong> 浅拷贝只复制指向某个对象的指针，而不复制对象本身，新旧对象还是共享同一块内存。但深拷贝会另外创造一个一模一样的对象，新对象跟原对象不共享内存，修改新对象不会改到原对象。 </strong><br><img src="https://images2015.cnblogs.com/blog/801940/201609/801940-20160924175448668-1718138388.png" alt="深拷贝与浅拷贝"></p>
+<p>对于浅拷贝，es6中可以用<code>Object.assign()</code>来实现。</p>
+<p>对于深拷贝，分别对数组或对象的处理的方式为：<br><code>数组</code>：<br>对于数组可以使用<code>slice()</code> 和 <code>concat()</code><br><code>slice</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="keyword">var</span> arrCopy = arr.slice(<span class="number">0</span>);</span><br><span class="line">arrCopy[<span class="number">0</span>] = <span class="string">'test'</span></span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// ["a", "b", "c"]</span></span><br><span class="line"><span class="built_in">console</span>.log(arrCopy); <span class="comment">// ["test", "b", "c"]</span></span><br></pre></td></tr></table></figure></p>
+<p><code>concat</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="keyword">var</span> arrCopy = arr.concat();</span><br><span class="line">arrCopy[<span class="number">0</span>] = <span class="string">'test'</span></span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// ["a", "b", "c"]</span></span><br><span class="line"><span class="built_in">console</span>.log(arrCopy); <span class="comment">// ["test", "b", "c"]</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>知识点补充：</p>
+<ul>
+<li><code>arrayObj.slice(start, [end])</code> 该方法返回一个 <code>Array</code> 对象，其中包含了 <code>arrayObj</code> 的指定部分。不会改变原数组</li>
+<li><code>arrayObj.concat()</code> 方法用于连接两个或多个数组。该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。<br>即如下：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">arr1, arr2</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr1.length; ++i) &#123;</span><br><span class="line">       arr2[i] = arr1[i];</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p><code>对象</code>：<br>对象的深拷贝实现原理： 定义一个新的对象，遍历源对象的属性 并 赋给新对象的属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">   name:<span class="string">'vicky'</span>,</span><br><span class="line">   age: <span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj2.name = obj.name;</span><br><span class="line">obj2.age = obj.age</span><br><span class="line"></span><br><span class="line">obj.name = <span class="string">'xiaoLv'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">//Object &#123;name: "xiaoLv", age: 22&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(obj2); <span class="comment">//Object &#123;name: "vicky", age: 22&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>由此可以封装一个名为<code>deepCopy</code>的方法来实现对象的深拷贝，代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'vicky'</span>,</span><br><span class="line">    age: <span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> deepCopy = <span class="function"><span class="keyword">function</span> (<span class="params">source</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result = &#123;&#125;;            </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> source) &#123;                </span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> source[key] === <span class="string">'object'</span>) &#123;</span><br><span class="line">            result[key] = deepCopy(source[key])</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            result[key] = source[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;            </span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> objCopy = deepCopy(obj)</span><br><span class="line">obj.name = <span class="string">'xiao lv'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj);<span class="comment">//Object &#123;name: "xiao lv", age: 22&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(objCopy);<span class="comment">//Object &#123;name: "vicky", age: 22&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="3-call、apply和bind方法的用法以及区别"><a href="#3-call、apply和bind方法的用法以及区别" class="headerlink" title="3. call、apply和bind方法的用法以及区别"></a>3. call、apply和bind方法的用法以及区别</h4><h2 id="作用：call-apply-bind的作用是改变函数运行时this的指向。"><a href="#作用：call-apply-bind的作用是改变函数运行时this的指向。" class="headerlink" title="作用：call, apply, bind的作用是改变函数运行时this的指向。"></a>作用：<code>call</code>, <code>apply</code>, <code>bind</code>的作用是改变函数运行时<code>this</code>的指向。</h2><p><code>this</code><br>首先说明下<code>this</code><br>以下是函数的调用方法：<br><strong> 方法调用模式： </strong><br>当一个函数被保存为对象的一个方法时，如果调用表达式包含一个提取属性的动作，那么它就是被当做一个方法来调用，此时的this被绑定到这个对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">  a:<span class="number">2</span>,</span><br><span class="line">  fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj1.fn()<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
+<p>此时的<code>this</code>是指<code>obj1</code>这个对象，<code>obj1.fn()</code>实际上是<code>obj1.fn.call(obj1)</code>，事实上谁调用这个函数，<code>this</code>就是谁。补充一下，DOM对象绑定事件也属于方法调用模式，因此它绑定的<code>this</code>就是事件源DOM对象。如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    &#125;, <span class="number">200</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+<p>点击页面，依次输出：<code>document</code>和<code>window</code>对象</p>
+<blockquote>
+<p>解析：点击页面监听click事件属于方法调用，this指向事件源DOM对象，即obj.fn.apply(obj)，setTimeout内的函数属于回调函数，可以这么理解，f1.call(null,f2)，所以this指向window。</p>
+</blockquote>
+<p><strong> 函数调用模式：</strong><br>就是普通函数的调用，此时的<code>this</code>被绑定到<code>window</code></p>
+<ul>
+<li><p>最普通的函数调用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>)<span class="comment">//window</span></span><br><span class="line">    &#125;</span><br><span class="line">fn1()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数嵌套</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>)<span class="comment">//window</span></span><br><span class="line">    &#125;</span><br><span class="line">    fn2()</span><br><span class="line">&#125;</span><br><span class="line">fn1()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把函数赋值之后再调用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    a:<span class="number">2</span>,</span><br><span class="line">    fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn1 = obj1.fn</span><br><span class="line">fn1()<span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>obj1.fn</code>是一个函数<code>function(){console.log(this.a)}</code>，此时<code>fn1</code>就是不带任何修饰的函数调用，<code>function(){console.log(this.a)}.call(undefined)</code>，按理说打印出来的 <code>this</code> 应该就是 <code>undefined</code> 了吧，但是浏览器里有一条规则：</p>
+<blockquote>
+<p>如果传的 context 就 null 或者 undefined，那么 window 对象就是默认的 context（严格模式下默认 context 是 undefined）.<br>因此上面的<code>this</code>绑定的就是<code>window</code>，它也被称为隐性绑定。<br>如果你希望打印出2，可以修改<code>fn1()</code>为<code>fn1.call(obj1)</code>，显示地绑定<code>this</code>为<code>obj1</code>.</p>
+</blockquote>
+<ul>
+<li>回调函数<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">    fn()</span><br><span class="line">    <span class="built_in">console</span>.log(a)<span class="comment">//1</span></span><br><span class="line">&#125;</span><br><span class="line">f1(f2)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>改写代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;<span class="keyword">var</span> a = <span class="number">2</span>&#125;)()</span><br><span class="line">    <span class="built_in">console</span>.log(a)<span class="comment">//1</span></span><br><span class="line">&#125;</span><br><span class="line">f1()</span><br></pre></td></tr></table></figure></p>
+<p>仍旧是最普通的函数调用，<code>f1.call(undefined)</code>，<code>this</code>指向<code>window</code>，打印出的是全局的<code>a</code>。<br>借此，终于可以解释为什么<code>setTimeout</code>总是丢失<code>this</code>了，因为它也就是一个回调函数而已。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>)<span class="comment">//window</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>)<span class="comment">//window</span></span><br><span class="line">    &#125;</span><br><span class="line">    fn()</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong> 构造器调用模式：</strong><br><code>new</code>一个函数时，背地里会将创建一个连接到<code>prototype</code>成员的新对象，同时this会被绑定到那个新对象上。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line"><span class="comment">// 这里的this都指向实例</span></span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.age = age</span><br><span class="line">    <span class="keyword">this</span>.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.age)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dot = <span class="keyword">new</span> Person(<span class="string">'Dot'</span>,<span class="number">2</span>)</span><br><span class="line">dot.sayAge()<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><code>call</code><br><code>call</code> 方法第一个参数是要绑定给<code>this</code>的值，后面传入的是一个参数列表。当第一个参数为<code>null</code>、<code>undefined</code>的时候，默认指向<code>window</code>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">89</span>, <span class="number">46</span>]</span><br><span class="line"><span class="keyword">var</span> max = <span class="built_in">Math</span>.max.call(<span class="literal">null</span>, arr[<span class="number">0</span>], arr[<span class="number">1</span>], arr[<span class="number">2</span>], arr[<span class="number">3</span>], arr[<span class="number">4</span>])<span class="comment">//89</span></span><br></pre></td></tr></table></figure></p>
+<p>可以这么理解：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">obj1.fn() </span><br><span class="line">obj1.fn.call(obj1);</span><br><span class="line"></span><br><span class="line">fn1()</span><br><span class="line">fn1.call(<span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line">f1(f2)</span><br><span class="line">f1.call(<span class="literal">null</span>,f2)</span><br></pre></td></tr></table></figure></p>
+<p>例子如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    message: <span class="string">'My name is: '</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params">firstName, lastName</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.message + firstName + <span class="string">' '</span> + lastName)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getName.call(obj, <span class="string">'Dot'</span>, <span class="string">'Dolby'</span>)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><code>apply</code><br><code>apply</code>接受两个参数，第一个参数是要绑定给<code>this</code>的值，第二个参数是一个参数数组。当第一个参数为<code>null</code>、<code>undefined</code>的时候，默认指向<code>window</code>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">89</span>,<span class="number">46</span>]</span><br><span class="line"><span class="keyword">var</span> max = <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>,arr)<span class="comment">//89</span></span><br></pre></td></tr></table></figure></p>
+<p>可以理解为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">obj1.fn() </span><br><span class="line">obj1.fn.apply(obj1);</span><br><span class="line"></span><br><span class="line">fn1()</span><br><span class="line">fn1.apply(null)</span><br><span class="line"></span><br><span class="line">f1(f2)</span><br><span class="line">f1.apply(null,f2)</span><br></pre></td></tr></table></figure></p>
+<p>是不是觉得和前面写的call用法很像，事实上apply 和 call 的用法几乎相同, 唯一的差别在于：当函数需要传递多个变量时, apply 可以接受一个数组作为参数输入, call 则是接受一系列的单独变量。<br>例子如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    message: <span class="string">'My name is: '</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params">firstName, lastName</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.message + firstName + <span class="string">' '</span> + lastName)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getName.apply(obj, [<span class="string">'Dot'</span>, <span class="string">'Dolby'</span>])<span class="comment">// My name is: Dot Dolby</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看到，obj 是作为函数上下文的对象，函数 getName 中 this 指向了 obj 这个对象。参数 firstName 和 lastName 是放在数组中传入 getName 函数。</p>
+<p>call和apply可用来借用别的对象的方法，这里以call()为例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Person1  = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'Dot'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> Person2 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.getname = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">    Person1.call(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person2();</span><br><span class="line">person.getname();       <span class="comment">// Dot</span></span><br></pre></td></tr></table></figure></p>
+<p>从上面我们看到，Person2 实例化出来的对象 person 通过 getname 方法拿到了 Person1 中的 name。因为在 Person2 中，Person1.call(this) 的作用就是使用 Person1 对象代替 this 对象，那么 Person2 就有了 Person1 中的所有属性和方法了，相当于 Person2 继承了 Person1 的属性和方法。</p>
+<h2 id="对于什么时候该用什么方法，其实不用纠结。如果你的参数本来就存在一个数组中，那自然就用-apply，如果参数比较散乱相互之间没什么关联，就用-call。像上面的找一组数中最大值的例子，当然是用apply合理。"><a href="#对于什么时候该用什么方法，其实不用纠结。如果你的参数本来就存在一个数组中，那自然就用-apply，如果参数比较散乱相互之间没什么关联，就用-call。像上面的找一组数中最大值的例子，当然是用apply合理。" class="headerlink" title="对于什么时候该用什么方法，其实不用纠结。如果你的参数本来就存在一个数组中，那自然就用 apply，如果参数比较散乱相互之间没什么关联，就用 call。像上面的找一组数中最大值的例子，当然是用apply合理。"></a>对于什么时候该用什么方法，其实不用纠结。如果你的参数本来就存在一个数组中，那自然就用 apply，如果参数比较散乱相互之间没什么关联，就用 call。像上面的找一组数中最大值的例子，当然是用apply合理。</h2><p><code>bind</code><br>和call很相似，第一个参数是this的指向，从第二个参数开始是接收的参数列表。区别在于bind方法返回值是函数以及bind接收的参数列表的使用。</p>
+<ul>
+<li>bind返回值是函数<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  name: <span class="string">'Dot'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printName</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dot = printName.bind(obj)</span><br><span class="line"><span class="built_in">console</span>.log(dot) <span class="comment">// function () &#123; ... &#125;</span></span><br><span class="line">dot() <span class="comment">// Dot</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>bind 方法不会立即执行，而是返回一个改变了上下文 this 后的函数。而原函数 printName 中的 this 并没有被改变，依旧指向全局对象 window。</p>
+<ul>
+<li>参数的使用<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b, c</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a, b, c);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn1 = fn.bind(<span class="literal">null</span>, <span class="string">'Dot'</span>);</span><br><span class="line"></span><br><span class="line">fn(<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>);            <span class="comment">// A B C</span></span><br><span class="line">fn1(<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>);           <span class="comment">// Dot A B</span></span><br><span class="line">fn1(<span class="string">'B'</span>, <span class="string">'C'</span>);                <span class="comment">// Dot B C</span></span><br><span class="line">fn.call(<span class="literal">null</span>, <span class="string">'Dot'</span>);      <span class="comment">// Dot undefined undefined</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>call 是把第二个及以后的参数作为 fn 方法的实参传进去，而 fn1 方法的实参实则是在 bind 中参数的基础上再往后排。</p>
+<p>有时也可用<code>bind</code>方法实现函数柯里化，示例如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> increment = add(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">var</span> addTen = add(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">increment(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">addTen(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// 12</span></span><br></pre></td></tr></table></figure></p>
+<p>在低版本浏览器没有 bind 方法，也可以自己实现一个。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Function</span>.prototype.bind) &#123;</span><br><span class="line">    <span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> self = <span class="keyword">this</span>,                        <span class="comment">// 保存原函数</span></span><br><span class="line">            context = [].shift.call(<span class="built_in">arguments</span>), <span class="comment">// 保存需要绑定的this上下文</span></span><br><span class="line">            args = [].slice.call(<span class="built_in">arguments</span>);    <span class="comment">// 剩余的参数转为数组</span></span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;                    <span class="comment">// 返回一个新函数</span></span><br><span class="line">            self.apply(context, [].concat.call(args, [].slice.call(<span class="built_in">arguments</span>)));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> 应用场景 </strong></p>
+<ul>
+<li><p>求数组中的最大和最小值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">89</span>,<span class="number">46</span>]</span><br><span class="line"><span class="keyword">var</span> max = <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>,arr)<span class="comment">//89</span></span><br><span class="line"><span class="keyword">var</span> min = <span class="built_in">Math</span>.min.apply(<span class="literal">null</span>,arr)<span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将类数组转化为数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> trueArr = <span class="built_in">Array</span>.prototype.slice.call(arrayLike)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组追加</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="keyword">var</span> total = [].push.apply(arr1, arr2);<span class="comment">//6</span></span><br><span class="line"><span class="comment">// arr1 [1, 2, 3, 4, 5, 6]</span></span><br><span class="line"><span class="comment">// arr2 [4,5,6]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判断变量类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj) == <span class="string">'[object Array]'</span>;</span><br><span class="line">&#125;</span><br><span class="line">isArray([]) <span class="comment">// true</span></span><br><span class="line">isArray(<span class="string">'dot'</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用<code>call</code>和<code>apply</code>做继承</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 这里的this都指向实例</span></span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.age = age</span><br><span class="line">    <span class="keyword">this</span>.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.age)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Female</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    Person.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)<span class="comment">//将父元素所有方法在这里执行一遍就继承了</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> dot = <span class="keyword">new</span> Female(<span class="string">'Dot'</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 log 代理 console.log</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log.apply(<span class="built_in">console</span>, <span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 当然也有更方便的 var log = console.log()</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong> 总结 </strong><br>call、apply和bind函数存在的区别:</p>
+<ol>
+<li>bind返回对应函数, 便于稍后调用； apply, call则是立即调用。</li>
+<li>call接收一个参数，apply要求一个array来传递参数列表。call，apply均为临时的，如果希望函数附着在对象上，可以使用bind.</li>
+</ol>
+<p>除此外, 在 ES6 的箭头函数下, call 和 apply 将失效, 对于箭头函数来说:</p>
+<ul>
+<li>箭头函数体内的 this 对象, 就是定义时所在的对象, 而不是使用时所在的对象;所以不需要类似于var _this = this这种丑陋的写法</li>
+<li>箭头函数不可以当作构造函数，也就是说不可以使用 new 命令, 否则会抛出一个错误</li>
+<li>箭头函数不可以使用 arguments 对象,，该对象在函数体内不存在. 如果要用, 可以用 Rest 参数代替</li>
+<li>不可以使用 yield 命令, 因此箭头函数不能用作 Generator 函数，什么是Generator函数可自行查阅资料，推荐阅读阮一峰<a href="http://www.ruanyifeng.com/blog/2015/04/generator.html" target="_blank" rel="noopener">Generator 函数的含义与用法</a>，<a href="http://es6.ruanyifeng.com/#docs/generator-async" target="_blank" rel="noopener">Generator 函数的异步应用</a>。</li>
+</ul>
+<p>其他：<br>使用bind也可以用来部分应用一个函数（柯里化）</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2015-2017. | 由<a href="https://hexo.io/">Hexo</a> | 主题<a href="https://github.com/someus/huno">Huno</a></span><span id="busuanzi_container_site_uv">本站访问数<span id="busuanzi_value_site_uv"></span>人次</span>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.1/MathJax.js"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1d8a618c5a79c97b7406c78ff2a973fb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

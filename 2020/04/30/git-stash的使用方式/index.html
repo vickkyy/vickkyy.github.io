@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      git stash的使用方式 | Vickkyy 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Vickkyy">
+    
+    
+
+    <meta name="description" content="应用场景1.当在a分支进行开发的时候，这时候项目出现一个BUG,需要紧急修复一下。但是开发到一半还不想提交。怎么办呢？如果直接切换到修复分支(bug fix 分支)会把开发的未commit代码带到bug fix 分支上面。带来不便~ 解决方案 命令: 针对上面的场景，可执行: git stash 原理: 将修改的代码放置到堆栈中，需要使用的时候恢复到本地  命令详解（1）git stash sav">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git stash的使用方式 | Vickkyy">
+<meta property="og:url" content="http://yoursite.com/2020/04/30/git-stash的使用方式/index.html">
+<meta property="og:site_name" content="Vickkyy">
+<meta property="og:description" content="应用场景1.当在a分支进行开发的时候，这时候项目出现一个BUG,需要紧急修复一下。但是开发到一半还不想提交。怎么办呢？如果直接切换到修复分支(bug fix 分支)会把开发的未commit代码带到bug fix 分支上面。带来不便~ 解决方案 命令: 针对上面的场景，可执行: git stash 原理: 将修改的代码放置到堆栈中，需要使用的时候恢复到本地  命令详解（1）git stash sav">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2020-04-30T09:46:54.819Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git stash的使用方式 | Vickkyy">
+<meta name="twitter:description" content="应用场景1.当在a分支进行开发的时候，这时候项目出现一个BUG,需要紧急修复一下。但是开发到一半还不想提交。怎么办呢？如果直接切换到修复分支(bug fix 分支)会把开发的未commit代码带到bug fix 分支上面。带来不便~ 解决方案 命令: 针对上面的场景，可执行: git stash 原理: 将修改的代码放置到堆栈中，需要使用的时候恢复到本地  命令详解（1）git stash sav">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Vickkyy</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/vickkyy" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">git stash的使用方式</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2020-04-30" class="post-meta__date date">2020-04-30</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/技术/">技术</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Git/">Git</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>1.当在<code>a分支</code>进行开发的时候，这时候项目出现一个BUG,需要紧急修复一下。但是开发到一半还不想提交。怎么办呢？如果直接切换到修复分支(<code>bug fix 分支</code>)会把开发的未commit代码带到<code>bug fix 分支</code>上面。带来不便~</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
+<li><em>命令</em>: 针对上面的场景，可执行: <code>git stash</code></li>
+<li><em>原理</em>: 将修改的代码放置到堆栈中，需要使用的时候恢复到本地</li>
+</ol>
+<h3 id="命令详解"><a href="#命令详解" class="headerlink" title="命令详解"></a>命令详解</h3><p>（1）<code>git stash save</code> “备注”<br>执行存储的操作。将代码放到堆栈中。当然也可以执行git stash ,不加save 后缀。后缀是为了为了寻找查找存储的内容。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash save <span class="string">"备注"</span></span><br></pre></td></tr></table></figure></p>
+<p>（2）<code>git stash list</code><br>查看stash了哪些存储，键值对的存储方式：<code>key:value</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stash@&#123;0&#125;: On master: 第二次存储</span><br><span class="line">stash@&#123;1&#125;: On master: 第一次存储</span><br></pre></td></tr></table></figure></p>
+<p>（3）<code>git stash pop</code><br>恢复操作。会将堆栈中的代码删除，并且本地代码恢复到之前存储的代码。<br>可以恢复指定的存储代码: <code>git stash pop stash@{1}</code></p>
+<p>(4) <code>git stash apply</code><br>恢复操作.<br>和上面的区别是: 它不会删除堆栈中的代码。<br>如果需要恢复指定的记录，在后面加入对应的key值就可以了 <code>stash@{x}</code></p>
+<p>(5) <code>git stash show</code><br>显示做了哪些改动，默认show第一个存储,如果要显示其他存贮，后面加上对应的key值<code>stash@{@num}</code></p>
+<p>(6) <code>git stash drop stash@{0}</code><br>丢弃stash@{$num}存储，从列表中删除这个存储</p>
+<p>(7) <code>git stash clear</code><br>删除所有缓存的stash~ <code>不要轻易执行！！！！</code></p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>没有在git版本控制中的文件，是不能被<code>git stash</code>存起来的, 可以用<code>git status</code>查看改动文件，在执行<code>git add xx</code>加入git版本控制的文件中。 </p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2015-2017. | 由<a href="https://hexo.io/">Hexo</a> | 主题<a href="https://github.com/someus/huno">Huno</a></span><span id="busuanzi_container_site_uv">本站访问数<span id="busuanzi_value_site_uv"></span>人次</span>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.1/MathJax.js"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1d8a618c5a79c97b7406c78ff2a973fb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

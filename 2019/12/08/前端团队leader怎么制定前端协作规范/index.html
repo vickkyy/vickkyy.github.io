@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      前端团队leader怎么制定前端协作规范 | Vickkyy 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Vickkyy">
+    
+    
+
+    <meta name="description" content="大纲: 工作流规范1.1 开发 1.1.1 版本规范 1.1.2 版本控制系统规范 1.1.3 提交信息规范1.2 构建规范1.3 发布工作流规范1.4 持续集成1.5 任务管理 技术栈规范2.1 技术选型2.2 新技术? 浏览器兼容规范3.1 确定兼容策略3.2 确定浏览器分级3.3 获取统计数据 项目组织规范4.1 通用的项目组织规范4.2 目录组织的风格4.3 脚手架和项目模板 编码规范5.">
+<meta name="keywords" content="管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端团队leader怎么制定前端协作规范 | Vickkyy">
+<meta property="og:url" content="http://yoursite.com/2019/12/08/前端团队leader怎么制定前端协作规范/index.html">
+<meta property="og:site_name" content="Vickkyy">
+<meta property="og:description" content="大纲: 工作流规范1.1 开发 1.1.1 版本规范 1.1.2 版本控制系统规范 1.1.3 提交信息规范1.2 构建规范1.3 发布工作流规范1.4 持续集成1.5 任务管理 技术栈规范2.1 技术选型2.2 新技术? 浏览器兼容规范3.1 确定兼容策略3.2 确定浏览器分级3.3 获取统计数据 项目组织规范4.1 通用的项目组织规范4.2 目录组织的风格4.3 脚手架和项目模板 编码规范5.">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2019-12-10T10:41:24.293Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端团队leader怎么制定前端协作规范 | Vickkyy">
+<meta name="twitter:description" content="大纲: 工作流规范1.1 开发 1.1.1 版本规范 1.1.2 版本控制系统规范 1.1.3 提交信息规范1.2 构建规范1.3 发布工作流规范1.4 持续集成1.5 任务管理 技术栈规范2.1 技术选型2.2 新技术? 浏览器兼容规范3.1 确定兼容策略3.2 确定浏览器分级3.3 获取统计数据 项目组织规范4.1 通用的项目组织规范4.2 目录组织的风格4.3 脚手架和项目模板 编码规范5.">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Vickkyy</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/vickkyy" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">前端团队leader怎么制定前端协作规范</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2019-12-08" class="post-meta__date date">2019-12-08</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/技术/">技术</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/管理/">管理</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="大纲"><a href="#大纲" class="headerlink" title="大纲:"></a>大纲:</h3><ol>
+<li>工作流规范<br>1.1 开发<br> 1.1.1 版本规范<br> 1.1.2 版本控制系统规范<br> 1.1.3 提交信息规范<br>1.2 构建规范<br>1.3 发布工作流规范<br>1.4 持续集成<br>1.5 任务管理</li>
+<li>技术栈规范<br>2.1 技术选型<br>2.2 新技术?</li>
+<li>浏览器兼容规范<br>3.1 确定兼容策略<br>3.2 确定浏览器分级<br>3.3 获取统计数据</li>
+<li>项目组织规范<br>4.1 通用的项目组织规范<br>4.2 目录组织的风格<br>4.3 脚手架和项目模板</li>
+<li>编码规范<br>5.1 Javascript<br>5.2 HTML<br>5.3 CSS<br>5.4 代码格式化<br>5.5 集大成的<br>5.6 特定框架风格指南<br>5.7 Code Review</li>
+<li>文档规范<br>6.1 建立文档中心<br>6.2 文档风格<br>6.3 定义文档的模板<br>6.4 讨论即文档<br>6.5 注释即文档<br>6.6 代码即文档</li>
+<li>UI设计规范</li>
+<li>测试规范<br>8.1 测试的流程<br>8.2 单元测试</li>
+<li>异常处理、监控和调试规范<br>9.1 异常处理<br>9.2 日志<br>9.3 异常监控</li>
+<li>前后端协作规范<br>10.1 协作流程规范<br>10.2 接口规范<br>10.3 接口文档规范<br>10.4 接口测试与模拟</li>
+<li>培训/知识管理/技术沉淀<br>11.1 新人培训<br>11.2 营造技术氛围</li>
+<li>反馈</li>
+</ol>
+<p><strong>引入规范的意义</strong></p>
+<ol>
+<li>降低新成员融入团队的成本, 一定程度是上避免挖坑.</li>
+<li>提高开发效率、团队协作效率, 降低沟通成本.</li>
+<li>实现高度统一的代码风格, 方便review, 提高项目的可维护性.</li>
+<li>规范是实现自动化的基础</li>
+<li>规范是一个团队知识沉淀的直接产出</li>
+</ol>
+<h4 id="1-工作流规范"><a href="#1-工作流规范" class="headerlink" title="1. 工作流规范"></a>1. 工作流规范</h4><h5 id="1-1-开发"><a href="#1-1-开发" class="headerlink" title="1.1 开发"></a>1.1 开发</h5><h6 id="1-1-1-版本规范"><a href="#1-1-1-版本规范" class="headerlink" title="1.1.1 版本规范"></a>1.1.1 版本规范</h6><pre><code>`语义化版本`
++ 主版本号: 做了不兼容的API修改
++ 次版本号: 做了向下兼容的功能性新增
++ 修订号: 做了向下兼容的问题修正
+</code></pre><h6 id="1-1-2-版本控制系统规范"><a href="#1-1-2-版本控制系统规范" class="headerlink" title="1.1.2 版本控制系统规范"></a>1.1.2 版本控制系统规范</h6><pre><code>比如分支规范、提交规范、merge规范等.
+以现有项目的流程为例, 项目主要分支有两个, 分别为master(生产分支), dev(开发、测试).]
+对于新需求研发,新建feature分支, 待开发完成后提交 MR to dev分支, 指定审核人员review代码后, dev分支为最新代码, 同时自动出发jenkins CI操作.
+对于线上bug, 新建HotFix分支, 待问题修复后, 将该分支合并入dev分支, 待测试无误后提交 dev MR to master. 触发上线操作, 完成问题修复.
+进入提测阶段:
+1. 测试环境作为第一轮的测试base, 如该轮测试结束后, 进入第二轮测试, 提交dev MR to master.
+2. 第二轮测试在pre_prd环境中进行, 该环境代码与生产环境代码一致.
+上线:
+1. 在当前master分支打上Tag
+2. 在jenkins中填写Tag, 触发构建操作.
+</code></pre><h6 id="1-1-3-提交信息规范"><a href="#1-1-3-提交信息规范" class="headerlink" title="1.1.3 提交信息规范"></a>1.1.3 提交信息规范</h6><pre><code>可借鉴的提交规范, 如Angular的提交信息规范,Atom, Ember, Eslint, JQuery等. 或者借助检验工具, 比如conventiaonal-changelog, commitlin, commitizen, standard-changelog等.
+</code></pre><h5 id="1-2-构建规范"><a href="#1-2-构建规范" class="headerlink" title="1.2 构建规范"></a>1.2 构建规范</h5><pre><code>**约定大于配置**
+</code></pre><p>  1.3 发布工作流规范<br>  1.4 持续集成<br>  1.5 任务管理</p>
+<ol start="2">
+<li>技术栈规范<br>2.1 技术选型<br>2.2 新技术?</li>
+<li>浏览器兼容规范<br>3.1 确定兼容策略<br>3.2 确定浏览器分级<br>3.3 获取统计数据</li>
+<li>项目组织规范<br>4.1 通用的项目组织规范<br>4.2 目录组织的风格<br>4.3 脚手架和项目模板</li>
+<li>编码规范<br>5.1 Javascript<br>5.2 HTML<br>5.3 CSS<br>5.4 代码格式化<br>5.5 集大成的<br>5.6 特定框架风格指南<br>5.7 Code Review</li>
+<li>文档规范<br>6.1 建立文档中心<br>6.2 文档风格<br>6.3 定义文档的模板<br>6.4 讨论即文档<br>6.5 注释即文档<br>6.6 代码即文档</li>
+<li>UI设计规范</li>
+<li>测试规范<br>8.1 测试的流程<br>8.2 单元测试</li>
+<li>异常处理、监控和调试规范<br>9.1 异常处理<br>9.2 日志<br>9.3 异常监控</li>
+<li>前后端协作规范<br>10.1 协作流程规范<br>10.2 接口规范<br>10.3 接口文档规范<br>10.4 接口测试与模拟</li>
+<li>培训/知识管理/技术沉淀<br>11.1 新人培训<br>11.2 营造技术氛围</li>
+<li>反馈</li>
+</ol>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2015-2017. | 由<a href="https://hexo.io/">Hexo</a> | 主题<a href="https://github.com/someus/huno">Huno</a></span><span id="busuanzi_container_site_uv">本站访问数<span id="busuanzi_value_site_uv"></span>人次</span>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.1/MathJax.js"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1d8a618c5a79c97b7406c78ff2a973fb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

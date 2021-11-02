@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      2019前端面试聊什么 | Vickkyy 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Vickkyy">
+    
+    
+
+    <meta name="description" content="问题转载自：2019年前端面试都聊啥？一起来看看 基本的Javascript问题 使以下代码正常运行：1234const a = [1, 2, 3, 4, 5]// Implement thisa.multiply()console.log(a) // [1, 2, 3, 4, 5, 1, 4, 9, 16, 25]   答案：123Array.prototype.multiply = funct">
+<meta name="keywords" content="前端 面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2019前端面试聊什么 | Vickkyy">
+<meta property="og:url" content="http://yoursite.com/2018/12/25/2019前端面试聊什么/index.html">
+<meta property="og:site_name" content="Vickkyy">
+<meta property="og:description" content="问题转载自：2019年前端面试都聊啥？一起来看看 基本的Javascript问题 使以下代码正常运行：1234const a = [1, 2, 3, 4, 5]// Implement thisa.multiply()console.log(a) // [1, 2, 3, 4, 5, 1, 4, 9, 16, 25]   答案：123Array.prototype.multiply = funct">
+<meta property="og:locale" content="English">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/ibeOP8urVdGrVn92TibGMicMAlJFtib3eQwWADOS5vVyzPiaMMrwAtIoZPxrlEMXX7hic5E5OW8l1c2sehaf1snMVtRQ/640">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/ibeOP8urVdGrVn92TibGMicMAlJFtib3eQwW1lmRqqQ7w9fbZjLbEWM4lPOPSuLT64JlkSdPJJTf5fbVwbYoOZaIog/640">
+<meta property="og:updated_time" content="2020-05-24T11:54:07.661Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2019前端面试聊什么 | Vickkyy">
+<meta name="twitter:description" content="问题转载自：2019年前端面试都聊啥？一起来看看 基本的Javascript问题 使以下代码正常运行：1234const a = [1, 2, 3, 4, 5]// Implement thisa.multiply()console.log(a) // [1, 2, 3, 4, 5, 1, 4, 9, 16, 25]   答案：123Array.prototype.multiply = funct">
+<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_png/ibeOP8urVdGrVn92TibGMicMAlJFtib3eQwWADOS5vVyzPiaMMrwAtIoZPxrlEMXX7hic5E5OW8l1c2sehaf1snMVtRQ/640">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Vickkyy</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/vickkyy" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">2019前端面试聊什么</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-12-25" class="post-meta__date date">2018-12-25</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/技术/">技术</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/前端-面试/">前端 面试</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>问题转载自：<a href="https://mp.weixin.qq.com/s/e-IC588SZPJK2QRBm3KuHA" target="_blank" rel="noopener">2019年前端面试都聊啥？一起来看看</a></p>
+<h4 id="基本的Javascript问题"><a href="#基本的Javascript问题" class="headerlink" title="基本的Javascript问题"></a>基本的Javascript问题</h4><ol>
+<li>使以下代码正常运行：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="comment">// Implement this</span></span><br><span class="line">a.multiply()</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// [1, 2, 3, 4, 5, 1, 4, 9, 16, 25]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>答案：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.multiply = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.map(<span class="function"><span class="params">item</span> =&gt;</span> <span class="keyword">this</span>.push(item**<span class="number">2</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>以下代码在 JavaScript 中返回<code>false</code>。 请说明为什么：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="number">0.2</span> + <span class="number">0.1</span> === <span class="number">0.3</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>答案：<br>原因分析： 浮点数 != 小数，之所以使用浮点数是在相同位数下对精度和范围的取舍。<br>比如十进制小数转换为二进制小数。部分十进制小数无法完全转换为二进制，导致精度损失</p>
+<p>相关的API： toPrecision()<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">precise</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Number</span>.parseFloat(x).toPrecision(<span class="number">4</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(precise(<span class="number">123.456</span>)) <span class="comment">// expected output: "123.5"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(precise(<span class="number">0.004</span>));</span><br><span class="line"><span class="comment">// expected output: "0.004000"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(precise(<span class="string">'1.23e+5'</span>));</span><br><span class="line"><span class="comment">// expected output: "1.230e+5"</span></span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li><p>avaScript 中有哪些不同的数据类型？</p>
+<blockquote>
+<p>提示：只有两种类型 - 主要数据类型和引用类型（对象）。 有六种主要类型。</p>
+</blockquote>
+</li>
+<li><p>解决以下异步代码问题。<br>检索并计算属于同一教室中每个学生的平均分数，例子中教室 ID 为 75。每个学生可以在一年内参加一门或多门课程。以下 API 可用于检索所需数据。<br><img src="https://mmbiz.qpic.cn/mmbiz_png/ibeOP8urVdGrVn92TibGMicMAlJFtib3eQwWADOS5vVyzPiaMMrwAtIoZPxrlEMXX7hic5E5OW8l1c2sehaf1snMVtRQ/640" alt="img"></p>
+</li>
+</ol>
+<p>编写一个接受教室 ID 的函数，并根据该函数计算该教室中每个学生的平均值。 该函数的最终输出应该是带有平均分数的学生列表：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123; <span class="attr">"id"</span>: <span class="number">1</span>, <span class="attr">"name"</span>: <span class="string">"John"</span>, <span class="attr">"average"</span>: <span class="number">70.5</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">"id"</span>: <span class="number">3</span>, <span class="attr">"name"</span>: <span class="string">"Lois"</span>, <span class="attr">"average"</span>: <span class="number">67</span> &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>使用普通回调，promises，observables，generator 或 async-wait 编写所需的函数。 尝试使用至少 3 种不同的技术解决这个问题。</p>
+<ol start="5">
+<li><p>使用 JavaScript Proxy实现简单的数据绑定<br>提示：ES Proxy 允许你拦截对任何对象属性或方法的调用。 首先，每当更改底层绑定对象时，都应更新 DOM。</p>
+</li>
+<li><p>解释 JavaScript 并发模型<br>您是否熟悉 Elixir，Clojure，Java 等其他编程语言中使用的任何其他并发模型？<br>提示：事件循环，任务队列，调用栈，堆等。</p>
+</li>
+<li><p>“new” 关键字在 JavaScript 中有什么作用？<br>提示：在 JavaScript 中，new 是用于实例化对象的运算符。 这里的目的是了解知识广度和记忆情况。<br>另外，请注意 [[Construct]] 和 [[Call]]。</p>
+</li>
+<li><p>JavaScript 中有哪些不同的函数调用模式？ 详细解释。<br>提示：有四种模式，函数调用，方法调用，.call() 和 .apply()。</p>
+</li>
+<li><p>解释即将发布的任一新 ECMAScript 提案。<br>提示：比如 2018 的 BigInt，partial function，pipeline operator 等。</p>
+</li>
+<li><p>JavaScript 中的迭代器（iterators）和迭代（iterables）是什么？ 你知道什么是内置迭代器吗？</p>
+</li>
+<li><p>如何在 JSON 中序列化以下对象？<br>如果我们将以下对象转换为 JSON 字符串，会发生什么？</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  key1: <span class="built_in">Symbol</span>(),</span><br><span class="line">  key2: <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// what will happen?</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(a))</span><br></pre></td></tr></table></figure>
+<p>12.你熟悉 Typed Arrays 吗？ 如果熟悉，请解释他们与 JavaScript 中的传统数组相比的异同？</p>
+<ol start="13">
+<li><p>默认参数如何工作？<br>如果我们在调用 makeAPIRequest 函数时必须使用timeout的默认值，那么正确的语法是什么？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeAPIRequest</span>(<span class="params">url, timeout = <span class="number">2000</span>, headers</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Some code to fetch data</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解释 TCO - 尾调用优化（Tail Call Optimization）。 有没有支持尾调用优化的 JavaScript 引擎？<br>提示：截至 2018 年，没有。</p>
+</li>
+</ol>
+<h4 id="JavaScript前端应用设计问题"><a href="#JavaScript前端应用设计问题" class="headerlink" title="JavaScript前端应用设计问题"></a>JavaScript前端应用设计问题</h4><ol>
+<li><p>解释单向数据流和双向数据绑定。<br>Angular 1.x 基于双向数据绑定，而 React，Vue，Elm 等基于单向数据流架构。</p>
+</li>
+<li><p>单向数据流架构在哪些方面适合 MVC？<br>MVC 拥有大约 50 年的悠久历史，并已演变为 MVP，MVVM 和 MV *。两者之间的相互关系是什么？如果 MVC 是架构模式，那么单向数据流是什么？这些竞争模式是否能解决同样的问题？</p>
+</li>
+<li><p>客户端 MVC 与服务器端或经典 MVC 有何不同？<br>提示：经典 MVC 是适用于桌面应用程序的 Smalltalk MVC。在 Web 应用中，至少有两个不同的数据 MVC 周期。</p>
+</li>
+<li><p>使函数式编程与面向对象或命令式编程不同的关键因素是什么？<br>提示：Currying（柯里化），point-free 函数，partial function 应用，高阶函数，纯函数，独立副作用，record 类型（联合，代数数据类型）等。</p>
+</li>
+<li><p>在 JavaScript 和前端的上下文中，函数式编程与响应式编程有什么关系？<br>提示：没有正确答案。但粗略地说，函数式编程是关于小型编码，编写纯函数和响应式编程是大型编码，即模块之间的数据流，连接以 FP 风格编写的组件。 FRP - 功能响应式编程（ Functional Reactive Programming）是另一个不同但相关的概念。</p>
+</li>
+<li><p>不可变数据结构（immutable data structures）解决了哪些问题？<br>不可变结构是否有任何性能影响？ JS 生态系统中哪些库提供了不可变的数据结构？这些库的优点和缺点是什么？<br>提示：线程安全（我们真的需要在浏览器 JavaScript 中担心吗？），无副作用的函数，更好的状态管理等。</p>
+</li>
+<li><p>大型应用程序是否应使用静态类型？<br>如何比较 TypeScript/Flow 与 Elm/ReasonML/PureScript 等 JS 转换语言？这些方法的优缺点是什么？<br>选择特定类型系统的主要标准应该是什么？<br>什么是类型推断（type inference）？<br>静态类型语言和强类型语言有什么区别？在这方面 JavaScript 的本质是什么？<br>有你知道的弱类型但静态类型的语言吗？有你知道的动态类型但强类型的语言吗？举例一二。<br>提示：Structural 与 Nominal 类型系统，类型稳健性，工具/生态系统支持，正确性超过方便。</p>
+</li>
+<li><p>JavaScript 中有哪些突出的模块系统（module systems ）？评价 ES 模块系统。<br>列出在实现不同模块系统之间互操作所涉及的一些复杂性问题（主要对 ES 模块和 CommonJS 互操作感兴趣）</p>
+</li>
+<li><p>HTTP/2 将如何影响 JavaScript 应用程序打包？<br>列出 HTTP/2 与其上一个版本的基本区别。</p>
+</li>
+<li><p>Fetch API 相对于传统的 Ajax 有哪些改进？<br>使用 Fetch API 有那些缺点/难点吗？<br>那些是Ajax 可以做的，而 fetch 不能做的？</p>
+</li>
+<li><p>讨论与 Promise 相关的问题。<br>提示：及早求值（eager evaluation），尴尬的取消机制，用 then() 方法伪装 map() 和 flatMap() 等。</p>
+</li>
+</ol>
+<h4 id="前端基础和理论问题"><a href="#前端基础和理论问题" class="headerlink" title="前端基础和理论问题"></a>前端基础和理论问题</h4><ol>
+<li>HTML 中 Doctype 的用途是什么？<br>具体谈谈，以下每种情况下会发生什么：</li>
+</ol>
+<ul>
+<li>Doctype 不存在。</li>
+<li>使用了 HTML4 Doctype，但 HTML 页面使用了 HTML5 的标签，如 <audio> 或 <video>。它会导致任何错误吗？</video></audio></li>
+<li>使用了无效的 Doctype。</li>
+</ul>
+<ol start="2">
+<li><p>DOM 和 BOM 有什么区别？<br>提示：BOM，DOM，ECMAScript 和 JavaScript 都是不同的东西。</p>
+</li>
+<li><p>JavaScript 中的事件处理如何运行？<br>如下图所示，我们有三个 div 元素。每个div都有一个与之关联的点击处理程序。处理程序执行以下任务：</p>
+</li>
+</ol>
+<ul>
+<li>Outer div click处理程序将 hello outer打印到控制台。</li>
+<li>Inner div click处理程序将 hello inner 打印到控制台。</li>
+<li>Innermost div click 处理程序将 hello innermost 打印到控制台。<br>编写一段代码来分配这些任务，以便在单击innermost div 时始终打印以下序列？<br>hello inner → hello innermost → hello outer<br><img src="https://mmbiz.qpic.cn/mmbiz_png/ibeOP8urVdGrVn92TibGMicMAlJFtib3eQwW1lmRqqQ7w9fbZjLbEWM4lPOPSuLT64JlkSdPJJTf5fbVwbYoOZaIog/640" alt="img"><br>事件冒泡和捕获<br>提示：事件捕获和事件冒泡</li>
+</ul>
+<ol start="4">
+<li><p>使用单页应用将文件上传到服务器的有哪些方法？<br>提示：XMLHttpRequest2（streaming），fetch（non-streaming），File API</p>
+</li>
+<li><p>CSS 重排和重绘之间有什么区别？<br>哪些 CSS 属性会导致重排及重绘？</p>
+</li>
+<li><p>什么是 CSS 选择器权重以及它如何工作？</p>
+</li>
+<li><p>CSS中的pixel与硬件/物理中的pixel有何不同？<br>提示：像素不是像素不是像素 - ppk。</p>
+</li>
+<li><p>什么是sectioning算法？<br>提示：它也被称为 HTML5 大纲算法。特别是在构建具有语义结构的网站时非常重要。</p>
+</li>
+<li><p>如果你用过 CSS Flex / CSS Grid（网格）布局，请说明你为什么要使用它？它为你解决了什么问题？<br>使用  CSS Grid，百分比％和 fr 单位有何不同？<br>使用 CSS flexbox，有时 flex-items/children 会不考虑 flex 容器设置的宽度/高度？为什么会这样？<br>可以使用 CSS Grid创建 Masonry layout（瀑布流布局）吗？如果可以，怎么做？<br>解释 CSS Grid和 CSS flexbox 术语？<br>浮动元素（float：left | right;）如何在 CSS Grid 和 flexbox 中渲染？<br>提示：等高的列，垂直居中，复杂网格等。</p>
+</li>
+<li><p>什么时候应该使用 CSS animations而不是 CSS transitions？你做出这个决定标准是什么？</p>
+</li>
+<li><p>如果你正在 Review CSS 代码，那么你在代码中经常遇到的问题是什么？<br>示例：使用魔性数字，如 width: 67px; 或使用 em 代替 rem 单位，在通用代码之前编写 media queries（媒体查询），滥用 ID 和类等。</p>
+</li>
+<li><p>如何在 JavaScript 中检测触摸事件？<br>你是否不看好检测设备对触摸事件的支持？如果是，为什么？比较触摸事件和点击事件。<br>当设备同时支持触摸和鼠标事件时，你认为这些事件的正确事件顺序是什么或应该是什么？</p>
+</li>
+<li><p>为script tag定义的 <code>async</code> 和 <code>defer</code> 属性有什么用？<br>现在我们有 HTTP/2 和 ES 模块，它们真的很有用吗？</p>
+</li>
+</ol>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2015-2017. | 由<a href="https://hexo.io/">Hexo</a> | 主题<a href="https://github.com/someus/huno">Huno</a></span><span id="busuanzi_container_site_uv">本站访问数<span id="busuanzi_value_site_uv"></span>人次</span>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.1/MathJax.js"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1d8a618c5a79c97b7406c78ff2a973fb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      web响应式设计 | Vickkyy 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Vickkyy">
+    
+    
+
+    <meta name="description" content="响应式设计理念是基于流动布局、弹性图片、弹性表格、弹性视频和媒体查询等技术的组合。使用百分比布局创建流动的弹性界面，同时使用媒体查询来限制元素的变动范围，这两者组合到一起构成了响应式设计的核心。 注意：  不应再执着于布局、线框等的具体大小，而应该考虑如何使用流体元素。 抛弃像素，抛弃固定宽度，先从小屏幕进行设计，然后逐步增强针对大屏幕的设计。 视口和屏幕尺寸不是同一个概念。视口(viewport">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web响应式设计 | Vickkyy">
+<meta property="og:url" content="http://yoursite.com/2017/07/19/web响应式设计-1/index.html">
+<meta property="og:site_name" content="Vickkyy">
+<meta property="og:description" content="响应式设计理念是基于流动布局、弹性图片、弹性表格、弹性视频和媒体查询等技术的组合。使用百分比布局创建流动的弹性界面，同时使用媒体查询来限制元素的变动范围，这两者组合到一起构成了响应式设计的核心。 注意：  不应再执着于布局、线框等的具体大小，而应该考虑如何使用流体元素。 抛弃像素，抛弃固定宽度，先从小屏幕进行设计，然后逐步增强针对大屏幕的设计。 视口和屏幕尺寸不是同一个概念。视口(viewport">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-11-14T08:56:45.909Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="web响应式设计 | Vickkyy">
+<meta name="twitter:description" content="响应式设计理念是基于流动布局、弹性图片、弹性表格、弹性视频和媒体查询等技术的组合。使用百分比布局创建流动的弹性界面，同时使用媒体查询来限制元素的变动范围，这两者组合到一起构成了响应式设计的核心。 注意：  不应再执着于布局、线框等的具体大小，而应该考虑如何使用流体元素。 抛弃像素，抛弃固定宽度，先从小屏幕进行设计，然后逐步增强针对大屏幕的设计。 视口和屏幕尺寸不是同一个概念。视口(viewport">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Vickkyy</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/vickkyy" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">web响应式设计</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-07-19" class="post-meta__date date">2017-07-19</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/技术/">技术</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/CSS/">CSS</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>响应式设计理念是基于流动布局、弹性图片、弹性表格、弹性视频和媒体查询等技术的组合。使用百分比布局创建流动的弹性界面，同时使用媒体查询来限制元素的变动范围，这两者组合到一起构成了响应式设计的核心。</p>
+<p><code>注意：</code></p>
+<ol>
+<li>不应再执着于布局、线框等的具体大小，而应该考虑如何使用流体元素。</li>
+<li>抛弃像素，抛弃固定宽度，先从小屏幕进行设计，然后逐步增强针对大屏幕的设计。</li>
+<li>视口和屏幕尺寸不是同一个概念。视口(viewport），即可视区域的大小，是指浏览器窗口内的内容区域，不包含工具栏、标签栏等。也就是网页实际显示的区域。屏幕尺寸指的是设备的物理显示区域，用户屏幕的整体大小。</li>
+</ol>
+<p>主要点：</p>
+<ol>
+<li>流动布局<br>即不固定DIV的宽度，而是采用百分比作为单位来确定每一块的宽度，弃用px，改用em、rem、百分比等为单位。<ul>
+<li>百分比 <a href="https://codepen.io/vickkyy/pen/GEbZNR" target="_blank" rel="noopener">https://codepen.io/vickkyy/pen/GEbZNR</a></li>
+<li>Flexbox <a href="https://codepen.io/vickkyy/pen/mwZPmd" target="_blank" rel="noopener">https://codepen.io/vickkyy/pen/mwZPmd</a></li>
+</ul>
+</li>
+<li><p>媒体查询</p>
+<ul>
+<li>在link标签中使用媒体查询<br><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;screen and (orientation: portrait)&quot; href=&quot;portrait-screen.css&quot;&gt;</code></li>
+<li><p>组合媒体查询</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">media</span>=<span class="string">"screen and (orientation: portrait) and (min-width: 800px)"</span> <span class="attr">href</span>=<span class="string">"800wide-portrait-screen.css"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>@import<br><code>@import url(&quot;600wide-screen.css&quot;) screen and (min-width: 600px;)</code></p>
+</li>
+<li><p>css中使用媒体查询</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@media media and (min-width: <span class="number">360</span>px)<span class="string">` &#123;</span></span><br><span class="line"><span class="string"> background: yellow;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p> <a href="https://codepen.io/vickkyy/pen/BZgKyN" target="_blank" rel="noopener">https://codepen.io/vickkyy/pen/BZgKyN</a></p>
+</li>
+</ul>
+</li>
+<li>响应式图片<blockquote>
+<p>srcset属性<br><code>&lt;img src=&quot;mm-width-128px.jpg&quot; srcset=&quot;mm-width-128px.jpg 1x, mm-width-256px 2x&quot;&gt;</code><br><code>&lt;img class=&quot;image&quot; src=&quot;mm-width-128px.jpg&quot;srcset=&quot;mm-width-128px.jpg 128w, mm-width-256px.jpg 256w, mm-width-512px.jpg 512w&quot; sizes=&quot;(max-width: 360px) 340px, 128px&quot;&gt;</code></p>
+</blockquote>
+</li>
+</ol>
+<p><a href="http://www.zhangxinxu.com/study/201410/srcset-sizes.html" target="_blank" rel="noopener">http://www.zhangxinxu.com/study/201410/srcset-sizes.html</a><br><a href="http://www.zhangxinxu.com/study/201410/srcset-screen-density.html" target="_blank" rel="noopener">http://www.zhangxinxu.com/study/201410/srcset-screen-density.html</a><br><code>视口基础：</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewPort"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, maximum-scale=1"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>备注：</p>
+<ol>
+<li>width属性控制视口的宽度。可以像width=600这样设为确切的像素数，或者设为device-width这一特殊值来指代比例为100%时屏幕宽度的CSS像素数值。（相应有height及device-height属性，可能对包含基于视口高度调整大小及位置的元素的页面有用。）</li>
+<li>initial-scale属性控制页面最初加载时的缩放等级。</li>
+<li>maximum-scale、minimum-scale及user-scalable属性控制允许用户以怎样的方式放大或缩小页面。</li>
+</ol>
+</blockquote>
+<p>响应式布局实例：<br><a href="http://foodsense.is/" target="_blank" rel="noopener">http://foodsense.is/</a></p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2015-2017. | 由<a href="https://hexo.io/">Hexo</a> | 主题<a href="https://github.com/someus/huno">Huno</a></span><span id="busuanzi_container_site_uv">本站访问数<span id="busuanzi_value_site_uv"></span>人次</span>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.1/MathJax.js"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1d8a618c5a79c97b7406c78ff2a973fb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
